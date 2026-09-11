@@ -479,6 +479,102 @@ const CAMPS = [
     },
   },
   {
+    id: 'abrakadabra-wilmersdorf', type: 'Sprachcamp', name: 'Daycamp für 4- bis 7-Jährige', provider: 'ABRAKADABRA Spielsprachschule',
+    venue: 'Wexstraße 33 (am Bundesplatz), 10715 Berlin-Wilmersdorf', lat: 52.4785, lng: 13.3298,
+    drive: { steglitz: [4, 10], spandau: [15, 25] },
+    ages: '4–7 Jahre (eigene Gruppe)', format: 'Ganztags', lang: 'Englisch oder Deutsch',
+    blurb: 'Vormittags Ausflüge, nachmittags Spiele, Geschichten und Basteln – komplett auf Englisch oder auf Deutsch, ohne Vorkenntnisse. Am Ende der Woche zeigen die Kinder den Eltern, was sie gelernt haben.',
+    booking: 'https://www.spielsprachschule-berlin.de/en/daycamps.html', source: 'https://www.spielsprachschule-berlin.de/en/daycamps.html',
+    sessions: {
+      oct26: {
+        weeks: ['oct26-1', 'oct26-2'],
+        hours: '9:00–16:30 · Frühbetreuung möglich',
+        price: '299 € pro Woche bei Buchung bis 14.09.2026, danach 329 €',
+        included: 'Täglich Mittagessen · auf Englisch in beiden Wochen, auf Deutsch nur vom 19.–23. Oktober',
+      },
+      easter27: { watch: 'Die Sprachschule bietet auch Camps in den Oster- und Sommerferien an – Termine für 2027 sind noch nicht online.' },
+      summer27: { watch: 'Die Sprachschule bietet auch Camps in den Oster- und Sommerferien an – Termine für 2027 sind noch nicht online.' },
+    },
+  },
+  {
+    id: 'rotweiss-tennis', type: 'Tennis', name: 'bett1 Herbst-Camp', provider: 'LTTC „Rot-Weiß“ Berlin',
+    venue: 'Gottfried-von-Cramm-Weg 47–55, 14193 Berlin-Grunewald', lat: 52.4844, lng: 13.2589,
+    drive: { steglitz: [7, 15], spandau: [14, 25] },
+    ages: '5–16 Jahre ganztags · 4–8 Jahre halbtags', format: 'Ganz- oder halbtags', lang: 'Deutsch',
+    teen: { ok: true, text: 'Ja – das Ganztagscamp „für Jedermann“ nimmt 5- bis 16-Jährige' },
+    blurb: 'Tennistraining am Vormittag und Nachmittag mit Mittagessen dazwischen; für die Kleinen gibt es ein Halbtagescamp mit optionaler Ballschule.',
+    booking: 'https://www.rot-weiss-berlin.de/tennis-sport/tennisschule/bett1-tennis-camps', source: 'https://www.rot-weiss-berlin.de/tennis-sport/tennisschule/bett1-tennis-camps',
+    sessions: {
+      oct26: {
+        weeks: ['oct26-1', 'oct26-2'],
+        hours: 'Ganztags: Frühstück ab 8:15, Training 9:30–12:00 und 13:00–15:30 · halbtags (4–8 Jahre): 9:30–12:00 plus Mittagessen, Ballschule 13–14 Uhr zubuchbar',
+        price: 'Nur im Buchungsportal Sportision angegeben',
+        included: 'Frühstücksbuffet und Mittagessen · Einzeltraining 8:15–9:15 zubuchbar',
+        check: 'Weiße Tenniskleidung, Tennisschuhe und ein eigener Schläger sind Pflicht. Der Preis steht erst im Buchungsportal.',
+      },
+      easter27: { watch: 'Ostern 2026 gab es zwei Camps (30.03.–02.04. und 07.–10.04.) – Termine für 2027 stehen noch nicht online.' },
+      summer27: { watch: 'Im Sommer 2026 liefen sechs Camp-Wochen vom 13. Juli bis 21. August.' },
+    },
+  },
+  {
+    id: 'gruengold-tennis', type: 'Tennis', name: 'Herbstcamp am Nachmittag', provider: 'Berliner Tennis Club 1904 Grün-Gold',
+    venue: 'Paradestraße 28–32, 12101 Berlin-Tempelhof', lat: 52.4783, lng: 13.3808,
+    drive: { steglitz: [8, 15], spandau: [21, 30] },
+    ages: '5–16 Jahre', format: 'Nachmittags', lang: 'Deutsch',
+    teen: { ok: true, text: 'Ja – 5 bis 16 Jahre, in Gruppen nach Spielstärke' },
+    blurb: 'Tennis für Anfänger und Fortgeschrittene in Gruppen nach Spielstärke, zum Schluss ein Turnier mit Siegerehrung. Auch für Nichtmitglieder, solange Plätze frei sind.',
+    booking: 'https://www.gruen-gold.de/jugend/tenniscamp/', source: 'https://www.gruen-gold.de/jugend/tenniscamp/',
+    sessions: {
+      oct26: {
+        weeks: ['oct26-1', 'oct26-2'],
+        hours: 'Montag bis Donnerstag 13:00–16:00 (19.–22. und 26.–29. Oktober)',
+        price: 'Für den Herbst nicht angegeben (Sommer 2026: 360 € für Nichtmitglieder, 290 € für Mitglieder)',
+        included: 'Abschlusssnacks · Anmeldung über das Buchungsportal des Vereins (einmalig registrieren)',
+        check: 'Nur mit Sandplatz-Tennisschuhen (Fischgrätprofil). Den Herbstpreis beim Verein erfragen.',
+      },
+      summer27: { watch: 'Im Sommer 2026 vier Camp-Wochen (13.–17.07., 20.–24.07., 03.–07.08., 10.–14.08.), 9:00–15:00 mit Mittagessen, 360 € für Nichtmitglieder.' },
+    },
+  },
+  {
+    id: 'musikplus-charlottenburg', type: 'Musik & Musical', name: 'Halloween-Musical-Workshop', provider: 'musikplus! Musikschule',
+    venue: 'Friedbergstraße 23, 14057 Berlin-Charlottenburg', lat: 52.5040, lng: 13.2947,
+    drive: { steglitz: [11, 20], spandau: [11, 20] },
+    ages: '5–11 Jahre', format: 'Ganztags', lang: 'Deutsch',
+    teen: { ok: 'maybe', text: 'Nicht in derselben Woche: die Halloween-Hörspielwerkstatt (19.–23.10.) nimmt 6- bis 13-Jährige, das Musical (26.–30.10.) 5- bis 11-Jährige' },
+    blurb: 'Kinderchor, Choreografie, Stimmbildung und Rhythmus – eine Woche lang ein kleines Halloween-Musical einstudieren. Vorkenntnisse sind nicht nötig.',
+    booking: 'https://musikplus-berlin.de/ferienprogramm/', source: 'https://musikplus-berlin.de/ferienprogramm/',
+    sessions: {
+      oct26: {
+        weeks: ['oct26-2'],
+        hours: '9:30–15:30',
+        price: '280 € inkl. Mittagessen · 5 % Geschwisterrabatt',
+        included: 'Kleine Gruppen mit 5 bis 12 Kindern, geleitet von Musikpädagog:innen',
+      },
+      easter27: { watch: 'musikplus! bietet auch in den Osterferien Workshops an – Termine für 2027 sind noch nicht online.' },
+      summer27: { watch: 'musikplus! bietet auch in den Sommerferien Workshops an – Termine für 2027 sind noch nicht online.' },
+    },
+  },
+  {
+    id: 'tennisschule-zehlendorf', type: 'Tennis', name: 'Minis & Kids Herbstcamp', provider: 'Tennisschule Zehlendorf',
+    venue: 'NTC „Die Känguruhs“, Spanische Allee 170, 14129 Berlin-Nikolassee', lat: 52.4333, lng: 13.1946,
+    drive: { steglitz: [11, 20], spandau: [20, 30] },
+    ages: 'Minis & Kids (Mini Club 4–6, Kids 6–10)', format: 'Ganztags', lang: 'Deutsch',
+    teen: { ok: true, text: 'Ja, aber getrennt: das Juniors-Camp (13–18 Jahre) läuft in derselben Woche Mo–Do 16:00–19:00 im selben Club, 270 € für Nichtmitglieder' },
+    blurb: 'Tennis in Gruppen von etwa sechs Kindern nach Alter und Spielstärke – Aufwärmspiele, Technik am Vormittag, Training und freies Spielen am Nachmittag.',
+    booking: 'https://tennisschule-zehlendorf.de/trainingscamps/minis-kids-tenniscamps/', source: 'https://tennisschule-zehlendorf.de/trainingscamps/minis-kids-tenniscamps/',
+    sessions: {
+      oct26: {
+        weeks: ['oct26-1'],
+        hours: '9:30–15:30',
+        price: '340 € · Mitglieder von NTC, BHC oder ICB 290 €',
+        included: 'Training, Hallenplätze, Betreuung und Mittagessen · Schläger leihen 15 € (plus 35 € Kaution)',
+        check: 'Die Campseite nennt kein Alter. Die Tennisschule führt „Minis“ ab 4 Jahren – bei der Anmeldung bestätigen lassen, dass 5-Jährige ins Camp können.',
+      },
+      easter27: { watch: 'Ostern 2026 lief ein Camp Dienstag bis Freitag, 8:30–16:00 (340 €) – Termine für 2027 stehen noch nicht online.' },
+      summer27: { watch: 'Im Sommer 2026 vier Kids-Wochen (eine davon mit Warteliste), 320–370 € für Nichtmitglieder.' },
+    },
+  },
+  {
     id: 'kidz-in-motion', type: 'Multisport', name: 'Multisport-Camp', provider: 'kidz-in-motion',
     venue: 'Ernst-Reuter-Sportanlage (Berliner Hockey-Club), Wilskistraße 70, 14163 Berlin-Zehlendorf', lat: 52.4464, lng: 13.2480,
     drive: { steglitz: [7, 15], spandau: [18, 30] },
@@ -533,6 +629,11 @@ const ALSO_CHECKED = [
   'Sports Island Berlin, Herbstcamps – ab 8 Jahren',
   'TuS Lichterfelde – keine Herbsttermine oder Altersgruppen veröffentlicht',
   'Kindersprachclub, Wilmersdorf – nimmt 5-Jährige, aber 2-stündige Sprachkurse statt Camp',
+  'Chinesische Schulen (Shuren in Pankow, Yizhi in Tempelhof, Chinesisches Kulturzentrum) und das Konfuzius-Institut – derzeit keine Ferien-Tagescamps online; Shuren hat früher Wochencamps für 4- bis 10-Jährige angeboten, für 2026 aber nur eine Studienreise nach China',
+  'Domäne Dahlem, Herbstferiencamp – 8 bis 12 Jahre',
+  'Waldschule Grunewald, Waldferientage – 7 bis 11 Jahre',
+  'baumschlau e. V., Stadtnatur-Woche in Schöneberg – 7 bis 11 Jahre (kostenlos)',
+  'YouKunst, Herbstferienkurse – ab 8 Jahren',
   'Sommercamps 2026 von Art Space, Circus Schatzinsel, Liga der Roboter und Forscherferien – alle ab 6 Jahren',
 ];
 
@@ -615,7 +716,7 @@ function renderControls() {
 function renderTally() {
   const open = CAMPS.filter((c) => c.sessions.oct26);
   const near = open.filter((c) => place(c, c.sessions.oct26).drive[state.base][1] <= 20).length;
-  const both = open.filter((c) => c.teen).length;
+  const both = open.filter((c) => c.teen && c.teen.ok === true).length;
   const watch = CAMPS.filter((c) => c.sessions.easter27 || c.sessions.summer27).length;
   $('tally').innerHTML =
     `<li><b>${open.length}</b> im Oktober buchbar</li>` +
@@ -727,7 +828,7 @@ function renderSideNote() {
     const first = open[0], full = open.find((x) => x.c.format === 'Ganztags');
     const firstText = `${first.c.provider.split(',')[0]} (${first.c.name}, ca. ${first.min} Min.)`;
     const fullText = full && full !== first ? `; das nächste Ganztagscamp ist ${full.c.provider.split(',')[0]} (${full.c.name}, ca. ${full.min} Min.)` : '';
-    $('sideNote').innerHTML = `<p class="callout"><b>Von Spandau aus</b> nimmt im Oktober kein Camp in der Nähe schon 5-Jährige. Am schnellsten erreichbar ist ${esc(firstText)}${esc(fullText)}. Spandaus eigene Herbstferien-Angebote sind für Ältere – die Woche am Aalemannufer für 7- bis 11-Jährige, Sportkinder Berlin ab 8 – und die Wasserfreunde Spandau 04 haben für Oktober nichts ausgeschrieben.</p>`;
+    $('sideNote').innerHTML = `<p class="callout"><b>Direkt in Spandau</b> nimmt im Oktober kein Camp schon 5-Jährige. Am schnellsten erreichbar ist ${esc(firstText)}${esc(fullText)}. Spandaus eigene Herbstferien-Angebote sind für Ältere – die Woche am Aalemannufer für 7- bis 11-Jährige, Sportkinder Berlin ab 8 – und die Wasserfreunde Spandau 04 haben für Oktober nichts ausgeschrieben.</p>`;
   } else if (h.kind === 'watch') {
     $('sideNote').innerHTML = `<p class="callout"><b>Noch nichts buchbar.</b> Favoriten mit dem Herz merken – sie bleiben hier, bis Termine für ${esc(h.long)} erscheinen.</p>`;
   } else {
