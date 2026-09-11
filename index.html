@@ -559,6 +559,9 @@ const state = {
   friends: load(LS.friends, []),  // [{ n, c, p }]
   hot: null,
 };
+// berlin-feriencamps.netlify.app/#spandau öffnet direkt mit Abfahrt Spandau.
+const startHash = location.hash.replace('#', '');
+if (BASES[startHash]) { state.base = startHash; save(LS.base, startHash); history.replaceState(null, '', location.pathname); }
 if (!BASES[state.base]) state.base = 'steglitz';
 if (!HOLIDAYS.some((h) => h.key === state.holiday)) state.holiday = 'oct26';
 
