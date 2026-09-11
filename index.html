@@ -91,6 +91,9 @@
   .chip:hover{transform:translateY(-2px) rotate(-1.5deg);border-color:var(--ink-3)}
   .chip[aria-pressed="true"]{background:var(--ink);border-color:var(--ink);color:var(--on-ink)}
   .chip .n{font-family:var(--mono);font-size:12px;opacity:.7}
+  .place-form{display:flex;flex-wrap:wrap;gap:8px;width:100%}
+  .place-form input{flex:1;min-width:220px;height:40px;padding:0 14px}
+  .place-tools{display:flex;flex-wrap:wrap;gap:8px;align-items:center;margin-top:10px}
 
   /* overlap timeline */
   .overlap{margin:26px 0 8px;padding:20px 22px;border-radius:24px;background:var(--surface);border:1.5px solid var(--line);display:grid;grid-template-columns:minmax(0,1fr);gap:12px}
@@ -238,16 +241,23 @@
 <body>
 
 <header class="hero wrap">
-  <p class="eyebrow">Berlin holiday camps · age 5 · checked 11 Sept 2026</p>
+  <p class="eyebrow">Berlin holiday camps · age 5 (and 13) · checked 11 Sept 2026</p>
   <h1 class="wordmark">Camp <em>weeks</em></h1>
-  <p class="lede">Day camps that take a 5-year-old during the weeks her London school holidays line up with Berlin’s — sorted by how far they are from where she’s staying. Nothing is hidden by district.</p>
+  <p class="lede">Day camps that take a 5-year-old in the weeks her London school holidays line up with Berlin’s — sorted by how far they are from where she’s staying, with the ones that take a 13-year-old too marked. Nothing is hidden by district.</p>
   <ul class="tally" id="tally"></ul>
 </header>
 
 <div class="controls">
   <div class="wrap">
     <div class="control"><span>Holiday</span><div class="seg" id="holidaySeg" role="group" aria-label="Holiday"></div></div>
-    <div class="control"><span>Staying in</span><div class="seg" id="baseSeg" role="group" aria-label="Staying in"></div></div>
+    <div class="control"><span>Distance from</span><div class="seg" id="baseSeg" role="group" aria-label="Measure distance from"></div>
+      <button type="button" class="chip" id="addPlace">+ A street</button>
+    </div>
+    <form class="place-form" id="placeForm" hidden>
+      <input id="placeInput" autocomplete="street-address" placeholder="A street in Berlin, e.g. Wandsbeker Weg" aria-label="Street in Berlin" />
+      <button class="btn small primary">Measure from here</button>
+      <button type="button" class="btn small ghost" id="placeCancel">Cancel</button>
+    </form>
     <div class="chips" id="weekChips" role="group" aria-label="Week"></div>
   </div>
 </div>
@@ -259,7 +269,7 @@
     <div class="list" id="list"></div>
     <aside class="side">
       <div class="map">
-        <svg id="map" viewBox="0 0 400 328" role="img" aria-label="Map of camps and where she’s staying"></svg>
+        <svg id="map" viewBox="0 0 400 292" role="img" aria-label="Map of camps and where she’s staying"></svg>
         <p class="map-note">To scale. Distances are straight-line, not travel time.</p>
       </div>
       <div id="sideNote"></div>
@@ -309,10 +319,13 @@
    own page unless `listing` says where they came from instead.
    Never invented: unknowns are written as unknowns.
    ============================================================ */
-const BASES = {
+// Town halls as defaults. A street added on the page (or arriving in a link as
+// #from=lat,lng,label) is kept on that device only — never written into this file.
+const FIXED_BASES = {
   steglitz: { label: 'Steglitz', lat: 52.4555, lng: 13.3225, colour: 'var(--terra)' },
   spandau:  { label: 'Spandau',  lat: 52.5352, lng: 13.1998, colour: 'var(--berry)' },
 };
+let BASES = { ...FIXED_BASES };
 
 // Only the days both her London school and Berlin schools are off.
 const HOLIDAYS = [
@@ -415,6 +428,7 @@ const CAMPS = [
     id: 'young-engineers', type: 'Lego, robotics & coding', name: 'Lego mechanics, Minecraft & robotics camp', provider: 'Young Engineers Berlin',
     venue: 'Grimmstraße 10, 10967 Berlin-Kreuzberg', lat: 52.4932, lng: 13.4130,
     ages: '5–14', format: 'Half or full day', lang: 'German & English',
+    teen: { ok: true, text: 'Yes — ages 5–14, grouped by age' },
     blurb: 'Building moving models with Lego-compatible bricks, then simple block coding in Minecraft and robotics — grouped by age.',
     booking: 'https://www.kindaling.de/programmiercamps/lego-mechanic-minecraft-programmierung-robotik-de-en/berlin-kreuzberg',
     source: 'https://www.kindaling.de/programmiercamps/lego-mechanic-minecraft-programmierung-robotik-de-en/berlin-kreuzberg',
@@ -449,9 +463,29 @@ const CAMPS = [
     },
   },
   {
+    id: 'fussballschule-mitte', type: 'Football', name: 'Football holiday camp', provider: 'Fußballschule Berlin-Brandenburg, with SV Blau Weiß Berolina Mitte',
+    venue: 'Sportplatz Auguststraße, Kleine Hamburger Straße 16, 10117 Berlin-Mitte (Hemingway school sports hall, Gartenstraße 10–17, in bad weather)', lat: 52.5273, lng: 13.3966,
+    ages: '5–14', format: 'Full day', lang: 'German',
+    teen: { ok: true, text: 'Yes — the same camp takes 5 to 14, in small groups of 12–14 children' },
+    blurb: 'Coached football for beginners through to confident players — tricks, shooting and coordination, then games and a tournament in the afternoon. About enjoying the game, not performance.',
+    booking: 'https://fussballschule-bb.de/fussball-feriencamp/fussball-feriencamp-berlin/fussball-feriencamp-berlin-herbstferien-2026/',
+    source: 'https://fussballschule-bb.de/fussball-feriencamp/fussball-feriencamp-berlin/fussball-feriencamp-berlin-herbstferien-2026/',
+    sessions: {
+      oct26: {
+        weeks: ['oct26-1', 'oct26-2'],
+        hours: '9:00–15:30 · early care from 8:30, late care until 16:00',
+        price: '€235 for 5 days · €215 for 4 · €175 for 3',
+        included: 'Breakfast, lunch, an afternoon snack and drinks · more than 10 places left in each week on 11 Sept',
+      },
+      easter27: { watch: 'They run camps in the Easter, summer and October holidays — 2027 dates aren’t listed yet.' },
+      summer27: { watch: 'They run camps in the Easter, summer and October holidays — 2027 dates aren’t listed yet.' },
+    },
+  },
+  {
     id: 'kidz-in-motion', type: 'Multi-sport', name: 'Multisport camp', provider: 'kidz-in-motion',
     venue: 'Ernst-Reuter-Sportanlage (Berliner Hockey-Club), Wilskistraße 70, 14163 Berlin-Zehlendorf', lat: 52.4464, lng: 13.2480,
     ages: '5–13 (must be 5 on the first day)', format: 'Full day', lang: 'German (English flyer)',
+    teen: { ok: 'maybe', text: 'Only if they don’t turn 14 during 2027 — the oldest campers must be, or turn, 13 that year' },
     blurb: 'Ten-plus sports rotated through the week — hockey, lacrosse, tennis, tag rugby, football and more.',
     booking: 'https://www.kidz-in-motion.de/anmeldung/', source: 'https://www.kidz-in-motion.de/standorte/berlin-zehlendorf/',
     sessions: {
@@ -462,33 +496,37 @@ const CAMPS = [
   },
   {
     id: 'spandau04-camp', type: 'Swimming & play camp', name: 'Summer holiday camp', provider: 'Wasserfreunde Spandau 04',
-    venue: 'Clubhaus Alfreds, Olympiapark Berlin, Westend', lat: 52.5160, lng: 13.2330, approx: true,
+    venue: 'Clubhaus Alfreds, Olympiapark Berlin, Prinz-Friedrich-Karl-Weg, 14053 Berlin-Westend', lat: 52.5209, lng: 13.2405, approx: true,
     ages: '4–9', format: 'Full day', lang: 'German',
-    blurb: 'Swimming lessons in the Olympiapark pool mixed with games, activities and outings.',
+    blurb: 'Learning to swim and getting more confident in the water, plus games, sport around the Olympiapark and trips out in Berlin.',
     booking: 'https://spandau04.de/schwimmen/schwimmkurse/feriencamp/', source: 'https://spandau04.de/allgemein/sommerferiencamp-2026-in-berlin-schwimmen-im-olympiapark/',
     sessions: {
       summer27: {
-        watch: 'In summer 2026: 9:00–16:00 (drop-off from 8:45), €350 a week or €50 off two weeks, with lunch, snacks and drinks. Summer only.',
+        watch: 'In summer 2026 it ran through the Berlin summer holidays, booked by the week: 9:00–16:00 (arrive from 8:45), €350 a week or €50 off two weeks, with lunch, snacks and drinks. Only summer camps have ever been advertised, and the booking list was empty on 11 Sept.',
       },
     },
   },
   {
     id: 'spandau04-intensive', type: 'Swimming', name: 'Holiday intensive swimming courses', provider: 'Wasserfreunde Spandau 04',
-    venue: 'Forumbad, Olympiapark Berlin, Westend', lat: 52.5165, lng: 13.2345, approx: true,
+    venue: 'Forumbad, Olympiapark Berlin, Hanns-Braun-Straße, 14053 Berlin-Westend', lat: 52.5190, lng: 13.2463, approx: true,
     ages: '4–16', format: 'Short daily lessons', lang: 'German',
-    blurb: 'Monday-to-Friday swimming courses in a 26°C pool, with several time slots each week.',
+    teen: { ok: true, text: 'Yes — courses take ages 4 to 16, from beginners up to the Gold badge' },
+    blurb: 'A lesson every weekday for a week, from getting used to the water up to Seepferdchen, Bronze, Silver and Gold, in a 26°C pool.',
     booking: 'https://spandau04.de/schwimmen/schwimmkurse/ferienintensivkurse/', source: 'https://spandau04.de/schwimmen/ferienintensivkurse-2026-in-berlin-schwimmen-lernen-in-den-sommerferien/',
     sessions: {
       summer27: {
-        watch: 'Ran in all six weeks of summer 2026. The price isn’t on the page.',
+        watch: 'Ran Monday to Friday in all six weeks of summer 2026, with several time slots each week. The price isn’t on their page, and nothing is listed for October or 2027 yet.',
       },
     },
   },
 ];
 
 const ALSO_CHECKED = [
+  'Wasserfreunde Spandau 04, Olympiapark — no October camp or courses; both booking lists empty on 11 Sept',
+  '“Kinder in Licht, Luft und Sonne”, Aalemannufer (Spandau youth service) — October week for ages 7–11',
   'Sportkinder Berlin, Spandau — October programmes start at age 8 (and were sold out)',
   'Waldschule Spandau forest week — ages 8–12',
+  'Fußballschule Berlin-Brandenburg, Britz — same camp as Mitte (5–14), but in Neukölln and first week only',
   '“Herbstferien ohne Kofferpacken”, Charlottenburg — ages 6–14',
   'Zehlendorf 88 hockey camp — children born 2014–2018',
   'Jugend im Museum holiday courses — youngest age 6',
@@ -501,7 +539,7 @@ const ALSO_CHECKED = [
 /* ============================================================
    STATE (this device only)
    ============================================================ */
-const LS = { base: 'bhc_base', holiday: 'bhc_holiday', saved: 'bhc_saved', plans: 'bhc_plans', child: 'bhc_child', circle: 'bhc_circle', friends: 'bhc_friends' };
+const LS = { places: 'bhc_places', base: 'bhc_base', holiday: 'bhc_holiday', saved: 'bhc_saved', plans: 'bhc_plans', child: 'bhc_child', circle: 'bhc_circle', friends: 'bhc_friends' };
 function load(k, d) { try { const v = localStorage.getItem(k); return v ? JSON.parse(v) : d; } catch (e) { return d; } }
 function save(k, v) { try { localStorage.setItem(k, JSON.stringify(v)); } catch (e) {} }
 
@@ -516,7 +554,31 @@ const state = {
   circle: load(LS.circle, ''),
   friends: load(LS.friends, []),  // [{ n, c, p }]
   hot: null,
+  teenOnly: false,
+  places: load(LS.places, {}),    // { key: { label, lat, lng } } — this device only
 };
+function rebuildBases() {
+  BASES = { ...FIXED_BASES };
+  Object.entries(state.places).forEach(([k, p]) => { BASES[k] = { ...p, colour: 'var(--ok)', custom: true }; });
+}
+function addPlace(label, lat, lng) {
+  const key = 'p-' + label.toLowerCase().replace(/[^a-z0-9äöüß]+/g, '-').replace(/^-|-$/g, '').slice(0, 30);
+  state.places[key] = { label: label.slice(0, 40), lat: Math.round(lat * 1000) / 1000, lng: Math.round(lng * 1000) / 1000 };
+  save(LS.places, state.places);
+  rebuildBases();
+  state.base = key;
+  save(LS.base, key);
+  return key;
+}
+// A link can carry its own starting point: #from=52.535,13.155,Wandsbeker%20Weg
+(function placeFromLink() {
+  const m = location.hash.match(/from=(-?[\d.]+),(-?[\d.]+),([^&]+)/);
+  if (!m) return;
+  const lat = Number(m[1]), lng = Number(m[2]), label = decodeURIComponent(m[3]).trim();
+  if (lat > 52.3 && lat < 52.7 && lng > 13.0 && lng < 13.8 && label) addPlace(label, lat, lng);
+  history.replaceState(null, '', location.pathname + location.hash.replace(/[#&]?from=[^&]+/, '').replace(/^#?$/, ''));
+})();
+rebuildBases();
 if (!BASES[state.base]) state.base = 'steglitz';
 if (!HOLIDAYS.some((h) => h.key === state.holiday)) state.holiday = 'oct26';
 
@@ -550,10 +612,12 @@ function visibleCamps() {
     .filter((c) => c.sessions[h.key])
     .filter((c) => state.week === 'all' || c.sessions[h.key].watch || (c.sessions[h.key].weeks || []).includes(state.week))
     .filter((c) => !state.savedOnly || state.saved.includes(c.id))
+    .filter((c) => !state.teenOnly || c.teen)
     .map((c) => {
       const s = c.sessions[h.key];
       const p = place(c, s);
-      return { c, s, p, d: km(BASES[state.base], p), dOther: km(BASES[state.base === 'steglitz' ? 'spandau' : 'steglitz'], p), dAll: { steglitz: km(BASES.steglitz, p), spandau: km(BASES.spandau, p) } };
+      const dAll = Object.fromEntries(Object.entries(BASES).map(([k, b]) => [k, km(b, p)]));
+      return { c, s, p, d: dAll[state.base], dAll };
     })
     .sort((a, b) => (a.s.watch ? 1 : 0) - (b.s.watch ? 1 : 0) || a.d - b.d);
 }
@@ -568,6 +632,7 @@ function renderControls() {
   $('weekChips').innerHTML =
     `<button type="button" class="chip" data-week="all" aria-pressed="${state.week === 'all'}">Every week <span class="n">${count('all')}</span></button>` +
     h.weeks.map((w) => `<button type="button" class="chip" data-week="${w.key}" aria-pressed="${state.week === w.key}">${esc(w.label)} <span class="n">${count(w.key)}</span></button>`).join('') +
+    `<button type="button" class="chip" data-teen aria-pressed="${state.teenOnly}">Takes a 13-year-old too <span class="n">${CAMPS.filter((c) => c.sessions[h.key] && c.teen).length}</span></button>` +
     `<button type="button" class="chip" data-saved aria-pressed="${state.savedOnly}">Saved <span class="n">${state.saved.filter((id) => CAMPS.some((c) => c.id === id && c.sessions[h.key])).length}</span></button>`;
 }
 
@@ -575,9 +640,11 @@ function renderTally() {
   const open = CAMPS.filter((c) => c.sessions.oct26).length;
   const near = CAMPS.filter((c) => c.sessions.oct26 && km(BASES[state.base], place(c, c.sessions.oct26)) <= 10).length;
   const watch = CAMPS.filter((c) => c.sessions.easter27 || c.sessions.summer27).length;
+  const both = CAMPS.filter((c) => c.sessions.oct26 && c.teen).length;
   $('tally').innerHTML =
     `<li><b>${open}</b> bookable in October</li>` +
     `<li><b>${near}</b> within 10 km of ${esc(BASES[state.base].label)}</li>` +
+    `<li><b>${both}</b> in October that take 5 and 13</li>` +
     `<li><b>${watch}</b> to watch for 2027</li>`;
 }
 
@@ -603,8 +670,8 @@ function renderOverlap() {
 }
 
 function distRows(item) {
-  const max = 20;
-  return `<div class="dist">` + ['steglitz', 'spandau'].map((k) => {
+  const max = 22;
+  return `<div class="dist">` + Object.keys(BASES).map((k) => {
     const d = item.dAll[k], on = k === state.base;
     return `<span class="who ${on ? 'on' : ''}">From ${esc(BASES[k].label)}</span>
       <span class="bar ${on ? 'on' : ''}"><i style="width:${Math.min(100, (d / max) * 100)}%"></i></span>
@@ -649,11 +716,13 @@ function renderList() {
         <span class="pill ok"><i></i>Ages ${esc(c.ages)}</span>
         <span class="pill">${esc(c.format)}</span>
         <span class="pill ${/English/.test(c.lang) ? 'berry' : ''}">${esc(c.lang)}</span>
+        ${c.teen ? `<span class="pill ${c.teen.ok === true ? 'berry' : 'warn'}"><i></i>${c.teen.ok === true ? 'Takes 13 too' : 'Maybe 13'}</span>` : ''}
       </div>
       <p class="blurb">${esc(c.blurb)}</p>
       ${distRows(item)}
       <dl class="facts">
         <dt>Where</dt><dd>${esc(p.venue)}${c.approx && !s.lat ? ' <span class="faint">(map pin approximate)</span>' : ''}</dd>
+        ${c.teen ? `<dt>13-year-old</dt><dd>${esc(c.teen.text)}</dd>` : ''}
         ${isWatch ? `<dt>Last time</dt><dd>${esc(s.watch)}</dd>` : `
         <dt>Weeks</dt><dd>${esc(weeksText)}</dd>
         <dt>Hours</dt><dd>${esc(s.hours)}</dd>
@@ -665,6 +734,7 @@ function renderList() {
       <div class="actions">
         ${isWatch ? `<a class="btn" href="${esc(c.source)}" target="_blank" rel="noopener">See their page ↗</a>`
                   : `<a class="btn primary" href="${esc(c.booking)}" target="_blank" rel="noopener">Book ↗</a>`}
+        <a class="btn" href="https://www.google.com/maps/dir/?api=1&origin=${BASES[state.base].lat},${BASES[state.base].lng}&destination=${p.lat},${p.lng}&travelmode=transit" target="_blank" rel="noopener" title="Public transport route from ${esc(BASES[state.base].label)}">Route ↗</a>
         <button type="button" class="btn heart" data-save="${c.id}" aria-pressed="${saved}" aria-label="${saved ? 'Remove from saved' : 'Save'}" title="${saved ? 'Saved' : 'Save'}">
           <svg viewBox="0 0 20 20" aria-hidden="true"><path d="M10 17s-6.5-4.1-6.5-8.7A3.7 3.7 0 0 1 10 6a3.7 3.7 0 0 1 6.5 2.3C16.5 12.9 10 17 10 17z"/></svg>
         </button>
@@ -676,24 +746,34 @@ function renderList() {
 
 function renderSideNote() {
   const h = holiday();
-  const items = visibleCamps().filter((x) => !x.s.watch);
-  if (h.key === 'oct26' && state.base === 'spandau' && items.length) {
+  const b = BASES[state.base];
+  // Nearest of all bookable camps this holiday, whatever filters are on.
+  const items = CAMPS.filter((c) => c.sessions[h.key] && !c.sessions[h.key].watch)
+    .map((c) => ({ c, d: km(b, place(c, c.sessions[h.key])) }))
+    .sort((x, y) => x.d - y.d);
+  let html = '';
+  if (h.key === 'oct26' && items.length && items[0].d > 8) {
     const nearest = items[0];
-    $('sideNote').innerHTML = `<p class="callout"><b>From Spandau this October</b>, the nearest camp that takes a 5-year-old is ${esc(nearest.c.name)} at ${nearest.d.toFixed(0)} km. Spandau’s own holiday programmes start at age 8 — the Olympiapark swimming camp nearby only runs in summer.</p>`;
-  } else if (h.kind === 'watch') {
+    html += `<p class="callout"><b>From ${esc(b.label)} this October</b>, the nearest camp that takes a 5-year-old is ${esc(nearest.c.provider.split(',')[0])}’s ${esc(nearest.c.name)}, ${nearest.d.toFixed(0)} km away in a straight line.${b.lng < 13.26 ? ' Spandau’s own October programmes are for older children — Aalemannufer’s week is for 7–11s and Sportkinder Berlin’s start at 8 — and Wasserfreunde Spandau 04 have nothing listed for October.' : ''}</p>`;
+  }
+  if (b.custom) {
+    html += `<div class="place-tools"><button type="button" class="btn small" id="copyPlaceLink">Copy a link that opens from ${esc(b.label)}</button><button type="button" class="btn small ghost" data-removeplace="${state.base}">Remove this street</button></div>`;
+  }
+  if (html) { $('sideNote').innerHTML = html; }
+  else if (h.kind === 'watch') {
     $('sideNote').innerHTML = `<p class="callout"><b>Nothing to book yet.</b> Save the ones you like — they’ll be here to check again once ${esc(h.long)} dates are published.</p>`;
   } else {
     $('sideNote').innerHTML = '';
   }
 }
 
-const MAP = { lng0: 13.165, lng1: 13.445, lat0: 52.415, lat1: 52.555, w: 400, h: 328 };
+const MAP = { lng0: 13.13, lng1: 13.445, lat0: 52.415, lat1: 52.555, w: 400, h: 292 };
 const px = (lng) => ((lng - MAP.lng0) / (MAP.lng1 - MAP.lng0)) * MAP.w;
 const py = (lat) => ((MAP.lat1 - lat) / (MAP.lat1 - MAP.lat0)) * MAP.h;
 const REFS = [
   ['Mitte', 52.522, 13.4136], ['Charlottenburg', 52.5157, 13.3097], ['Schöneberg', 52.4822, 13.3552],
   ['Kreuzberg', 52.4976, 13.4119], ['Zehlendorf', 52.4343, 13.2589], ['Westend', 52.5133, 13.2557],
-  ['Dahlem', 52.4574, 13.2811], ['Tiergarten', 52.5098, 13.3573], ['Grunewald', 52.4873, 13.2638], ['Tempelhof', 52.4649, 13.3959],
+  ['Dahlem', 52.4574, 13.2811], ['Tiergarten', 52.5098, 13.3573], ['Grunewald', 52.4873, 13.2638], ['Tempelhof', 52.4649, 13.3959], ['Staaken', 52.5361, 13.1557],
 ];
 
 function renderMap() {
@@ -825,6 +905,18 @@ document.addEventListener('click', (e) => {
   if (t.dataset.holiday) { state.holiday = t.dataset.holiday; state.week = 'all'; save(LS.holiday, state.holiday); renderAll(); }
   else if (t.dataset.base) { state.base = t.dataset.base; save(LS.base, state.base); renderAll(); }
   else if (t.dataset.week) { state.week = t.dataset.week; state.savedOnly = false; renderControls(); renderList(); renderMap(); renderSideNote(); }
+  else if ('teen' in t.dataset) { state.teenOnly = !state.teenOnly; renderControls(); renderList(); renderMap(); renderSideNote(); }
+  else if (t.dataset.removeplace) {
+    delete state.places[t.dataset.removeplace];
+    save(LS.places, state.places);
+    rebuildBases();
+    state.base = 'spandau'; save(LS.base, state.base);
+    renderAll();
+  }
+  else if (t.id === 'copyPlaceLink') {
+    const b = BASES[state.base];
+    copy(`${location.origin}${location.pathname}#from=${b.lat},${b.lng},${encodeURIComponent(b.label)}`);
+  }
   else if ('saved' in t.dataset) { state.savedOnly = !state.savedOnly; renderControls(); renderList(); renderMap(); }
   else if (t.dataset.save) {
     const id = t.dataset.save;
@@ -893,6 +985,26 @@ function copy(text) {
   if (navigator.clipboard && window.isSecureContext) navigator.clipboard.writeText(text).then(() => toast('Link copied'), () => toast('Select the link and copy it'));
   else { $('shareLink').select(); toast('Select the link and copy it'); }
 }
+
+$('addPlace').addEventListener('click', () => { $('placeForm').hidden = false; $('placeInput').focus(); });
+$('placeCancel').addEventListener('click', () => { $('placeForm').hidden = true; });
+$('placeForm').addEventListener('submit', async (e) => {
+  e.preventDefault();
+  const q = $('placeInput').value.trim();
+  if (!q) return;
+  const url = 'https://nominatim.openstreetmap.org/search?format=json&limit=1&countrycodes=de&bounded=1&viewbox=13.08,52.68,13.77,52.33&q=' + encodeURIComponent(q + ', Berlin');
+  try {
+    const res = await fetch(url, { headers: { Accept: 'application/json' } });
+    const hit = (await res.json())[0];
+    if (!hit) { toast('Couldn’t find that street in Berlin — try adding the district'); return; }
+    addPlace(q.replace(/,?\s*berlin$/i, ''), Number(hit.lat), Number(hit.lon));
+    $('placeForm').hidden = true; $('placeInput').value = '';
+    toast(`Distances now from ${BASES[state.base].label}`);
+    renderAll();
+  } catch (err) {
+    toast('Street search isn’t reachable right now — try again in a moment');
+  }
+});
 
 $('alsoList').innerHTML = ALSO_CHECKED.map((x) => `<li>${esc(x)}</li>`).join('');
 
