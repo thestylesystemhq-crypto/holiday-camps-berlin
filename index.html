@@ -3,897 +3,904 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
-<title>Holiday Camp Guide · Berlin-Steglitz · Summer 2026</title>
-<meta name="description" content="Personalised summer 2026 holiday camp guide for a 6-year-old (1. Klasse) in Berlin-Steglitz, with private friend circles." />
+<meta name="robots" content="noindex, nofollow" />
+<title>Berlin Holiday Camps</title>
+<meta name="description" content="Berlin holiday camps for a 5-year-old, sorted by distance from Steglitz or Spandau, for October 2026, Easter 2027 and summer 2027." />
+<meta name="theme-color" content="#FAF6EF" media="(prefers-color-scheme: light)" />
+<meta name="theme-color" content="#1D1916" media="(prefers-color-scheme: dark)" />
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='28' fill='%23FAF6EF'/%3E%3Cpath d='M22 74 50 26 78 74z' fill='%23C4664A'/%3E%3Cpath d='M50 74 50 50' stroke='%23FAF6EF' stroke-width='7' stroke-linecap='round'/%3E%3C/svg%3E" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght,SOFT,WONK@0,9..144,300..900,0..100,0..1;1,9..144,300..900,0..100,0..1&family=Instrument+Sans:wght@400..700&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet" />
 <style>
   :root{
-    --bg:#fbf7f0; --card:#ffffff; --ink:#2b2722; --soft:#7a7167; --line:#ece4d8;
-    --brand:#e07a3f; --brand-d:#c2602b; --brand-soft:#fbe8da;
-    --teal:#3a8f88; --teal-soft:#dcefed; --gold:#e8b04b;
-    --ok:#2f8f5b; --ok-soft:#e0f0e6; --warn:#b8762a; --warn-soft:#f8ecd9;
-    --shadow:0 6px 22px rgba(80,55,30,.10); --shadow-l:0 2px 8px rgba(80,55,30,.07);
-    --r:16px;
+    --ground:#FAF6EF; --surface:#FFFCF7; --sunk:#F3EDE3;
+    --ink:#2B2825; --ink-2:#635B52; --ink-3:#8F8478;
+    --line:#E9E0D3; --line-2:#D8CBB9;
+    --terra:#C4664A; --terra-ink:#A8503A; --berry:#9B4D68; --taupe:#A89F91;
+    --tint-terra:#F6E4D9; --tint-berry:#F3E3E9; --tint-taupe:#EFE8DD;
+    --ok:#5B8754; --tint-ok:#E5EEDF; --warn:#A9751C; --tint-warn:#F6EAD3;
+    --on-ink:#FAF6EF; --on-accent:#FFFFFF;
+    --display:'Fraunces','Iowan Old Style',Georgia,'Times New Roman',serif;
+    --sans:'Instrument Sans','Helvetica Neue',Helvetica,Arial,sans-serif;
+    --mono:'DM Mono',ui-monospace,'SF Mono',Menlo,monospace;
+    --spring:cubic-bezier(.34,1.56,.64,1);
+    color-scheme:light;
   }
+  @media (prefers-color-scheme:dark){
+    :root:not([data-theme="light"]){
+      --ground:#1D1916; --surface:#26211D; --sunk:#221D1A;
+      --ink:#F2EBE1; --ink-2:#C6BBAE; --ink-3:#978C80;
+      --line:#362F29; --line-2:#4A4139;
+      --terra:#E38C6E; --terra-ink:#EC9D80; --berry:#D18DA7; --taupe:#A69C8F;
+      --tint-terra:#3A2821; --tint-berry:#35242C; --tint-taupe:#2F2924;
+      --ok:#8DBB85; --tint-ok:#25301F; --warn:#DDAE55; --tint-warn:#372C19;
+      --on-ink:#1D1916; --on-accent:#1D1916; color-scheme:dark;
+    }
+  }
+  :root[data-theme="dark"]{
+    --ground:#1D1916; --surface:#26211D; --sunk:#221D1A;
+    --ink:#F2EBE1; --ink-2:#C6BBAE; --ink-3:#978C80;
+    --line:#362F29; --line-2:#4A4139;
+    --terra:#E38C6E; --terra-ink:#EC9D80; --berry:#D18DA7; --taupe:#A69C8F;
+    --tint-terra:#3A2821; --tint-berry:#35242C; --tint-taupe:#2F2924;
+    --ok:#8DBB85; --tint-ok:#25301F; --warn:#DDAE55; --tint-warn:#372C19;
+    --on-ink:#1D1916; --on-accent:#1D1916; color-scheme:dark;
+  }
+
   *{box-sizing:border-box}
-  html,body{margin:0;padding:0}
-  body{
-    font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif;
-    background:var(--bg); color:var(--ink); line-height:1.5;
-    -webkit-font-smoothing:antialiased; padding-bottom:90px;
+  [hidden]{display:none!important}
+  html{-webkit-text-size-adjust:100%}
+  body{margin:0;background:var(--ground);color:var(--ink);font-family:var(--sans);font-size:16px;line-height:1.55;-webkit-font-smoothing:antialiased}
+  h1,h2,h3,h4,p{margin:0}
+  h1,h2,h3,h4{font-family:var(--display);font-weight:420;line-height:1.1;letter-spacing:-.012em;text-wrap:balance;font-variation-settings:"opsz" 72,"SOFT" 80,"WONK" 0}
+  a{color:var(--terra-ink);text-underline-offset:3px}
+  button{font:inherit;color:inherit}
+  :focus-visible{outline:2.5px solid var(--terra);outline-offset:3px;border-radius:6px}
+  input,textarea{font:inherit;font-size:16px;color:var(--ink);width:100%;padding:10px 14px;background:var(--surface);border:1.5px solid var(--line-2);border-radius:12px;-webkit-appearance:none;appearance:none}
+  input:focus,textarea:focus{outline:none;border-color:var(--terra)}
+  label{display:flex;flex-direction:column;gap:6px;font-size:13.5px;font-weight:600;color:var(--ink-2)}
+
+  .wrap{max-width:1120px;margin:0 auto;padding:0 24px}
+  .eyebrow,.label{font-family:var(--mono);font-size:12px;letter-spacing:.12em;text-transform:uppercase;color:var(--ink-3)}
+  .lede{font-size:clamp(17px,2vw,19px);color:var(--ink-2);max-width:56ch;text-wrap:pretty}
+  .muted{color:var(--ink-2)} .faint{color:var(--ink-3)} .small{font-size:14px}
+  .section-title{font-style:italic;font-weight:400;font-size:clamp(30px,4vw,40px);letter-spacing:-.02em;font-variation-settings:"opsz" 144,"SOFT" 100,"WONK" 1}
+
+  /* hero */
+  .hero{padding:44px 0 26px}
+  .wordmark{font-family:var(--display);font-weight:360;font-size:clamp(56px,11vw,124px);line-height:.92;letter-spacing:-.035em;margin:12px 0 16px;font-variation-settings:"opsz" 144,"SOFT" 100,"WONK" 1}
+  .wordmark em{font-style:italic;color:var(--terra)}
+  .tally{list-style:none;margin:22px 0 0;padding:0;display:flex;flex-wrap:wrap;gap:8px 28px}
+  .tally li{display:flex;align-items:baseline;gap:8px;font-size:15px;color:var(--ink-2)}
+  .tally b{font-family:var(--display);font-weight:500;font-size:30px;line-height:1;color:var(--ink);font-variant-numeric:tabular-nums}
+
+  /* controls */
+  .controls{position:sticky;top:0;z-index:30;background:var(--ground);border-bottom:1px solid var(--line)}
+  .controls .wrap{display:flex;flex-wrap:wrap;align-items:center;gap:10px 18px;padding-top:12px;padding-bottom:12px}
+  .control{display:flex;align-items:center;gap:10px}
+  .control > span{font-size:14px;font-weight:600;color:var(--ink-2);white-space:nowrap}
+  .seg{display:inline-flex;gap:4px;padding:4px;border-radius:999px;background:var(--sunk);border:1.5px solid var(--line)}
+  .seg button{height:36px;padding:0 15px;border-radius:999px;border:0;background:transparent;color:var(--ink-2);font-size:15px;font-weight:600;cursor:pointer;white-space:nowrap;display:inline-flex;align-items:center;gap:7px;transition:background-color .25s,color .2s}
+  .seg button:hover{color:var(--ink)}
+  .seg button[aria-pressed="true"]{background:var(--surface);color:var(--ink);box-shadow:0 0 0 1.5px var(--line-2)}
+  .seg .pin{width:9px;height:9px;border-radius:50%}
+  .seg .n{font-family:var(--mono);font-size:12px;color:var(--ink-3)}
+  .chips{display:flex;gap:8px;flex-wrap:wrap}
+  .chip{flex:none;display:inline-flex;align-items:center;gap:8px;height:36px;padding:0 14px;border-radius:999px;border:1.5px solid var(--line-2);background:transparent;color:var(--ink);font-size:14.5px;font-weight:500;cursor:pointer;white-space:nowrap;transition:transform .45s var(--spring),background-color .2s,color .2s,border-color .2s}
+  .chip:hover{transform:translateY(-2px) rotate(-1.5deg);border-color:var(--ink-3)}
+  .chip[aria-pressed="true"]{background:var(--ink);border-color:var(--ink);color:var(--on-ink)}
+  .chip .n{font-family:var(--mono);font-size:12px;opacity:.7}
+
+  /* overlap timeline */
+  .overlap{margin:26px 0 8px;padding:20px 22px;border-radius:24px;background:var(--surface);border:1.5px solid var(--line);display:grid;grid-template-columns:minmax(0,1fr);gap:12px}
+  .overlap-head{display:flex;flex-wrap:wrap;justify-content:space-between;align-items:baseline;gap:8px 20px}
+  .overlap-head h2{font-size:26px}
+  .tl{display:grid;grid-template-columns:92px minmax(0,1fr);gap:8px 12px;align-items:center}
+  .tl-name{font-size:13.5px;font-weight:600;color:var(--ink-2)}
+  .tl-track{position:relative;height:26px;border-radius:8px;background:var(--sunk)}
+  .tl-bar{position:absolute;top:0;bottom:0;border-radius:8px;display:flex;align-items:center;padding:0 10px;font-size:12.5px;font-weight:600;white-space:nowrap;overflow:hidden}
+  .tl-bar.london{background:var(--tint-berry);color:var(--berry)}
+  .tl-bar.berlin{background:var(--tint-taupe);color:var(--ink-2);box-shadow:inset 0 0 0 1.5px var(--line-2)}
+  .tl-bar.both{background:var(--terra);color:var(--on-accent)}
+  .tl-axis{grid-column:2;position:relative;height:16px;font-family:var(--mono);font-size:11.5px;color:var(--ink-3)}
+  .tl-axis span{position:absolute;transform:translateX(-50%);white-space:nowrap}
+  .overlap .note{font-size:14.5px;color:var(--ink-2)}
+
+  /* layout */
+  .layout{display:grid;grid-template-columns:minmax(0,1fr) 380px;gap:24px;align-items:start;margin-top:22px}
+  .side{position:sticky;top:84px;display:flex;flex-direction:column;gap:14px}
+  .list{display:flex;flex-direction:column;gap:14px}
+
+  /* map */
+  .map{border-radius:24px;background:var(--surface);border:1.5px solid var(--line);padding:14px 14px 10px}
+  .map svg{display:block;width:100%;height:auto}
+  .map .ref{font-family:var(--sans);font-size:10.5px;fill:var(--ink-3);letter-spacing:.02em}
+  .map .ring{fill:none;stroke:var(--line-2);stroke-width:1.5;stroke-dasharray:3 5}
+  .map .spoke{stroke:var(--terra);stroke-width:1.5;stroke-dasharray:2 4;opacity:.55}
+  .map .base circle{stroke:var(--surface);stroke-width:3}
+  .map .base text{font-size:12px;font-weight:700;fill:var(--ink)}
+  .map .camp{cursor:pointer}
+  .map .camp circle{fill:var(--ink);stroke:var(--surface);stroke-width:2.5;transition:r .3s var(--spring)}
+  .map .camp.watch circle{fill:var(--surface);stroke:var(--ink-3);stroke-width:2}
+  .map .camp text{font-size:10.5px;font-weight:700;fill:var(--on-ink);text-anchor:middle;dominant-baseline:central;pointer-events:none}
+  .map .camp.watch text{fill:var(--ink-2)}
+  .map .camp.hot circle{fill:var(--terra)}
+  .map .scale line{stroke:var(--ink-3);stroke-width:2}
+  .map .scale text{font-family:var(--mono);font-size:10px;fill:var(--ink-3)}
+  .map-note{font-size:12.5px;color:var(--ink-3);margin-top:4px}
+
+  /* cards */
+  .card{--tilt:-.5deg;position:relative;background:var(--surface);border:1.5px solid var(--line);border-radius:24px;padding:20px 22px;display:flex;flex-direction:column;gap:12px;transition:transform .5s var(--spring),border-color .25s,background-color .25s}
+  .card:nth-child(even){--tilt:.5deg}
+  .card:hover,.card.hot{transform:translateY(-3px) rotate(var(--tilt));border-color:var(--line-2)}
+  .card.watch{background:transparent;border-style:dashed;border-color:var(--line-2)}
+  .card-top{display:flex;align-items:center;gap:10px;flex-wrap:wrap}
+  .num{width:28px;height:28px;border-radius:50%;display:grid;place-items:center;flex:none;background:var(--ink);color:var(--on-ink);font-size:13px;font-weight:700;font-variant-numeric:tabular-nums}
+  .card.watch .num{background:transparent;color:var(--ink-2);box-shadow:inset 0 0 0 2px var(--line-2)}
+  .card h3{font-size:clamp(24px,3vw,28px)}
+  .provider{font-size:15px;color:var(--ink-2);margin-top:4px}
+  .pills{display:flex;flex-wrap:wrap;gap:6px}
+  .pill{display:inline-flex;align-items:center;gap:7px;height:28px;padding:0 11px;border-radius:999px;font-size:13px;font-weight:600;white-space:nowrap;background:var(--tint-taupe);color:var(--ink-2)}
+  .pill i{width:7px;height:7px;border-radius:50%;background:currentColor}
+  .pill.ok{background:var(--tint-ok);color:var(--ok)}
+  .pill.warn{background:var(--tint-warn);color:var(--warn)}
+  .pill.act{background:var(--tint-terra);color:var(--terra-ink)}
+  .pill.berry{background:var(--tint-berry);color:var(--berry)}
+  .dist{display:grid;grid-template-columns:auto minmax(0,1fr) auto;gap:6px 10px;align-items:center;font-size:14px}
+  .dist .who{font-weight:600;color:var(--ink-2)}
+  .dist .who.on{color:var(--ink)}
+  .dist .bar{height:6px;border-radius:999px;background:color-mix(in srgb,var(--ink) 8%,transparent);overflow:hidden}
+  .dist .bar i{display:block;height:100%;border-radius:inherit;background:var(--taupe)}
+  .dist .bar.on i{background:var(--terra)}
+  .dist .km{font-family:var(--mono);font-size:13px;color:var(--ink-2);text-align:right;font-variant-numeric:tabular-nums}
+  .blurb{font-size:15.5px;color:var(--ink)}
+  .facts{display:grid;grid-template-columns:110px minmax(0,1fr);gap:6px 14px;font-size:15px;margin:0}
+  .facts dt{color:var(--ink-3);font-size:13.5px;font-weight:600;padding-top:1px}
+  .facts dd{margin:0;color:var(--ink)}
+  .check{padding:10px 12px;border-radius:12px;background:var(--tint-warn);font-size:14.5px;color:var(--ink)}
+  .check b{color:var(--warn)}
+  .weeks{display:flex;flex-direction:column;gap:8px}
+  .week{display:flex;flex-wrap:wrap;align-items:center;gap:8px}
+  .week-name{font-size:14px;font-weight:600;min-width:98px}
+  .day{height:34px;min-width:44px;padding:0 9px;border-radius:10px;border:1.5px solid var(--line-2);background:var(--surface);font-size:13px;font-weight:600;color:var(--ink-2);cursor:pointer;transition:transform .4s var(--spring),background-color .2s,color .2s,border-color .2s}
+  .day:hover{transform:translateY(-2px);border-color:var(--ok)}
+  .day[aria-pressed="true"]{background:var(--ok);border-color:var(--ok);color:var(--on-accent);animation:pop .4s var(--spring)}
+  .week-all{height:34px;padding:0 10px;border:0;background:none;color:var(--ink-3);font-size:13px;font-weight:600;cursor:pointer}
+  .week-all:hover{color:var(--ink)}
+  @keyframes pop{from{transform:scale(.85)}to{transform:none}}
+  .actions{display:flex;flex-wrap:wrap;gap:8px;align-items:center}
+  .btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;height:40px;padding:0 16px;border-radius:999px;border:1.5px solid var(--line-2);background:var(--surface);color:var(--ink);font-size:15px;font-weight:600;text-decoration:none;white-space:nowrap;cursor:pointer;transition:transform .45s var(--spring),background-color .2s,border-color .2s,color .2s}
+  .btn:hover{transform:translateY(-2px);border-color:var(--ink-3)}
+  .btn.primary{background:var(--terra);border-color:var(--terra);color:var(--on-accent)}
+  .btn.ghost{background:transparent;border-color:transparent;color:var(--ink-2)}
+  .btn.ghost:hover{background:var(--tint-taupe);color:var(--ink)}
+  .btn.small{height:34px;padding:0 12px;font-size:14px}
+  .heart{width:40px;padding:0}
+  .heart svg{width:18px;height:18px;fill:none;stroke:var(--ink-3);stroke-width:1.8}
+  .heart[aria-pressed="true"]{background:var(--tint-terra);border-color:var(--terra);animation:pop .45s var(--spring)}
+  .heart[aria-pressed="true"] svg{fill:var(--terra);stroke:var(--terra)}
+  .src{font-size:13px;color:var(--ink-3)}
+  .empty{border:1.5px dashed var(--line-2);border-radius:24px;padding:24px;color:var(--ink-2)}
+  .callout{padding:14px 16px;border-radius:16px;background:var(--tint-berry);font-size:15px}
+  .callout b{color:var(--berry)}
+
+  /* friends + plan */
+  .panel{background:var(--surface);border:1.5px solid var(--line);border-radius:24px;padding:22px 24px;display:flex;flex-direction:column;gap:14px}
+  .panel h3{font-size:24px}
+  .two{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px}
+  .share-row{display:flex;gap:8px}
+  .share-row input{font-family:var(--mono);font-size:13px}
+  .privacy{font-size:14px;color:var(--ink-2);padding:10px 12px;border-radius:12px;background:var(--sunk)}
+  .friend{display:flex;align-items:center;justify-content:space-between;gap:10px;padding:10px 0;border-top:1px solid var(--line)}
+  .friend:first-child{border-top:0}
+  .grid-wrap{overflow-x:auto}
+  table.who-when{border-collapse:separate;border-spacing:4px;min-width:520px;width:100%}
+  .who-when th{font-size:12.5px;font-weight:600;color:var(--ink-3);text-align:left;padding:0 4px;white-space:nowrap}
+  .who-when td{font-size:12.5px;padding:6px 8px;border-radius:8px;background:var(--sunk);vertical-align:top;min-width:70px}
+  .who-when td.go{background:var(--tint-taupe);color:var(--ink)}
+  .who-when td.together{background:var(--tint-ok);color:var(--ok);font-weight:700}
+  .who-when th.kid{color:var(--ink);font-size:14px}
+
+  details.also{border-top:1px solid var(--line);padding-top:16px;margin-top:8px}
+  details.also summary{cursor:pointer;font-weight:600;color:var(--ink-2)}
+  details.also ul{margin:12px 0 0;padding-left:18px;color:var(--ink-2);font-size:15px;display:flex;flex-direction:column;gap:6px}
+  footer{margin:56px 0 0;padding:22px 0 60px;border-top:1px solid var(--line);font-size:14px;color:var(--ink-3);display:flex;flex-direction:column;gap:6px}
+
+  .toast{position:fixed;left:50%;bottom:22px;transform:translateX(-50%);z-index:90;background:var(--ink);color:var(--on-ink);padding:11px 18px;border-radius:999px;font-size:15px;font-weight:500;animation:toast .45s var(--spring)}
+  @keyframes toast{from{transform:translate(-50%,16px) scale(.9);opacity:0}to{transform:translate(-50%,0);opacity:1}}
+
+  @media (max-width:940px){
+    .layout{grid-template-columns:minmax(0,1fr)}
+    .side{position:static;order:-1;display:grid;grid-template-columns:minmax(0,420px) minmax(0,1fr);align-items:start}
   }
-  a{color:var(--brand-d)}
-  .wrap{max-width:840px;margin:0 auto;padding:0 16px}
-
-  /* Header */
-  header{
-    background:linear-gradient(135deg,#e07a3f 0%,#e8a24b 100%);
-    color:#fff;padding:22px 0 18px;box-shadow:var(--shadow);
+  @media (max-width:760px){
+    .side{grid-template-columns:minmax(0,1fr)}
+    .map svg{max-height:340px}
   }
-  header .wrap{display:flex;flex-direction:column;gap:6px}
-  .h-top{display:flex;align-items:center;gap:10px;flex-wrap:wrap}
-  .h-logo{font-size:1.5rem}
-  h1{font-size:1.32rem;margin:0;font-weight:800;letter-spacing:-.2px}
-  .h-sub{font-size:.95rem;opacity:.96;font-weight:500}
-  .h-chips{display:flex;gap:6px;flex-wrap:wrap;margin-top:6px}
-  .h-chip{background:rgba(255,255,255,.22);border-radius:20px;padding:3px 11px;font-size:.8rem;font-weight:600;backdrop-filter:blur(2px)}
-
-  /* Tabs */
-  .tabs{position:sticky;top:0;z-index:30;background:var(--bg);border-bottom:1px solid var(--line);box-shadow:0 2px 6px rgba(80,55,30,.04)}
-  .tabs .wrap{display:flex;gap:4px;overflow-x:auto;-webkit-overflow-scrolling:touch}
-  .tab{flex:0 0 auto;border:none;background:none;padding:13px 14px;font-size:.95rem;font-weight:700;color:var(--soft);cursor:pointer;border-bottom:3px solid transparent;white-space:nowrap}
-  .tab .badge{display:inline-block;min-width:18px;padding:0 5px;margin-left:5px;font-size:.72rem;background:var(--brand-soft);color:var(--brand-d);border-radius:10px;font-weight:800}
-  .tab.active{color:var(--brand-d);border-bottom-color:var(--brand)}
-  .tab.active .badge{background:var(--brand);color:#fff}
-
-  section.page{display:none;padding:18px 0 30px}
-  section.page.active{display:block}
-  .intro{color:var(--soft);font-size:.92rem;margin:2px 0 14px}
-
-  /* Week filter bar */
-  .weekbar{display:flex;gap:7px;overflow-x:auto;padding:4px 0 10px;-webkit-overflow-scrolling:touch}
-  .wbtn{flex:0 0 auto;border:1.5px solid var(--line);background:var(--card);border-radius:22px;padding:8px 14px;font-size:.85rem;font-weight:700;color:var(--ink);cursor:pointer;line-height:1.15;text-align:left}
-  .wbtn small{display:block;font-weight:600;color:var(--soft);font-size:.72rem}
-  .wbtn.active{background:var(--teal);border-color:var(--teal);color:#fff}
-  .wbtn.active small{color:rgba(255,255,255,.85)}
-
-  /* Week section */
-  .weeksec{margin:18px 0}
-  .weekhd{display:flex;align-items:baseline;gap:10px;margin:0 0 10px;padding-bottom:6px;border-bottom:2px dashed var(--line)}
-  .weekhd h2{font-size:1.08rem;margin:0;font-weight:800}
-  .weekhd .rng{color:var(--soft);font-weight:600;font-size:.9rem}
-  .weekhd .cnt{margin-left:auto;background:var(--teal-soft);color:var(--teal);font-weight:800;font-size:.78rem;padding:2px 10px;border-radius:12px}
-
-  /* Cards */
-  .grid{display:grid;grid-template-columns:1fr;gap:12px}
-  @media(min-width:620px){.grid{grid-template-columns:1fr 1fr}}
-  .card{background:var(--card);border:1px solid var(--line);border-radius:var(--r);padding:14px;box-shadow:var(--shadow-l);cursor:pointer;position:relative;display:flex;flex-direction:column;gap:8px;transition:transform .08s,box-shadow .15s}
-  .card:active{transform:scale(.99)}
-  .card:hover{box-shadow:var(--shadow)}
-  .c-top{display:flex;align-items:center;gap:9px}
-  .c-badge{font-size:1.35rem;width:40px;height:40px;flex:0 0 auto;display:grid;place-items:center;background:var(--brand-soft);border-radius:12px}
-  .c-type{font-size:.72rem;font-weight:800;text-transform:uppercase;letter-spacing:.4px;color:var(--brand-d)}
-  .c-name{font-size:1.02rem;font-weight:800;margin:1px 0 0;line-height:1.25}
-  .c-meta{font-size:.85rem;color:var(--soft);display:flex;flex-direction:column;gap:2px}
-  .c-meta b{color:var(--ink);font-weight:700}
-  .c-blurb{font-size:.86rem;color:#5c544a}
-  .c-foot{display:flex;align-items:center;gap:6px;flex-wrap:wrap;margin-top:2px}
-  .chip{font-size:.74rem;font-weight:700;padding:3px 9px;border-radius:11px;background:#f3ede3;color:#6a6056}
-  .chip.date{background:var(--teal-soft);color:var(--teal)}
-  .chip.price{background:#f1ecfb;color:#6b4fa0}
-  .chip.check{background:var(--warn-soft);color:var(--warn)}
-  .chip.near{background:var(--ok-soft);color:var(--ok)}
-  .chip.going{background:var(--brand);color:#fff}
-  .heart{margin-left:auto;border:none;background:none;font-size:1.4rem;line-height:1;cursor:pointer;color:#d9cfc2;padding:2px 4px}
-  .heart.on{color:#e0573f}
-
-  /* Modal */
-  .modal-bg{position:fixed;inset:0;background:rgba(40,30,20,.5);z-index:60;display:none;align-items:flex-end;justify-content:center}
-  .modal-bg.open{display:flex}
-  @media(min-width:620px){.modal-bg{align-items:center}}
-  .modal{background:var(--card);width:100%;max-width:600px;max-height:92vh;overflow-y:auto;border-radius:20px 20px 0 0;box-shadow:var(--shadow);padding:0}
-  @media(min-width:620px){.modal{border-radius:20px}}
-  .m-head{position:sticky;top:0;background:var(--card);padding:16px 18px 12px;border-bottom:1px solid var(--line);display:flex;gap:12px;align-items:flex-start;z-index:2}
-  .m-badge{font-size:1.7rem;width:48px;height:48px;flex:0 0 auto;display:grid;place-items:center;background:var(--brand-soft);border-radius:13px}
-  .m-htext{flex:1;min-width:0}
-  .m-type{font-size:.72rem;font-weight:800;text-transform:uppercase;letter-spacing:.4px;color:var(--brand-d)}
-  .m-name{font-size:1.18rem;font-weight:800;margin:1px 0 0}
-  .m-close{border:none;background:#f1ece3;width:34px;height:34px;border-radius:50%;font-size:1.1rem;cursor:pointer;flex:0 0 auto;color:#7a7167}
-  .m-body{padding:16px 18px 22px}
-  .m-row{display:flex;gap:8px;font-size:.9rem;margin:7px 0;align-items:flex-start}
-  .m-row .k{flex:0 0 88px;color:var(--soft);font-weight:700}
-  .m-row .v{flex:1;font-weight:500}
-  .m-detail{font-size:.92rem;color:#4f483f;margin:12px 0;line-height:1.6}
-  .m-note{font-size:.82rem;background:var(--warn-soft);color:#7a5320;border-radius:10px;padding:9px 12px;margin:10px 0}
-  .m-source{font-size:.78rem;color:var(--soft);word-break:break-all;margin-top:8px}
-  .btn{display:inline-block;border:none;border-radius:12px;padding:12px 16px;font-size:.95rem;font-weight:800;cursor:pointer;text-align:center;text-decoration:none}
-  .btn.primary{background:var(--brand);color:#fff;width:100%}
-  .btn.primary:hover{background:var(--brand-d)}
-  .btn.ghost{background:#f1ece3;color:var(--ink)}
-  .btn.teal{background:var(--teal);color:#fff}
-  .btn.teal:hover{filter:brightness(.95)}
-  .btn-row{display:flex;gap:8px;margin-top:14px}
-
-  /* Day picker */
-  .dp{margin:14px 0;background:#faf6ef;border:1px solid var(--line);border-radius:14px;padding:13px}
-  .dp h4{margin:0 0 4px;font-size:.95rem}
-  .dp .hint{font-size:.8rem;color:var(--soft);margin:0 0 10px}
-  .dp-week{margin:10px 0}
-  .dp-week .wk{font-size:.82rem;font-weight:800;color:var(--teal);margin-bottom:5px}
-  .days{display:flex;gap:6px;flex-wrap:wrap}
-  .day{border:1.5px solid var(--line);background:#fff;border-radius:10px;padding:8px 0;width:54px;text-align:center;font-size:.82rem;font-weight:700;cursor:pointer;color:var(--soft)}
-  .day.on{background:var(--teal);border-color:var(--teal);color:#fff}
-  .dp-mine{font-size:.82rem;color:var(--ok);font-weight:700;margin-top:8px}
-
-  /* Friends tab */
-  .panel{background:var(--card);border:1px solid var(--line);border-radius:var(--r);padding:16px;box-shadow:var(--shadow-l);margin-bottom:14px}
-  .panel h3{margin:0 0 4px;font-size:1.05rem}
-  .panel p.sub{margin:0 0 12px;color:var(--soft);font-size:.88rem}
-  label.fld{display:block;font-size:.82rem;font-weight:800;color:var(--ink);margin:10px 0 4px}
-  label.fld .tip{font-weight:600;color:var(--soft);font-size:.78rem}
-  input.txt{width:100%;border:1.5px solid var(--line);border-radius:11px;padding:11px 12px;font-size:1rem;font-family:inherit;background:#fff}
-  input.txt:focus{outline:none;border-color:var(--brand)}
-  .privacy{font-size:.8rem;background:var(--teal-soft);color:#1f5a55;border-radius:11px;padding:11px 13px;margin:12px 0;line-height:1.5}
-  .privacy b{color:#14403c}
-  textarea.txt{width:100%;border:1.5px solid var(--line);border-radius:11px;padding:11px 12px;font-size:.9rem;font-family:inherit;min-height:64px;background:#fff;resize:vertical}
-  .linkbox{display:flex;gap:6px;margin-top:8px}
-  .linkbox input{flex:1;border:1.5px solid var(--line);border-radius:11px;padding:10px;font-size:.82rem;background:#faf6ef;color:#5c544a}
-  .toast{position:fixed;bottom:96px;left:50%;transform:translateX(-50%);background:#2b2722;color:#fff;padding:11px 18px;border-radius:24px;font-size:.88rem;font-weight:600;z-index:90;opacity:0;transition:opacity .25s;pointer-events:none;box-shadow:var(--shadow)}
-  .toast.show{opacity:1}
-
-  /* Who's going when */
-  .wgw-camp{background:var(--card);border:1px solid var(--line);border-radius:var(--r);padding:14px;box-shadow:var(--shadow-l);margin-bottom:12px}
-  .wgw-camp h4{margin:0 0 2px;font-size:1rem}
-  .wgw-camp .area{font-size:.8rem;color:var(--soft);margin-bottom:8px}
-  .wgw-week{margin:9px 0}
-  .wgw-week .wk{font-size:.8rem;font-weight:800;color:var(--teal);margin-bottom:6px}
-  .wgw-days{display:grid;grid-template-columns:repeat(5,1fr);gap:5px}
-  .wgw-day{border:1px solid var(--line);border-radius:9px;padding:6px 3px;min-height:54px;text-align:center;background:#fdfbf7}
-  .wgw-day .dl{font-size:.7rem;font-weight:800;color:var(--soft);margin-bottom:3px}
-  .wgw-day.over{background:#fff3e6;border-color:var(--brand);box-shadow:0 0 0 1px var(--brand) inset}
-  .who{display:block;font-size:.72rem;font-weight:700;background:#eee7db;color:#5c544a;border-radius:7px;padding:2px 3px;margin:2px 0;word-break:break-word}
-  .who.me{background:var(--brand-soft);color:var(--brand-d)}
-  .wgw-day.over .who{background:var(--brand);color:#fff}
-  .together{font-size:.68rem;font-weight:800;color:var(--brand-d);margin-top:3px;display:block}
-
-  .empty{text-align:center;color:var(--soft);padding:40px 16px;font-size:.95rem}
-  .empty .big{font-size:2.4rem;display:block;margin-bottom:8px}
-
-  /* Floating buttons */
-  .fab-wrap{position:fixed;right:14px;bottom:14px;z-index:50;display:flex;flex-direction:column;gap:10px;align-items:flex-end}
-  .fab{border:none;border-radius:30px;padding:13px 18px;font-size:.92rem;font-weight:800;cursor:pointer;box-shadow:var(--shadow);display:flex;align-items:center;gap:7px;color:#fff}
-  .fab.share{background:var(--teal)}
-  .fab.suggest{background:#fff;color:var(--brand-d);border:1.5px solid var(--brand-soft)}
-  @media(max-width:520px){.fab span.lbl{display:none}.fab{padding:14px;font-size:1.2rem;border-radius:50%}}
-
-  footer{text-align:center;color:var(--soft);font-size:.78rem;padding:24px 16px 30px;line-height:1.6}
-  .trust{background:var(--card);border:1px solid var(--line);border-radius:var(--r);padding:13px 15px;font-size:.82rem;color:#5c544a;margin:14px 0;line-height:1.55}
-  .trust b{color:var(--ink)}
+  @media (max-width:640px){
+    .wrap{padding:0 16px}
+    .controls .wrap{gap:8px;padding-top:8px;padding-bottom:8px}
+    .controls .chips{flex-wrap:nowrap;overflow-x:auto;scrollbar-width:none;width:100%}
+    .controls .chips::-webkit-scrollbar{display:none}
+    .control{flex-wrap:wrap;gap:6px}
+    .control > span{display:none}
+    .seg button{padding:0 12px;font-size:14.5px}
+    .card,.panel{padding:18px 16px}
+    .facts{grid-template-columns:minmax(0,1fr)}
+    .facts dt{padding-top:6px}
+    .two{grid-template-columns:minmax(0,1fr)}
+    .tl{grid-template-columns:70px minmax(0,1fr)}
+  }
+  @media (prefers-reduced-motion:reduce){*,*::before,*::after{animation:none!important;transition:none!important}}
 </style>
 </head>
 <body>
 
-<header>
-  <div class="wrap">
-    <div class="h-top">
-      <span class="h-logo">🏕️</span>
-      <h1>Summer Camp Guide</h1>
-    </div>
-    <div class="h-sub">Berlin-Steglitz · for a 6-year-old (1. Klasse) · Sommerferien 2026</div>
-    <div class="h-chips">
-      <span class="h-chip">📅 9 Jul – 22 Aug 2026</span>
-      <span class="h-chip">🎒 Grundschule an der Bäke</span>
-      <span class="h-chip">👧 Age 6</span>
-    </div>
-  </div>
+<header class="hero wrap">
+  <p class="eyebrow">Berlin holiday camps · age 5 · checked 11 Sept 2026</p>
+  <h1 class="wordmark">Camp <em>weeks</em></h1>
+  <p class="lede">Day camps that take a 5-year-old during the weeks her London school holidays line up with Berlin’s — sorted by how far they are from where she’s staying. Nothing is hidden by district.</p>
+  <ul class="tally" id="tally"></ul>
 </header>
 
-<nav class="tabs">
-  <div class="wrap" id="tabbar">
-    <button class="tab active" data-tab="summer">☀️ Summer 2026</button>
-    <button class="tab" data-tab="friends">👫 Friends <span class="badge" id="friendBadge">0</span></button>
-    <button class="tab" data-tab="saved">♥ Saved <span class="badge" id="savedBadge">0</span></button>
-  </div>
-</nav>
-
-<!-- SUMMER -->
-<section class="page active" id="page-summer">
+<div class="controls">
   <div class="wrap">
-    <p class="intro">Camps are grouped by Mon–Fri week. Tap a week to filter, tap any card for full details, the heart to save, and inside a camp pick which days your child is going to share with friends. <em>Holiday starts Thu 9 Jul; the first full camp week is 13 Jul.</em></p>
-    <div class="weekbar" id="weekbar"></div>
-    <div id="weeks"></div>
-    <div class="trust">
-      <b>About verification &amp; safety.</b> Every camp here was checked on the provider's own website. Where a price, time or exact week wasn't clearly stated we show <span class="chip check">Check website</span> and link the booking page — please confirm before paying. Germany has no single camp inspectorate like England's Ofsted; most providers are registered clubs/charities (<i>e.V.</i>) or established schools — always confirm current details, ratios and safeguarding with the provider.
-    </div>
+    <div class="control"><span>Holiday</span><div class="seg" id="holidaySeg" role="group" aria-label="Holiday"></div></div>
+    <div class="control"><span>Staying in</span><div class="seg" id="baseSeg" role="group" aria-label="Staying in"></div></div>
+    <div class="chips" id="weekChips" role="group" aria-label="Week"></div>
   </div>
-</section>
-
-<!-- FRIENDS -->
-<section class="page" id="page-friends">
-  <div class="wrap">
-    <div class="panel">
-      <h3>👧 Your child &amp; circle</h3>
-      <p class="sub">This is what your friends will see next to the days you pick. Use a first name only.</p>
-      <label class="fld">Child's first name <span class="tip">— friends will see this</span></label>
-      <input class="txt" id="childName" placeholder="e.g. Mia" autocomplete="off" />
-      <label class="fld">Circle name <span class="tip">— e.g. your class or friend group</span></label>
-      <input class="txt" id="circleName" placeholder="e.g. Klasse 1b" autocomplete="off" />
-      <div class="privacy">
-        🔒 <b>Everything stays on this device.</b> There is no server and no account. Only the <b>share link</b> you create carries your child's first name + the days you picked (and the circle name). Send it <b>privately</b> (e.g. WhatsApp) to people you trust. If you change days later, create &amp; send a fresh link.
-      </div>
-    </div>
-
-    <div class="panel">
-      <h3>🔗 Share your plan</h3>
-      <p class="sub">Pick days inside each camp (open a camp → "Which days is your child going?"). Then create one link to send.</p>
-      <div id="myPlanSummary"></div>
-      <button class="btn teal" style="width:100%;margin-top:10px" id="makeLinkBtn">Create &amp; copy my share link</button>
-      <div class="linkbox" id="linkRow" style="display:none">
-        <input id="shareLink" readonly />
-        <button class="btn ghost" id="copyLinkBtn">Copy</button>
-      </div>
-    </div>
-
-    <div class="panel">
-      <h3>📥 Add a friend's link</h3>
-      <p class="sub">Paste a link a friend sent you (or just open their link — it imports automatically).</p>
-      <textarea class="txt" id="importBox" placeholder="Paste a friend's share link here…"></textarea>
-      <button class="btn teal" style="width:100%;margin-top:8px" id="importBtn">Import friend's plan</button>
-      <div id="friendList" style="margin-top:12px"></div>
-    </div>
-
-    <div class="panel">
-      <h3>📆 Who's going when</h3>
-      <p class="sub">Days where two or more children overlap are highlighted — that's a together day!</p>
-      <div id="wgw"></div>
-    </div>
-  </div>
-</section>
-
-<!-- SAVED -->
-<section class="page" id="page-saved">
-  <div class="wrap">
-    <p class="intro">Camps you've hearted. Tap to reopen, or tap the heart to remove.</p>
-    <div id="savedList"></div>
-  </div>
-</section>
-
-<!-- Modal -->
-<div class="modal-bg" id="modalBg">
-  <div class="modal" id="modal" role="dialog" aria-modal="true"></div>
 </div>
 
-<!-- Floating buttons -->
-<div class="fab-wrap">
-  <button class="fab share" id="fabShare" title="Share my plan"><span>🔗</span><span class="lbl">Share plan</span></button>
-  <a class="fab suggest" id="fabSuggest" title="Suggest a camp"><span>➕</span><span class="lbl">Suggest a camp</span></a>
-</div>
+<main class="wrap">
+  <section class="overlap" id="overlap" aria-label="How the holidays line up"></section>
 
-<div class="toast" id="toast"></div>
+  <div class="layout">
+    <div class="list" id="list"></div>
+    <aside class="side">
+      <div class="map">
+        <svg id="map" viewBox="0 0 400 328" role="img" aria-label="Map of camps and where she’s staying"></svg>
+        <p class="map-note">To scale. Distances are straight-line, not travel time.</p>
+      </div>
+      <div id="sideNote"></div>
+    </aside>
+  </div>
 
-<footer>
-  Built for one family · all data stays in your browser · no tracking, no accounts.<br/>
-  Holiday dates: <a href="https://www.berlin.de/sen/bjf/service/kalender/ferien/termine/" target="_blank" rel="noopener">Berlin Senate (SenBJF)</a>. Always confirm camp details on the provider's website before booking.
-</footer>
+  <section style="margin-top:48px" class="stack" aria-labelledby="planTitle">
+    <h2 class="section-title" id="planTitle">Days &amp; friends</h2>
+    <p class="muted" style="margin:8px 0 16px;max-width:64ch">Tap days on any camp above to mark when she’s going. Share the plan with friends so you can see who’s at the same camp on the same day.</p>
+    <div class="two">
+      <div class="panel">
+        <h3>Your plan</h3>
+        <label>Child’s first name <span class="faint" style="font-weight:400">— only goes into a link you send</span><input id="childName" autocomplete="off" placeholder="First name" /></label>
+        <label>Circle name<input id="circleName" autocomplete="off" placeholder="e.g. Steglitz cousins" /></label>
+        <div id="myPlan" class="small muted"></div>
+        <button class="btn primary" id="makeLink">Create a share link</button>
+        <div class="share-row" id="shareRow" hidden><input id="shareLink" readonly aria-label="Share link" /><button class="btn small" id="copyLink">Copy</button></div>
+        <p class="privacy">Everything stays on this device — no account, no server. Only a link you create carries the first name, circle name and the days picked. Send it privately.</p>
+      </div>
+      <div class="panel">
+        <h3>Friends</h3>
+        <label>Paste a friend’s link<textarea id="importBox" rows="2" placeholder="https://…#plan=…"></textarea></label>
+        <button class="btn" id="importBtn">Add their plan</button>
+        <div id="friends"></div>
+      </div>
+    </div>
+    <div class="panel" style="margin-top:16px">
+      <h3>Who’s going when</h3>
+      <div id="whoWhen"></div>
+    </div>
+  </section>
+
+  <details class="also">
+    <summary>Also checked — not suitable for a 5-year-old this time</summary>
+    <ul id="alsoList"></ul>
+  </details>
+
+  <footer>
+    <p>Holiday dates: Berlin Ferienordnung (Herbstferien 19–31 Oct 2026, Osterferien 22 Mar–2 Apr 2027, Sommerferien 1 Jul–14 Aug 2027) and the London school’s 2026–27 term dates.</p>
+    <p>Every camp was checked on the provider’s own page on 11 September 2026 unless marked otherwise. Anything not clearly stated says so — confirm prices, times and ages before paying.</p>
+  </footer>
+</main>
 
 <script>
 /* ============================================================
-   DATA — Berlin Sommerferien 2026, age 6 (1. Klasse)
-   Each camp verified on provider's OWN site. "Check website"
-   used wherever a fact was not clearly stated. Never invented.
+   DATA — checked 11 Sept 2026. Facts come from the provider's
+   own page unless `listing` says where they came from instead.
+   Never invented: unknowns are written as unknowns.
    ============================================================ */
-const WEEKS = [
-  {key:'w1', n:'Week 1', range:'13–17 Jul'},
-  {key:'w2', n:'Week 2', range:'20–24 Jul'},
-  {key:'w3', n:'Week 3', range:'27–31 Jul'},
-  {key:'w4', n:'Week 4', range:'3–7 Aug'},
-  {key:'w5', n:'Week 5', range:'10–14 Aug'},
-  {key:'w6', n:'Week 6', range:'17–21 Aug'},
+const BASES = {
+  steglitz: { label: 'Steglitz', lat: 52.4555, lng: 13.3225, colour: 'var(--terra)' },
+  spandau:  { label: 'Spandau',  lat: 52.5352, lng: 13.1998, colour: 'var(--berry)' },
+};
+
+// Only the days both her London school and Berlin schools are off.
+const HOLIDAYS = [
+  {
+    key: 'oct26', label: 'October', long: 'October 2026', kind: 'open',
+    span: ['2026-10-17', '2026-11-01'],
+    london: ['2026-10-17', '2026-11-01', 'London half-term'],
+    berlin: ['2026-10-19', '2026-11-01', 'Herbstferien'],
+    overlapText: 'Both weeks line up.',
+    note: 'Her half-term (19–30 Oct) sits entirely inside Berlin’s Herbstferien (19–31 Oct), so every October camp week works.',
+    weeks: [
+      { key: 'oct26-1', label: '19–23 Oct', days: ['Mon 19', 'Tue 20', 'Wed 21', 'Thu 22', 'Fri 23'] },
+      { key: 'oct26-2', label: '26–30 Oct', days: ['Mon 26', 'Tue 27', 'Wed 28', 'Thu 29', 'Fri 30'] },
+    ],
+  },
+  {
+    key: 'easter27', label: 'Easter', long: 'Easter 2027', kind: 'watch',
+    span: ['2027-03-20', '2027-04-12'],
+    london: ['2027-03-26', '2027-04-12', 'London Easter holiday'],
+    berlin: ['2027-03-22', '2027-04-03', 'Osterferien'],
+    overlapText: 'Four camp days: Tue 30 Mar – Fri 2 Apr.',
+    note: 'Berlin schools go back on 5 April; she’s off until 9 April. Good Friday (26 Mar) and Easter Monday (29 Mar) are public holidays in both countries, so camps that week run Tuesday to Friday at most. No provider has published Easter 2027 dates yet.',
+    weeks: [
+      { key: 'easter27-1', label: '30 Mar–2 Apr', days: ['Tue 30', 'Wed 31', 'Thu 1', 'Fri 2'] },
+    ],
+  },
+  {
+    key: 'summer27', label: 'Summer', long: 'Summer 2027', kind: 'watch',
+    span: ['2027-06-28', '2027-08-16'],
+    london: ['2027-07-23', '2027-08-16', 'London summer holiday'],
+    berlin: ['2027-07-01', '2027-08-15', 'Sommerferien'],
+    overlapText: 'Three weeks: 26 Jul – 13 Aug.',
+    note: 'Berlin’s summer holiday starts on 1 July and ends on 14 August; she breaks up on 22 July. The last three Berlin weeks are the ones to aim for. Summer 2027 camp dates aren’t out yet — this is who ran camps in those weeks in 2026.',
+    weeks: [
+      { key: 'summer27-1', label: '26–30 Jul', days: ['Mon 26', 'Tue 27', 'Wed 28', 'Thu 29', 'Fri 30'] },
+      { key: 'summer27-2', label: '2–6 Aug', days: ['Mon 2', 'Tue 3', 'Wed 4', 'Thu 5', 'Fri 6'] },
+      { key: 'summer27-3', label: '9–13 Aug', days: ['Mon 9', 'Tue 10', 'Wed 11', 'Thu 12', 'Fri 13'] },
+    ],
+  },
 ];
-const WEEKMAP = {}; WEEKS.forEach(w=>WEEKMAP[w.key]=w);
-const DAYS = ['Mon','Tue','Wed','Thu','Fri'];
 
 const CAMPS = [
   {
-    id:'c1', badge:'⚽', type:'Football', near:true,
-    name:'Hertha 03 Fußball-Feriencamp',
-    provider:'F.C. Hertha 03 Zehlendorf',
-    venue:'Ernst-Reuter-Sportfeld, Siebenendenweg, 14169 Berlin-Zehlendorf',
-    ages:'6–12', hours:'approx. 09:00–15:30 (early care from 07:45)',
-    price:'€159 non-members / €139 members per week', priceCheck:false,
-    lang:'German', weeks:['w1','w2','w3','w4','w5','w6'],
-    blurb:'Two daily football sessions plus meals and games — runs all six summer weeks.',
-    detail:'Full-day football camp at the Ernst-Reuter-Sportfeld. Two coached training sessions a day focused on technique, with breakfast, lunch, snacks and drinks included, plus games and supervision. A separate "Knöpfe-Camp" for ages 4–8 also runs every week if you prefer the youngest group.',
-    booking:'https://www.h03.de/feriencamps/feriencamp-anmeldung/',
-    source:'https://www.h03.de/feriencamps/', verified:true, note:''
+    id: 'h03-knoepfe', type: 'Football', name: 'Knöpfe-Camp', provider: 'F.C. Hertha 03 Zehlendorf',
+    venue: 'Ernst-Reuter-Sportfeld, Siebenendenweg, 14169 Berlin-Zehlendorf', lat: 52.4437, lng: 13.2539,
+    ages: '4–8', format: 'Full day', lang: 'German',
+    blurb: 'The club’s camp for its youngest footballers: breakfast together, two coached sessions and lunch in between.',
+    booking: 'https://www.h03.de/feriencamps/knoepfe-camp-anmeldung/', source: 'https://www.h03.de/feriencamps/',
+    sessions: {
+      oct26: {
+        weeks: ['oct26-1', 'oct26-2'],
+        hours: 'Arrive 8:30 on Monday, by 9:00 other days · training 10:00 and 13:30',
+        price: '€157 · club members €137',
+        included: 'Breakfast, lunch, drinks, snacks and a water bottle · early care from 7:45 (add it when booking)',
+        check: 'The finishing time isn’t stated — ask when you book.',
+      },
+      easter27: { watch: 'Ran at Easter 2026 (€145, members €125) — and that week sold out, so book as soon as dates appear.' },
+      summer27: { watch: 'Ran every week of summer 2026 (€159, members €139).' },
+    },
   },
   {
-    id:'c2', badge:'🤾', type:'Multi-sport', near:true,
-    name:'kidz-in-motion Multisport-Camp',
-    provider:'kidz-in-motion (at Berliner Hockey-Club)',
-    venue:'Ernst-Reuter-Sportanlage, Wilskistraße 70, 14163 Berlin-Zehlendorf',
-    ages:'5–13', hours:'08:00–17:00 (early care from 07:40)',
-    price:'€260 per week (+€20/family early care)', priceCheck:false,
-    lang:'German (English materials)', weeks:['w3','w4'],
-    blurb:'10+ ball & fun sports rotated through the week — hockey, lacrosse, tennis, rugby and more.',
-    detail:'A ZPP-certified prevention sports camp rotating through at least 10 different ball and movement sports (hockey, lacrosse, tennis, tag-rugby, baseball, unihockey, badminton, football, basketball, handball) plus coordination games. For children aged 6+, German statutory health insurers typically reimburse at least €75/week — ask the provider.',
-    booking:'https://www.kidz-in-motion.de/anmeldung/',
-    source:'https://www.kidz-in-motion.de/standorte/berlin-zehlendorf/', verified:true, note:''
+    id: 'galli-mitte', type: 'Theatre', name: 'Holiday theatre course', provider: 'Galli Theater Berlin',
+    venue: 'Galli Theater, Oranienburger Straße 32, 10117 Berlin-Mitte', lat: 52.5252, lng: 13.3939,
+    ages: '5–9', format: 'Half day', lang: 'German',
+    blurb: 'A week of acting, dance and song that ends with the children performing their own short play for family on Friday.',
+    booking: 'https://galli-berlin.de/info-anmeldung-2/', source: 'https://galli-berlin.de/theater-aktuell-3/kinder-ferien-theaterkurse/',
+    sessions: {
+      oct26: {
+        weeks: ['oct26-1', 'oct26-2'],
+        hours: '10:00–14:00',
+        price: '€200 a week (second child €160 in 2025)',
+        included: 'Led by Tommy Matuszewski (19–23 Oct) and Sina Haarmann (26–30 Oct), each with an assistant',
+        check: 'The 2026 page doesn’t repeat the age range; 5–9 comes from Galli’s 2025 listing on berlin.de. Confirm when booking.',
+      },
+      summer27: {
+        watch: 'In summer 2026 the courses ran at Domäne Dahlem (€200 a week, 10:00–14:00), including one week in English.',
+        venue: 'Domäne Dahlem, Königin-Luise-Straße 49, 14195 Berlin-Dahlem (2026 venue)', lat: 52.4594, lng: 13.2890,
+      },
+    },
   },
   {
-    id:'c3', badge:'🎾', type:'Tennis', near:true,
-    name:'Tennisschule Zehlendorf — Kids Camp',
-    provider:'Tennisschule Zehlendorf (NTC "Die Känguruhs")',
-    venue:'NTC Die Känguruhs e.V., Spanische Allee 170, 14129 Berlin-Nikolassee',
-    ages:'4–12', hours:'Check website',
-    price:'Check website', priceCheck:true,
-    lang:'Check website', weeks:['w1','w2','w4','w5','w6'],
-    blurb:'Week-long children’s tennis camp in the holidays. Age range covers 6 — confirm price & times.',
-    detail:'A week-long tennis camp for children during the school holidays, held at the NTC "Die Känguruhs" courts in Nikolassee. The provider’s page confirms the age range and the 2026 summer weeks below; daily hours and the price are not stated online, so please confirm by email/phone before booking. The week of 27–31 Jul is not offered at this Kids location, and 13–17 Jul may be waitlisted.',
-    booking:'https://tennisschule-zehlendorf.de/tenniscamps/',
-    source:'https://tennisschule-zehlendorf.de/tenniscamps/', verified:false,
-    note:'Daily hours, price and language were not listed on the provider page — confirm with info@tennisschule-zehlendorf.de. Age range and 2026 weeks are confirmed.'
+    id: 'kca-kreuzberg', type: 'English-language camp', name: 'English Kids Camp', provider: 'Kids Camp America (KCA)',
+    venue: 'Alte Feuerwache, Axel-Springer-Straße 40–41, 10969 Berlin-Kreuzberg', lat: 52.5077, lng: 13.3990,
+    ages: '5–12', format: 'Full day', lang: 'English',
+    blurb: 'A full day in English with native-speaking counsellors — sports and team games, baseball and archery, crafts, music and walks around the neighbourhood.',
+    booking: 'https://kidscampamerica.com/de/kca_camps/berlin-kreuzberg-englisch-kids-camp-herbstferien/', source: 'https://kidscampamerica.com/de/kca_camps/berlin-kreuzberg-englisch-kids-camp-herbstferien/',
+    sessions: {
+      oct26: {
+        weeks: ['oct26-1', 'oct26-2'],
+        hours: '9:00–17:00, Monday to Friday',
+        price: '€395 a week',
+        included: 'Warm lunch every day',
+      },
+      summer27: {
+        watch: 'The only Berlin summer 2027 camp KCA lists so far is in Tiergarten on 5–16 July — before she breaks up. They ran a Kreuzberg summer camp in 2026, so check back for later weeks.',
+      },
+    },
   },
   {
-    id:'c4', badge:'🏅', type:'Multi-sport', near:true,
-    name:'TuSLi Feriencamp',
-    provider:'TuS Lichterfelde 1887 e.V.',
-    venue:'Stadion Lichterfelde, Berlin-Lichterfelde (sports hall in bad weather)',
-    ages:'Check website', hours:'08:30–16:00',
-    price:'€170 members / €190 non-members (incl. T-shirt, cap, bag)', priceCheck:false,
-    lang:'German', weeks:[], allHoliday:true,
-    blurb:'Games, sport and fun at Stadion Lichterfelde — confirm your child’s age group & exact weeks.',
-    detail:'A varied games-sport-and-fun programme run by TuSLi’s trainers at Stadion Lichterfelde, with a sports hall used in bad weather. Online registration is via Yolawo. The provider page does not state the exact age groups or the specific 2026 summer week dates, so confirm that a 6-year-old is eligible and which Mon–Fri weeks run before booking.',
-    booking:'https://tusli.de/veranstaltungen/tusli-feriencamps/',
-    source:'https://tusli.de/veranstaltungen/tusli-feriencamps/', verified:false,
-    note:'Age range and exact 2026 summer weeks were NOT stated on the provider page — confirm a 6-year-old is eligible and which weeks run. Hours and price are confirmed.'
+    id: 'young-engineers', type: 'Lego, robotics & coding', name: 'Lego mechanics, Minecraft & robotics camp', provider: 'Young Engineers Berlin',
+    venue: 'Grimmstraße 10, 10967 Berlin-Kreuzberg', lat: 52.4932, lng: 13.4130,
+    ages: '5–14', format: 'Half or full day', lang: 'German & English',
+    blurb: 'Building moving models with Lego-compatible bricks, then simple block coding in Minecraft and robotics — grouped by age.',
+    booking: 'https://www.kindaling.de/programmiercamps/lego-mechanic-minecraft-programmierung-robotik-de-en/berlin-kreuzberg',
+    source: 'https://www.kindaling.de/programmiercamps/lego-mechanic-minecraft-programmierung-robotik-de-en/berlin-kreuzberg',
+    listing: 'Kindaling booking page',
+    sessions: {
+      oct26: {
+        weeks: ['oct26-1', 'oct26-2'],
+        hours: '10:00–13:00 or 13:00–16:00 · full day 10:00–16:00',
+        price: '€280 a week half day · €440 full day (€420 if booked by 30 Sept) · €15 off each sibling',
+        check: 'Details are from the Kindaling booking page, not Young Engineers’ own site — confirm the youngest group runs in your week.',
+      },
+      easter27: { watch: 'Ran an Easter camp in 2026 for ages 5–14.' },
+      summer27: { watch: 'Ran all six weeks of summer 2026 (€280 half day, €440 full day).' },
+    },
   },
   {
-    id:'c5', badge:'🎭', type:'Drama', near:true,
-    name:'Galli Sommerferien-Theaterkurs',
-    provider:'Galli Theater Berlin',
-    venue:'Domäne Dahlem, Königin-Luise-Straße 49, 14195 Berlin-Dahlem',
-    ages:'5–9', hours:'10:00–14:00',
-    price:'€200 per week (confirm 2026 rate & sibling discount)', priceCheck:false,
-    lang:'German (one English week: 20–24 Jul)', weeks:['w2','w3'],
-    blurb:'Playful theatre at the Domäne Dahlem farm — rehearse a piece and perform it on Friday.',
-    detail:'Children learn theatre basics through play, acting, dance and song using the Galli method, rehearse a short piece across the week and perform it for family on Friday — set at the lovely Domäne Dahlem estate. One week (20–24 Jul) is offered in English (ages 5–9). The €200 price is from Galli’s 2026 summer listing; an older detail page still showed 2025 pricing, so confirm the final 2026 price and sibling discount.',
-    booking:'https://galli-berlin.de/theater-aktuell-3/kinder-ferien-theaterkurse/',
-    source:'https://galli-berlin.de/theater-aktuell-3/kinder-ferien-theaterkurse/', verified:false,
-    note:'2026 price (€200) is from the provider’s summer listing but a detail page still showed 2025 info — confirm the final 2026 price and sibling discount.'
+    id: 'swimkids-moabit', type: 'Swimming', name: 'Holiday intensive swimming course', provider: 'Swimkids Berlin',
+    venue: 'Swimkids’ Moabit pool — exact address given when booking', lat: 52.5301, lng: 13.3425, approx: true,
+    ages: '3½–10 for Seepferdchen · 5–12 for Bronze and Silver', format: 'Short daily lessons', lang: 'German',
+    blurb: 'A lesson every day for a week to work towards the Seepferdchen badge — or Bronze and Silver for confident swimmers.',
+    booking: 'https://www.schwimmschule-swimkids.de/intensivkurse/show/12648/', source: 'https://www.schwimmschule-swimkids.de/intensivkurse/show/21744/',
+    sessions: {
+      oct26: {
+        weeks: ['oct26-1', 'oct26-2'],
+        hours: 'Lesson times are chosen when booking',
+        price: 'Course fee shown when booking · badge exam €20 (Seepferdchen) or €25 · pool entry included',
+        included: 'Full refund if you cancel 5 or more days before the start',
+        check: 'The pool address, lesson length and course fee only appear during online booking. The map pin is the middle of Moabit.',
+      },
+      easter27: { watch: 'Swimkids run intensive courses in the Berlin school holidays — Easter 2027 dates aren’t listed yet.' },
+      summer27: { watch: 'Ran courses in all six weeks of summer 2026 in Moabit.' },
+    },
   },
   {
-    id:'c6', badge:'🎨', type:'Arts & crafts', near:true,
-    name:'Art Space — Sommer Art Camp',
-    provider:'Art Space Berlin',
-    venue:'Art Space Berlin, Dahlmannstraße 11, 10629 Berlin-Wilmersdorf',
-    ages:'6–13', hours:'Half-day 10:15–13:00 or 13:00–16:00; full day 10:15–16:00',
-    price:'€339.90/week half-day · €439.90/week full day', priceCheck:false,
-    lang:'German', weeks:['w1','w4','w5','w6'],
-    blurb:'Painting, drawing, ceramics and textile design, with creative sessions in the park.',
-    detail:'A creative camp covering painting, drawing, clay/ceramics, T-shirt & textile design and craft projects, plus outdoor creative time in the nearby park. Both half-day and full-day options are offered. Note: the provider showed slightly different week sets across pages and some weeks as sold out — confirm the exact week and live availability at booking.',
-    booking:'https://www.artspace.berlin/products/products-sommer-art-camp-berlin-2026',
-    source:'https://www.artspace.berlin/products/products-sommer-art-camp-berlin-2026', verified:false,
-    note:'Exact week list differed between provider pages and some weeks showed sold out — confirm dates and availability at booking.'
+    id: 'kidz-in-motion', type: 'Multi-sport', name: 'Multisport camp', provider: 'kidz-in-motion',
+    venue: 'Ernst-Reuter-Sportanlage (Berliner Hockey-Club), Wilskistraße 70, 14163 Berlin-Zehlendorf', lat: 52.4464, lng: 13.2480,
+    ages: '5–13 (must be 5 on the first day)', format: 'Full day', lang: 'German (English flyer)',
+    blurb: 'Ten-plus sports rotated through the week — hockey, lacrosse, tennis, tag rugby, football and more.',
+    booking: 'https://www.kidz-in-motion.de/anmeldung/', source: 'https://www.kidz-in-motion.de/standorte/berlin-zehlendorf/',
+    sessions: {
+      summer27: {
+        watch: 'In 2026 it ran 27 Jul–7 Aug, 8:00–17:00, €260 a week with a hot vegetarian lunch and early care from 7:40 (€20 per family). No October camp at this site.',
+      },
+    },
   },
   {
-    id:'c7', badge:'🎪', type:'Circus', near:false,
-    name:'Circus Schatzinsel — Zirkusworkshop',
-    provider:'Circus Schatzinsel',
-    venue:'Circus Schatzinsel, May-Ayim-Ufer 4, 10997 Berlin-Kreuzberg',
-    ages:'6–12', hours:'10:00–15:00',
-    price:'€195 regular / €115 reduced per week (warm lunch incl.)', priceCheck:false,
-    lang:'German', weeks:['w1','w5','w6'],
-    blurb:'Kids devise their own circus show — acrobatics, juggling, costumes — and perform it.',
-    detail:'Children create their own circus show from scratch: choosing a theme, training disciplines like acrobatics and juggling, building choreography, costumes and music, finishing with a performance. A warm vegetarian lunch is included, and a reduced rate is available.',
-    booking:'https://www.circus-schatzinsel.de/ferien-circus',
-    source:'https://www.circus-schatzinsel.de/ferien-circus', verified:true, note:''
+    id: 'spandau04-camp', type: 'Swimming & play camp', name: 'Summer holiday camp', provider: 'Wasserfreunde Spandau 04',
+    venue: 'Clubhaus Alfreds, Olympiapark Berlin, Westend', lat: 52.5160, lng: 13.2330, approx: true,
+    ages: '4–9', format: 'Full day', lang: 'German',
+    blurb: 'Swimming lessons in the Olympiapark pool mixed with games, activities and outings.',
+    booking: 'https://spandau04.de/schwimmen/schwimmkurse/feriencamp/', source: 'https://spandau04.de/allgemein/sommerferiencamp-2026-in-berlin-schwimmen-im-olympiapark/',
+    sessions: {
+      summer27: {
+        watch: 'In summer 2026: 9:00–16:00 (drop-off from 8:45), €350 a week or €50 off two weeks, with lunch, snacks and drinks. Summer only.',
+      },
+    },
   },
   {
-    id:'c8', badge:'🐐', type:'City farm', near:false,
-    name:'Kinderbauernhof ufaFabrik — Sommerprogramm',
-    provider:'Kinderbauernhof ufaFabrik (NUSZ)',
-    venue:'Viktoriastraße 13, 12105 Berlin-Tempelhof',
-    ages:'from 6', hours:'Holiday programme from 10:00 (closed Mondays)',
-    price:'Check website', priceCheck:true,
-    lang:'German', weeks:[], allHoliday:true,
-    blurb:'Animals, games and crafts on a city farm — runs across the summer holidays.',
-    detail:'A children’s city farm running a summer holiday programme of animal care and feeding, movement, games, crafts, riding/dancing and small excursions. General visiting is usually free, but some special holiday activities need advance registration and may carry a fee — check the current weekly programme.',
-    booking:'https://kinderbauernhof.nusz.de/',
-    source:'https://kinderbauernhof.nusz.de/', verified:false,
-    note:'Exact price, the week-by-week programme, and which activities are registration-only were not confirmable online — check the current programme.'
-  },
-  {
-    id:'c9', badge:'🌲', type:'Forest / nature', near:false,
-    name:'Waldschule Plänterwald — Waldferienwoche',
-    provider:'Waldschule Plänterwald (INU gGmbH / Berliner Forsten)',
-    venue:'Dammweg 1B, 12437 Berlin-Plänterwald (Treptow)',
-    ages:'6–10 (July week)', hours:'Check website',
-    price:'~€25 per day — Check website', priceCheck:true,
-    lang:'German', weeks:['w1'],
-    blurb:'A full week in the forest — den-building, carving, tracking and nature games.',
-    detail:'A forest-school holiday week: tracking, building shelters, carving, exploring and nature games in the Plänterwald. The 13–17 Jul week is for ages 6–10 (a later August week is 8–12, so not a fit for a 6-year-old). Registration opens 8 May 2026 by email only. The ~€25/day figure and daily hours come from listings, not the provider’s own page — confirm directly.',
-    booking:'http://www.inu-waldschulen.de/ws-plaenterwald-angebote.html',
-    source:'https://www.berlin.de/forsten/waldbildung/waldschulen-und-lehrkabinett/waldschule-plaenterwald/', verified:false,
-    note:'The provider’s own page was unreachable; age & July date are from Berliner Forsten listings. Confirm hours and the ~€25/day price by email.'
-  },
-  {
-    id:'c10', badge:'🤖', type:'Robotics / coding', near:false,
-    name:'Liga der Roboter — Feriencamp',
-    provider:'Liga der Roboter',
-    venue:'Chausseestraße 84, 10115 Berlin-Mitte (several Berlin sites)',
-    ages:'6–10', hours:'5 days, approx. 6 hrs/day — Check website',
-    price:'€375/week new · €350 returning (one themed week €299)', priceCheck:false,
-    lang:'German', weeks:['w1','w2','w3','w4','w5','w6'],
-    blurb:'Build & program Lego robots, plus Minecraft and Scratch — a new theme each week.',
-    detail:'Week-long themed tech camps building and programming Lego robots, with Minecraft, Scratch and themed coding (Ninjago, Super Mario, Hot Wheels), outdoor movement and fresh meals included. Each of the six summer weeks has a different theme. Exact daily times and which Berlin venue hosts each week aren’t stated online — confirm before booking. (Nearest site is Mitte — not Steglitz.)',
-    booking:'https://ligaderroboter.de/ferienprogramm-berlin',
-    source:'https://ligaderroboter.de/ferienprogramm-berlin', verified:false,
-    note:'Exact daily start/end times and the specific venue per week were not stated — confirm before booking.'
-  },
-  {
-    id:'c11', badge:'🧩', type:'STEM / maker', near:false,
-    name:'Young Engineers — Lego, Minecraft & Robotics',
-    provider:'Young Engineers Berlin',
-    venue:'Grimmstraße 10, 10967 Berlin-Kreuzberg',
-    ages:'5–14', hours:'10:00–13:00, 13:00–16:00, or full day 10:00–16:00',
-    price:'€280/week (3 hrs) · €440/week (full day)', priceCheck:false,
-    lang:'Bilingual (German / English)', weeks:['w1','w2','w3','w4','w5','w6'],
-    blurb:'Hands-on Lego-mechanics builds plus block-based Minecraft coding and robotics. Bilingual.',
-    detail:'Hands-on, age-scaled camps combining Lego-compatible mechanics builds with block-based Minecraft coding, AI programming and robotics (Arduino/Raspberry Pi). Half-day or full-day options with sibling discounts. Runs in German and English. Confirm on the booking portal that the youngest (age-5/6) group runs in your chosen week.',
-    booking:'https://www.kindaling.de/tagescamps-ohne-uebernachtung/lego-mechanik-minecraft-programmierung-robotik-de-en/berlin-kreuzberg',
-    source:'https://youngengineers.org/franchise_locations/young-engineers-berlin-friedrichshain-kreuzberg-center/', verified:false,
-    note:'Confirm on the booking portal that the youngest age band runs in your chosen week (some weeks/age-bands may vary).'
-  },
-  {
-    id:'c12', badge:'🔬', type:'Science', near:false,
-    name:'Forscherferien — Gläsernes Labor',
-    provider:'Gläsernes Labor (Campus Berlin-Buch)',
-    venue:'Robert-Rössle-Str. 10, 13125 Berlin-Buch',
-    ages:'6–12', hours:'Half-day & full-day options — Check website',
-    price:'€30 per full day (lunch +€6); half-day Check website', priceCheck:false,
-    lang:'German', weeks:['w1','w5','w6'],
-    blurb:'Real hands-on science with scientists — experiments in the lab, themed crafts after.',
-    detail:'Supervised hands-on science led by real scientists — experiments such as fuel cells, biology and making cosmetics, with related crafts and play in the afternoon. Excellent value at €30/full day. Note: Berlin-Buch is in the far north-east, well outside Steglitz, so factor in travel. Confirm daily hours, the half-day price and the age-6 band per week.',
-    booking:'https://www.forscherferien-berlin.de/',
-    source:'https://www.forscherferien-berlin.de/de/preise', verified:false,
-    note:'Exact daily hours, half-day price, and whether the age-6 band runs each listed week were not confirmable — check before booking. Location is far from Steglitz.'
+    id: 'spandau04-intensive', type: 'Swimming', name: 'Holiday intensive swimming courses', provider: 'Wasserfreunde Spandau 04',
+    venue: 'Forumbad, Olympiapark Berlin, Westend', lat: 52.5165, lng: 13.2345, approx: true,
+    ages: '4–16', format: 'Short daily lessons', lang: 'German',
+    blurb: 'Monday-to-Friday swimming courses in a 26°C pool, with several time slots each week.',
+    booking: 'https://spandau04.de/schwimmen/schwimmkurse/ferienintensivkurse/', source: 'https://spandau04.de/schwimmen/ferienintensivkurse-2026-in-berlin-schwimmen-lernen-in-den-sommerferien/',
+    sessions: {
+      summer27: {
+        watch: 'Ran in all six weeks of summer 2026. The price isn’t on the page.',
+      },
+    },
   },
 ];
-const CAMPMAP = {}; CAMPS.forEach(c=>CAMPMAP[c.id]=c);
 
-/* Which weeks to show a camp under (allHoliday => every week) */
-function campWeeks(c){ return c.allHoliday ? WEEKS.map(w=>w.key) : c.weeks; }
+const ALSO_CHECKED = [
+  'Sportkinder Berlin, Spandau — October programmes start at age 8 (and were sold out)',
+  'Waldschule Spandau forest week — ages 8–12',
+  '“Herbstferien ohne Kofferpacken”, Charlottenburg — ages 6–14',
+  'Zehlendorf 88 hockey camp — children born 2014–2018',
+  'Jugend im Museum holiday courses — youngest age 6',
+  'Sports Island Berlin October camps — age 8 and up',
+  'TuS Lichterfelde camps — no October dates or age groups published',
+  'Kindersprachclub, Wilmersdorf — takes age 5, but these are 2-hour language classes rather than camps',
+  'Summer 2026 favourites Art Space, Circus Schatzinsel, Liga der Roboter and Forscherferien — all 6+',
+];
 
 /* ============================================================
-   STATE (localStorage)
+   STATE (this device only)
    ============================================================ */
-const LS = {
-  child:'hc_child', circle:'hc_circle', plans:'hc_plans',
-  saved:'hc_saved', friends:'hc_friends'
+const LS = { base: 'bhc_base', holiday: 'bhc_holiday', saved: 'bhc_saved', plans: 'bhc_plans', child: 'bhc_child', circle: 'bhc_circle', friends: 'bhc_friends' };
+function load(k, d) { try { const v = localStorage.getItem(k); return v ? JSON.parse(v) : d; } catch (e) { return d; } }
+function save(k, v) { try { localStorage.setItem(k, JSON.stringify(v)); } catch (e) {} }
+
+const state = {
+  base: load(LS.base, 'steglitz'),
+  holiday: load(LS.holiday, 'oct26'),
+  week: 'all',
+  savedOnly: false,
+  saved: load(LS.saved, []),
+  plans: load(LS.plans, {}),      // { campId: { weekKey: [dayIndex] } }
+  child: load(LS.child, ''),
+  circle: load(LS.circle, ''),
+  friends: load(LS.friends, []),  // [{ n, c, p }]
+  hot: null,
 };
-function load(k,def){ try{const v=localStorage.getItem(k);return v?JSON.parse(v):def;}catch(e){return def;} }
-function save(k,v){ localStorage.setItem(k, JSON.stringify(v)); }
+if (!BASES[state.base]) state.base = 'steglitz';
+if (!HOLIDAYS.some((h) => h.key === state.holiday)) state.holiday = 'oct26';
 
-let childName = load(LS.child,'') || '';
-let circleName = load(LS.circle,'') || '';
-let plans = load(LS.plans,{}) || {};      // { campId: { weekKey:[dayIdx,...] } }
-let saved = load(LS.saved,[]) || [];      // [campId,...]
-let friends = load(LS.friends,[]) || [];  // [{n,c,p}]
+const $ = (id) => document.getElementById(id);
+const esc = (s) => String(s).replace(/[&<>"']/g, (m) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[m]));
+const holiday = () => HOLIDAYS.find((h) => h.key === state.holiday);
+const weekOf = (key) => HOLIDAYS.flatMap((h) => h.weeks).find((w) => w.key === key);
 
-/* ============================================================
-   RENDER — Summer by-week
-   ============================================================ */
-let activeWeek = 'all';
-
-function el(html){ const t=document.createElement('template'); t.innerHTML=html.trim(); return t.content.firstChild; }
-
-function countForWeek(wk){ return CAMPS.filter(c=>campWeeks(c).includes(wk)).length; }
-
-function renderWeekbar(){
-  const bar = document.getElementById('weekbar');
-  bar.innerHTML='';
-  bar.appendChild(weekBtn('all','All weeks', CAMPS.length+' camps'));
-  WEEKS.forEach(w=>{
-    bar.appendChild(weekBtn(w.key, w.n, w.range));
-  });
+function km(a, b) {
+  const R = 6371, rad = Math.PI / 180;
+  const dLat = (b.lat - a.lat) * rad, dLng = (b.lng - a.lng) * rad;
+  const x = Math.sin(dLat / 2) ** 2 + Math.cos(a.lat * rad) * Math.cos(b.lat * rad) * Math.sin(dLng / 2) ** 2;
+  return 2 * R * Math.asin(Math.sqrt(x));
 }
-function weekBtn(key,label,sub){
-  const b = el(`<button class="wbtn ${activeWeek===key?'active':''}" data-wk="${key}">${label}<small>${sub}</small></button>`);
-  b.onclick = ()=>{ activeWeek=key; renderWeekbar(); renderWeeks(); window.scrollTo({top:0,behavior:'smooth'}); };
-  return b;
-}
+const place = (c, s) => (s && s.lat ? { lat: s.lat, lng: s.lng, venue: s.venue } : { lat: c.lat, lng: c.lng, venue: c.venue });
+function band(d) { return d <= 5 ? 'close by' : d <= 10 ? 'a short trip' : d <= 15 ? 'across town' : 'a trek'; }
 
-function planDaysFor(campId, wk){
-  return (plans[campId] && plans[campId][wk]) ? plans[campId][wk] : [];
-}
-
-function cardEl(c, wk){
-  const isSaved = saved.includes(c.id);
-  const myDays = planDaysFor(c.id, wk);
-  const priceChip = c.priceCheck
-    ? `<span class="chip check">Price: Check website</span>`
-    : `<span class="chip price">${c.price.split(' (')[0]}</span>`;
-  const dateChip = c.allHoliday
-    ? `<span class="chip date">All holiday · check weeks</span>`
-    : `<span class="chip date">${WEEKMAP[wk]?WEEKMAP[wk].range:''}</span>`;
-  const nearChip = c.near ? `<span class="chip near">📍 Near Steglitz</span>` : `<span class="chip">📍 Wider Berlin</span>`;
-  const goingChip = myDays.length ? `<span class="chip going">✓ ${myDays.length} day${myDays.length>1?'s':''} picked</span>` : '';
-  const card = el(`
-    <div class="card" data-id="${c.id}" data-wk="${wk}">
-      <div class="c-top">
-        <div class="c-badge">${c.badge}</div>
-        <div style="flex:1;min-width:0">
-          <div class="c-type">${c.type}</div>
-          <div class="c-name">${c.name}</div>
-        </div>
-        <button class="heart ${isSaved?'on':''}" data-heart="${c.id}" title="Save">${isSaved?'♥':'♡'}</button>
-      </div>
-      <div class="c-meta">
-        <span><b>Ages ${c.ages}</b> · ${c.lang}</span>
-        <span>${c.venue}</span>
-      </div>
-      <div class="c-blurb">${c.blurb}</div>
-      <div class="c-foot">${dateChip}${priceChip}${nearChip}${goingChip}</div>
-    </div>`);
-  card.querySelector('[data-heart]').onclick = (e)=>{ e.stopPropagation(); toggleSave(c.id); };
-  card.onclick = ()=> openModal(c.id, wk);
-  return card;
-}
-
-function renderWeeks(){
-  const host = document.getElementById('weeks');
-  host.innerHTML='';
-  const wks = activeWeek==='all' ? WEEKS : WEEKS.filter(w=>w.key===activeWeek);
-  wks.forEach(w=>{
-    const camps = CAMPS.filter(c=>campWeeks(c).includes(w.key));
-    const sec = el(`<div class="weeksec">
-      <div class="weekhd"><h2>${w.n}</h2><span class="rng">${w.range}</span><span class="cnt">${camps.length} camp${camps.length!==1?'s':''}</span></div>
-      <div class="grid"></div></div>`);
-    const grid = sec.querySelector('.grid');
-    camps.forEach(c=> grid.appendChild(cardEl(c, w.key)));
-    host.appendChild(sec);
-  });
+function toast(msg) {
+  const t = document.createElement('div');
+  t.className = 'toast'; t.setAttribute('role', 'status'); t.textContent = msg;
+  document.body.appendChild(t);
+  setTimeout(() => t.remove(), 2400);
 }
 
 /* ============================================================
-   MODAL
+   RENDER
    ============================================================ */
-const modalBg = document.getElementById('modalBg');
-const modal = document.getElementById('modal');
+function visibleCamps() {
+  const h = holiday();
+  return CAMPS
+    .filter((c) => c.sessions[h.key])
+    .filter((c) => state.week === 'all' || c.sessions[h.key].watch || (c.sessions[h.key].weeks || []).includes(state.week))
+    .filter((c) => !state.savedOnly || state.saved.includes(c.id))
+    .map((c) => {
+      const s = c.sessions[h.key];
+      const p = place(c, s);
+      return { c, s, p, d: km(BASES[state.base], p), dOther: km(BASES[state.base === 'steglitz' ? 'spandau' : 'steglitz'], p), dAll: { steglitz: km(BASES.steglitz, p), spandau: km(BASES.spandau, p) } };
+    })
+    .sort((a, b) => (a.s.watch ? 1 : 0) - (b.s.watch ? 1 : 0) || a.d - b.d);
+}
 
-function openModal(id, wk){
-  const c = CAMPMAP[id];
-  const isSaved = saved.includes(id);
-  const priceRow = c.priceCheck ? `Check website` : c.price;
-  let noteHtml = c.note ? `<div class="m-note">⚠️ ${c.note}</div>` : '';
-  let verifiedTag = c.verified
-    ? `<span class="chip near" style="margin-left:4px">✓ Fully verified</span>`
-    : `<span class="chip check" style="margin-left:4px">Some details: Check website</span>`;
+function renderControls() {
+  $('holidaySeg').innerHTML = HOLIDAYS.map((h) =>
+    `<button type="button" data-holiday="${h.key}" aria-pressed="${h.key === state.holiday}">${esc(h.label)}</button>`).join('');
+  $('baseSeg').innerHTML = Object.entries(BASES).map(([k, b]) =>
+    `<button type="button" data-base="${k}" aria-pressed="${k === state.base}"><span class="pin" style="background:${b.colour}"></span>${esc(b.label)}</button>`).join('');
+  const h = holiday();
+  const count = (wk) => CAMPS.filter((c) => c.sessions[h.key] && (wk === 'all' || c.sessions[h.key].watch || (c.sessions[h.key].weeks || []).includes(wk))).length;
+  $('weekChips').innerHTML =
+    `<button type="button" class="chip" data-week="all" aria-pressed="${state.week === 'all'}">Every week <span class="n">${count('all')}</span></button>` +
+    h.weeks.map((w) => `<button type="button" class="chip" data-week="${w.key}" aria-pressed="${state.week === w.key}">${esc(w.label)} <span class="n">${count(w.key)}</span></button>`).join('') +
+    `<button type="button" class="chip" data-saved aria-pressed="${state.savedOnly}">Saved <span class="n">${state.saved.filter((id) => CAMPS.some((c) => c.id === id && c.sessions[h.key])).length}</span></button>`;
+}
 
-  modal.innerHTML = `
-    <div class="m-head">
-      <div class="m-badge">${c.badge}</div>
-      <div class="m-htext">
-        <div class="m-type">${c.type} ${verifiedTag}</div>
-        <div class="m-name">${c.name}</div>
-      </div>
-      <button class="m-close" id="mClose">✕</button>
+function renderTally() {
+  const open = CAMPS.filter((c) => c.sessions.oct26).length;
+  const near = CAMPS.filter((c) => c.sessions.oct26 && km(BASES[state.base], place(c, c.sessions.oct26)) <= 10).length;
+  const watch = CAMPS.filter((c) => c.sessions.easter27 || c.sessions.summer27).length;
+  $('tally').innerHTML =
+    `<li><b>${open}</b> bookable in October</li>` +
+    `<li><b>${near}</b> within 10 km of ${esc(BASES[state.base].label)}</li>` +
+    `<li><b>${watch}</b> to watch for 2027</li>`;
+}
+
+function renderOverlap() {
+  const h = holiday();
+  const t0 = Date.parse(h.span[0]), t1 = Date.parse(h.span[1]);
+  const pct = (d) => ((Date.parse(d) - t0) / (t1 - t0)) * 100;
+  const bar = (cls, a, b, text) => `<div class="tl-bar ${cls}" style="left:${pct(a)}%;width:${pct(b) - pct(a)}%">${esc(text)}</div>`;
+  const oStart = h.london[0] > h.berlin[0] ? h.london[0] : h.berlin[0];
+  const oEnd = h.london[1] < h.berlin[1] ? h.london[1] : h.berlin[1];
+  const ticks = [];
+  const fmt = (t) => new Date(t).toLocaleDateString('en-GB', { day: 'numeric', month: 'short', timeZone: 'UTC' });
+  for (let t = t0; t <= t1; t += 7 * 86400000) ticks.push(`<span style="left:${((t - t0) / (t1 - t0)) * 100}%">${fmt(t)}</span>`);
+  $('overlap').innerHTML = `
+    <div class="overlap-head"><h2>${esc(h.long)}</h2><span class="pill ${h.kind === 'open' ? 'ok' : 'warn'}"><i></i>${esc(h.overlapText)}</span></div>
+    <div class="tl" aria-hidden="true">
+      <span class="tl-name">London</span><div class="tl-track">${bar('london', h.london[0], h.london[1], h.london[2])}</div>
+      <span class="tl-name">Berlin</span><div class="tl-track">${bar('berlin', h.berlin[0], h.berlin[1], h.berlin[2])}</div>
+      <span class="tl-name">Camp weeks</span><div class="tl-track">${bar('both', oStart, oEnd, 'Both off')}</div>
+      <div class="tl-axis">${ticks.join('')}</div>
     </div>
-    <div class="m-body">
-      <div class="m-row"><span class="k">Provider</span><span class="v">${c.provider}</span></div>
-      <div class="m-row"><span class="k">Venue</span><span class="v">${c.venue}</span></div>
-      <div class="m-row"><span class="k">Ages</span><span class="v">${c.ages}</span></div>
-      <div class="m-row"><span class="k">Hours</span><span class="v">${c.hours}</span></div>
-      <div class="m-row"><span class="k">Price</span><span class="v">${priceRow}</span></div>
-      <div class="m-row"><span class="k">Language</span><span class="v">${c.lang}</span></div>
-      <div class="m-row"><span class="k">Summer weeks</span><span class="v">${weeksText(c)}</span></div>
-      <div class="m-detail">${c.detail}</div>
-      ${noteHtml}
-      <div id="dpHost"></div>
-      <a class="btn primary" href="${c.booking}" target="_blank" rel="noopener" style="margin-top:14px">Book / find out more →</a>
-      <div class="btn-row">
-        <button class="btn ghost" id="mSave" style="flex:1">${isSaved?'♥ Saved':'♡ Save'}</button>
-        <button class="btn ghost" id="mFriends" style="flex:1">👫 Share days</button>
-      </div>
-      <div class="m-source">Source checked: <a href="${c.source}" target="_blank" rel="noopener">${c.source}</a></div>
-    </div>`;
-  buildDayPicker(c);
-  document.getElementById('mClose').onclick = closeModal;
-  document.getElementById('mSave').onclick = ()=>{ toggleSave(c.id); openModal(id, wk); };
-  document.getElementById('mFriends').onclick = ()=>{ closeModal(); switchTab('friends'); };
-  modalBg.classList.add('open');
-  document.body.style.overflow='hidden';
-}
-function closeModal(){ modalBg.classList.remove('open'); document.body.style.overflow=''; }
-modalBg.onclick = (e)=>{ if(e.target===modalBg) closeModal(); };
-
-function weeksText(c){
-  if(c.allHoliday) return 'Runs across the holiday — <b>Check website</b> for exact weeks';
-  return c.weeks.map(k=>WEEKMAP[k].range).join(' · ');
+    <p class="note">${esc(h.note)}</p>`;
 }
 
-function buildDayPicker(c){
-  const host = document.getElementById('dpHost');
-  const wks = campWeeks(c);
-  let inner = `<div class="dp"><h4>📅 Which days is ${childName? childName : 'your child'} going?</h4>
-    <p class="hint">Tap days to mark them. Saved on this device and shared only when you create a link.${c.allHoliday?' (Exact weeks not confirmed online — pick provisionally.)':''}</p>`;
-  wks.forEach(wk=>{
-    const sel = planDaysFor(c.id, wk);
-    inner += `<div class="dp-week"><div class="wk">${WEEKMAP[wk].n} · ${WEEKMAP[wk].range}</div><div class="days" data-wk="${wk}">`;
-    DAYS.forEach((d,i)=>{
-      inner += `<div class="day ${sel.includes(i)?'on':''}" data-d="${i}">${d}</div>`;
-    });
-    inner += `</div></div>`;
-  });
-  inner += `</div>`;
-  host.innerHTML = inner;
-  host.querySelectorAll('.day').forEach(dayEl=>{
-    dayEl.onclick = ()=>{
-      const wk = dayEl.parentElement.getAttribute('data-wk');
-      const di = parseInt(dayEl.getAttribute('data-d'),10);
-      toggleDay(c.id, wk, di);
-      dayEl.classList.toggle('on');
-    };
-  });
+function distRows(item) {
+  const max = 20;
+  return `<div class="dist">` + ['steglitz', 'spandau'].map((k) => {
+    const d = item.dAll[k], on = k === state.base;
+    return `<span class="who ${on ? 'on' : ''}">From ${esc(BASES[k].label)}</span>
+      <span class="bar ${on ? 'on' : ''}"><i style="width:${Math.min(100, (d / max) * 100)}%"></i></span>
+      <span class="km">${d.toFixed(d < 10 ? 1 : 0)} km</span>`;
+  }).join('') + `</div>`;
 }
 
-function toggleDay(campId, wk, di){
-  if(!plans[campId]) plans[campId]={};
-  if(!plans[campId][wk]) plans[campId][wk]=[];
-  const arr = plans[campId][wk];
-  const idx = arr.indexOf(di);
-  if(idx>=0) arr.splice(idx,1); else arr.push(di);
-  arr.sort((a,b)=>a-b);
-  if(arr.length===0) delete plans[campId][wk];
-  if(Object.keys(plans[campId]).length===0) delete plans[campId];
-  save(LS.plans, plans);
-  refreshDynamic();
+function dayPicker(c, s) {
+  const plan = state.plans[c.id] || {};
+  return `<div class="weeks">` + (s.weeks || []).map((wk) => {
+    const w = weekOf(wk), picked = plan[wk] || [];
+    return `<div class="week"><span class="week-name">${esc(w.label)}</span>` +
+      w.days.map((d, i) => `<button type="button" class="day" data-camp="${c.id}" data-wk="${wk}" data-day="${i}" aria-pressed="${picked.includes(i)}">${esc(d.split(' ')[0])}</button>`).join('') +
+      `<button type="button" class="week-all" data-camp="${c.id}" data-wk="${wk}" data-all>${picked.length === w.days.length ? 'Clear' : 'All week'}</button></div>`;
+  }).join('') + `</div>`;
 }
 
-/* ============================================================
-   SAVE / SAVED TAB
-   ============================================================ */
-function toggleSave(id){
-  const i = saved.indexOf(id);
-  if(i>=0){ saved.splice(i,1); toast('Removed from Saved'); }
-  else { saved.push(id); toast('♥ Saved'); }
-  save(LS.saved, saved);
-  refreshDynamic();
-}
-function renderSaved(){
-  const host = document.getElementById('savedList');
-  if(saved.length===0){ host.innerHTML = `<div class="empty"><span class="big">♡</span>No saved camps yet. Tap the heart on any camp to save it here.</div>`; return; }
-  host.innerHTML = `<div class="grid" id="savedGrid"></div>`;
-  const grid = host.querySelector('#savedGrid');
-  saved.forEach(id=>{ const c=CAMPMAP[id]; if(c) grid.appendChild(cardEl(c, campWeeks(c)[0])); });
-}
-
-/* ============================================================
-   FRIEND CIRCLES — encode / decode / import / who's going
-   ============================================================ */
-function b64enc(obj){
-  return btoa(unescape(encodeURIComponent(JSON.stringify(obj))))
-    .replace(/\+/g,'-').replace(/\//g,'_').replace(/=+$/,'');
-}
-function b64dec(s){
-  s = s.replace(/-/g,'+').replace(/_/g,'/');
-  while(s.length%4) s+='=';
-  return JSON.parse(decodeURIComponent(escape(atob(s))));
-}
-
-/* compact plans: { campId: { weekKey: bitmask } } */
-function plansToCompact(p){
-  const out={};
-  for(const cid in p){ out[cid]={}; for(const wk in p[cid]){
-    let m=0; p[cid][wk].forEach(d=> m|=(1<<d)); out[cid][wk]=m;
-  }}
-  return out;
-}
-function compactToPlans(cp){
-  const out={};
-  for(const cid in cp){ out[cid]={}; for(const wk in cp[cid]){
-    const m=cp[cid][wk], arr=[]; for(let d=0;d<5;d++){ if(m&(1<<d)) arr.push(d); }
-    out[cid][wk]=arr;
-  }}
-  return out;
-}
-
-function makeShareLink(){
-  if(!childName){ switchTab('friends'); toast('Add your child’s first name first'); document.getElementById('childName').focus(); return null; }
-  const payload = { v:1, n:childName, c:circleName, p:plansToCompact(plans) };
-  const base = location.href.split('#')[0];
-  return base + '#circle=' + b64enc(payload);
-}
-
-function doShare(){
-  const link = makeShareLink();
-  if(!link) return;
-  document.getElementById('shareLink').value = link;
-  document.getElementById('linkRow').style.display='flex';
-  copyText(link);
-  if(navigator.share){
-    navigator.share({title:'Our summer camp plan', text:`${childName}’s summer camp days`, url:link}).catch(()=>{});
-  }
-}
-function copyText(t){
-  if(navigator.clipboard){ navigator.clipboard.writeText(t).then(()=>toast('🔗 Link copied — send it privately'),()=>toast('Copy the link from the box')); }
-  else toast('Copy the link from the box');
-}
-
-function importLink(raw){
-  let frag = raw.trim();
-  const hidx = frag.indexOf('#circle=');
-  if(hidx>=0) frag = frag.slice(hidx+8);
-  else if(frag.indexOf('circle=')>=0) frag = frag.slice(frag.indexOf('circle=')+7);
-  if(!frag){ toast('Paste a valid link'); return false; }
-  try{
-    const data = b64dec(frag);
-    if(!data || !data.n){ toast('That link didn’t contain a plan'); return false; }
-    // dedup by name+circle
-    const key = (data.n||'').toLowerCase()+'|'+(data.c||'').toLowerCase();
-    friends = friends.filter(f=> ((f.n||'').toLowerCase()+'|'+(f.c||'').toLowerCase())!==key );
-    friends.push({ n:data.n, c:data.c||'', p:compactToPlans(data.p||{}) });
-    save(LS.friends, friends);
-    toast('✓ Imported '+data.n+'’s plan');
-    refreshDynamic();
-    return true;
-  }catch(e){ toast('Could not read that link'); return false; }
-}
-
-function renderFriendsTab(){
-  document.getElementById('childName').value = childName;
-  document.getElementById('circleName').value = circleName;
-  renderMyPlanSummary();
-  renderFriendList();
-  renderWGW();
-}
-
-function renderMyPlanSummary(){
-  const host = document.getElementById('myPlanSummary');
-  const cids = Object.keys(plans);
-  if(cids.length===0){ host.innerHTML = `<p class="sub" style="margin:0">No days picked yet — open a camp and tap the days your child is going.</p>`; return; }
-  let total=0, lines=[];
-  cids.forEach(cid=>{
-    const c = CAMPMAP[cid]; if(!c) return;
-    const wkBits = Object.keys(plans[cid]).map(wk=>{
-      const ds = plans[cid][wk].map(i=>DAYS[i]).join(', ');
-      total += plans[cid][wk].length;
-      return `${WEEKMAP[wk].n} (${ds})`;
-    }).join('; ');
-    lines.push(`<div style="font-size:.86rem;margin:5px 0"><b>${c.badge} ${c.name}</b><br><span style="color:var(--soft)">${wkBits}</span></div>`);
-  });
-  host.innerHTML = `<div style="font-size:.82rem;font-weight:800;color:var(--ok);margin-bottom:4px">${childName||'Your child'} — ${total} day${total!==1?'s':''} across ${cids.length} camp${cids.length!==1?'s':''}</div>`+lines.join('');
-}
-
-function renderFriendList(){
-  const host = document.getElementById('friendList');
-  if(friends.length===0){ host.innerHTML = `<p class="sub" style="margin:6px 0 0">No friends imported yet.</p>`; return; }
-  host.innerHTML = friends.map((f,i)=>`
-    <div style="display:flex;align-items:center;gap:8px;padding:8px 0;border-top:1px solid var(--line)">
-      <span style="font-size:1.2rem">👧</span>
-      <div style="flex:1"><b>${escapeHtml(f.n)}</b> ${f.c?`<span style="color:var(--soft);font-size:.82rem">· ${escapeHtml(f.c)}</span>`:''}<br>
-      <span style="color:var(--soft);font-size:.8rem">${planSummaryText(f.p)}</span></div>
-      <button class="btn ghost" style="padding:7px 11px;font-size:.8rem" data-rmfriend="${i}">Remove</button>
-    </div>`).join('');
-  host.querySelectorAll('[data-rmfriend]').forEach(b=>{
-    b.onclick=()=>{ friends.splice(parseInt(b.getAttribute('data-rmfriend'),10),1); save(LS.friends,friends); refreshDynamic(); toast('Friend removed'); };
-  });
-}
-function planSummaryText(p){
-  const n = Object.keys(p).length;
-  if(!n) return 'no camps shared';
-  let days=0; for(const cid in p) for(const wk in p[cid]) days+=p[cid][wk].length;
-  return `${days} day${days!==1?'s':''} across ${n} camp${n!==1?'s':''}`;
-}
-
-/* Who's going when — aggregate me + friends */
-function renderWGW(){
-  const host = document.getElementById('wgw');
-  // Build attendee list: me (if named & has plans) + friends
-  const people = [];
-  if(Object.keys(plans).length){ people.push({n: childName||'You', me:true, p:plans}); }
-  friends.forEach(f=> people.push({n:f.n, me:false, p:f.p}));
-
-  if(people.length===0){
-    host.innerHTML = `<div class="empty"><span class="big">📆</span>Pick days for your child and import a friend’s link to see who overlaps.</div>`;
+function renderList() {
+  const h = holiday();
+  const items = visibleCamps();
+  state.order = items.map((x) => x.c.id);
+  if (!items.length) {
+    $('list').innerHTML = `<div class="empty">${state.savedOnly ? 'Nothing saved for this holiday yet — tap the heart on a camp to keep it here.' : 'No camps for that week yet.'}</div>`;
     return;
   }
-  // collect camps anyone is attending
-  const campIds = new Set();
-  people.forEach(pp=> Object.keys(pp.p).forEach(cid=> campIds.add(cid)));
-  if(campIds.size===0){ host.innerHTML = `<div class="empty"><span class="big">📆</span>No days picked yet.</div>`; return; }
-
-  let html='';
-  CAMPS.forEach(c=>{
-    if(!campIds.has(c.id)) return;
-    // which weeks does anyone attend?
-    const wkSet = new Set();
-    people.forEach(pp=>{ if(pp.p[c.id]) Object.keys(pp.p[c.id]).forEach(wk=>wkSet.add(wk)); });
-    const wkList = WEEKS.filter(w=>wkSet.has(w.key)).map(w=>w.key);
-    let camphtml = `<div class="wgw-camp"><h4>${c.badge} ${c.name}</h4><div class="area">${c.type} · ${c.venue}</div>`;
-    wkList.forEach(wk=>{
-      camphtml += `<div class="wgw-week"><div class="wk">${WEEKMAP[wk].n} · ${WEEKMAP[wk].range}</div><div class="wgw-days">`;
-      for(let d=0; d<5; d++){
-        const here = people.filter(pp=> pp.p[c.id] && pp.p[c.id][wk] && pp.p[c.id][wk].includes(d));
-        const over = here.length>=2;
-        camphtml += `<div class="wgw-day ${over?'over':''}"><div class="dl">${DAYS[d]}</div>`;
-        here.forEach(pp=> camphtml += `<span class="who ${pp.me?'me':''}">${escapeHtml(pp.n)}</span>`);
-        if(over) camphtml += `<span class="together">🎉 Together</span>`;
-        camphtml += `</div>`;
-      }
-      camphtml += `</div></div>`;
-    });
-    camphtml += `</div>`;
-    html += camphtml;
-  });
-  host.innerHTML = html;
+  $('list').innerHTML = items.map((item, i) => {
+    const { c, s, p } = item;
+    const isWatch = !!s.watch;
+    const saved = state.saved.includes(c.id);
+    const weeksText = (s.weeks || []).map((wk) => weekOf(wk).label).join(' · ');
+    return `<article class="card ${isWatch ? 'watch' : ''} ${state.hot === c.id ? 'hot' : ''}" id="camp-${c.id}" data-card="${c.id}">
+      <div class="card-top">
+        <span class="num">${i + 1}</span>
+        <span class="label">${esc(c.type)}</span>
+        <span style="margin-left:auto" class="pill ${isWatch ? 'warn' : 'ok'}"><i></i>${isWatch ? '2027 dates not out yet' : 'Bookable now'}</span>
+      </div>
+      <div>
+        <h3>${esc(c.name)}</h3>
+        <p class="provider">${esc(c.provider)} · ${esc(band(item.d))} from ${esc(BASES[state.base].label)}</p>
+      </div>
+      <div class="pills">
+        <span class="pill ok"><i></i>Ages ${esc(c.ages)}</span>
+        <span class="pill">${esc(c.format)}</span>
+        <span class="pill ${/English/.test(c.lang) ? 'berry' : ''}">${esc(c.lang)}</span>
+      </div>
+      <p class="blurb">${esc(c.blurb)}</p>
+      ${distRows(item)}
+      <dl class="facts">
+        <dt>Where</dt><dd>${esc(p.venue)}${c.approx && !s.lat ? ' <span class="faint">(map pin approximate)</span>' : ''}</dd>
+        ${isWatch ? `<dt>Last time</dt><dd>${esc(s.watch)}</dd>` : `
+        <dt>Weeks</dt><dd>${esc(weeksText)}</dd>
+        <dt>Hours</dt><dd>${esc(s.hours)}</dd>
+        <dt>Price</dt><dd>${esc(s.price)}</dd>
+        ${s.included ? `<dt>Also</dt><dd>${esc(s.included)}</dd>` : ''}`}
+      </dl>
+      ${s.check ? `<p class="check"><b>Check before paying:</b> ${esc(s.check)}</p>` : ''}
+      ${!isWatch && (s.weeks || []).length ? dayPicker(c, s) : ''}
+      <div class="actions">
+        ${isWatch ? `<a class="btn" href="${esc(c.source)}" target="_blank" rel="noopener">See their page ↗</a>`
+                  : `<a class="btn primary" href="${esc(c.booking)}" target="_blank" rel="noopener">Book ↗</a>`}
+        <button type="button" class="btn heart" data-save="${c.id}" aria-pressed="${saved}" aria-label="${saved ? 'Remove from saved' : 'Save'}" title="${saved ? 'Saved' : 'Save'}">
+          <svg viewBox="0 0 20 20" aria-hidden="true"><path d="M10 17s-6.5-4.1-6.5-8.7A3.7 3.7 0 0 1 10 6a3.7 3.7 0 0 1 6.5 2.3C16.5 12.9 10 17 10 17z"/></svg>
+        </button>
+        <span class="src">${c.listing ? `From the ${esc(c.listing)}` : `<a href="${esc(c.source)}" target="_blank" rel="noopener">Provider’s page</a>`}</span>
+      </div>
+    </article>`;
+  }).join('');
 }
 
-function escapeHtml(s){ return String(s).replace(/[&<>"']/g,m=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[m])); }
-
-/* ============================================================
-   TABS / FAB / TOAST / INIT
-   ============================================================ */
-function switchTab(name){
-  document.querySelectorAll('.tab').forEach(t=> t.classList.toggle('active', t.dataset.tab===name));
-  document.querySelectorAll('.page').forEach(p=> p.classList.toggle('active', p.id==='page-'+name));
-  if(name==='friends') renderFriendsTab();
-  if(name==='saved') renderSaved();
-  window.scrollTo({top:0,behavior:'instant' in window ? 'instant':'auto'});
-}
-document.getElementById('tabbar').addEventListener('click', e=>{
-  const t = e.target.closest('.tab'); if(t) switchTab(t.dataset.tab);
-});
-
-function updateBadges(){
-  document.getElementById('savedBadge').textContent = saved.length;
-  document.getElementById('friendBadge').textContent = friends.length;
-}
-
-function refreshDynamic(){
-  updateBadges();
-  renderWeeks();
-  if(document.getElementById('page-saved').classList.contains('active')) renderSaved();
-  if(document.getElementById('page-friends').classList.contains('active')) renderFriendsTab();
-}
-
-let toastTimer;
-function toast(msg){
-  const t = document.getElementById('toast'); t.textContent=msg; t.classList.add('show');
-  clearTimeout(toastTimer); toastTimer=setTimeout(()=>t.classList.remove('show'),2600);
-}
-
-/* Inputs */
-document.getElementById('childName').addEventListener('input', e=>{ childName=e.target.value.trim(); save(LS.child,childName); renderMyPlanSummary(); });
-document.getElementById('circleName').addEventListener('input', e=>{ circleName=e.target.value.trim(); save(LS.circle,circleName); });
-document.getElementById('makeLinkBtn').onclick = doShare;
-document.getElementById('copyLinkBtn').onclick = ()=> copyText(document.getElementById('shareLink').value);
-document.getElementById('importBtn').onclick = ()=>{ if(importLink(document.getElementById('importBox').value)) document.getElementById('importBox').value=''; };
-document.getElementById('fabShare').onclick = ()=>{ switchTab('friends'); doShare(); };
-
-/* Suggest a camp — mailto, no server */
-const subj = encodeURIComponent('Camp suggestion — Berlin-Steglitz summer guide');
-const body = encodeURIComponent('I\'d like to suggest a camp for the guide:\n\nCamp name:\nProvider / website:\nVenue & address:\nAges:\nWhich weeks:\nPrice:\nWhy it’s good:\n');
-document.getElementById('fabSuggest').href = `mailto:daliuliu@gmail.com?subject=${subj}&body=${body}`;
-
-/* Import from URL on load */
-function checkUrlImport(){
-  if(location.hash && location.hash.indexOf('circle=')>=0){
-    const ok = importLink(location.hash);
-    if(ok){
-      history.replaceState(null,'',location.href.split('#')[0]);
-      switchTab('friends');
-      setTimeout(()=> document.getElementById('wgw').scrollIntoView({behavior:'smooth'}), 400);
-    }
+function renderSideNote() {
+  const h = holiday();
+  const items = visibleCamps().filter((x) => !x.s.watch);
+  if (h.key === 'oct26' && state.base === 'spandau' && items.length) {
+    const nearest = items[0];
+    $('sideNote').innerHTML = `<p class="callout"><b>From Spandau this October</b>, the nearest camp that takes a 5-year-old is ${esc(nearest.c.name)} at ${nearest.d.toFixed(0)} km. Spandau’s own holiday programmes start at age 8 — the Olympiapark swimming camp nearby only runs in summer.</p>`;
+  } else if (h.kind === 'watch') {
+    $('sideNote').innerHTML = `<p class="callout"><b>Nothing to book yet.</b> Save the ones you like — they’ll be here to check again once ${esc(h.long)} dates are published.</p>`;
+  } else {
+    $('sideNote').innerHTML = '';
   }
 }
 
-/* INIT */
-renderWeekbar();
-renderWeeks();
-updateBadges();
-checkUrlImport();
-window.addEventListener('keydown', e=>{ if(e.key==='Escape') closeModal(); });
+const MAP = { lng0: 13.165, lng1: 13.445, lat0: 52.415, lat1: 52.555, w: 400, h: 328 };
+const px = (lng) => ((lng - MAP.lng0) / (MAP.lng1 - MAP.lng0)) * MAP.w;
+const py = (lat) => ((MAP.lat1 - lat) / (MAP.lat1 - MAP.lat0)) * MAP.h;
+const REFS = [
+  ['Mitte', 52.522, 13.4136], ['Charlottenburg', 52.5157, 13.3097], ['Schöneberg', 52.4822, 13.3552],
+  ['Kreuzberg', 52.4976, 13.4119], ['Zehlendorf', 52.4343, 13.2589], ['Westend', 52.5133, 13.2557],
+  ['Dahlem', 52.4574, 13.2811], ['Tiergarten', 52.5098, 13.3573], ['Grunewald', 52.4873, 13.2638], ['Tempelhof', 52.4649, 13.3959],
+];
+
+function renderMap() {
+  const items = visibleCamps();
+  const base = BASES[state.base];
+  const kmPx = MAP.w / (((MAP.lng1 - MAP.lng0) * 111.32) * Math.cos(52.485 * Math.PI / 180));
+  let svg = '';
+  // rings every 5 km around where she's staying
+  [5, 10, 15].forEach((r) => {
+    svg += `<circle class="ring" cx="${px(base.lng)}" cy="${py(base.lat)}" r="${r * kmPx}"/>`;
+    // label each ring where it stays inside the frame: above if there's room, otherwise below
+    const lx = Math.min(MAP.w - 24, Math.max(24, px(base.lng)));
+    const above = py(base.lat) - r * kmPx - 4, below = py(base.lat) + r * kmPx + 12;
+    const ly = above > 12 ? above : below < MAP.h - 4 ? below : null;
+    if (ly != null) svg += `<text class="ref" x="${lx}" y="${ly}" text-anchor="middle">${r} km</text>`;
+  });
+  REFS.forEach(([n, lat, lng]) => { svg += `<text class="ref" x="${px(lng)}" y="${py(lat)}" text-anchor="middle">${n}</text>`; });
+  items.forEach((it) => {
+    svg += `<line class="spoke" x1="${px(base.lng)}" y1="${py(base.lat)}" x2="${px(it.p.lng)}" y2="${py(it.p.lat)}"/>`;
+  });
+  Object.entries(BASES).forEach(([k, b]) => {
+    const on = k === state.base;
+    svg += `<g class="base"><circle cx="${px(b.lng)}" cy="${py(b.lat)}" r="${on ? 9 : 7}" fill="${b.colour}" opacity="${on ? 1 : .55}"/>
+      <text x="${px(b.lng) + 12}" y="${py(b.lat) + 4}">${b.label}</text></g>`;
+  });
+  items.forEach((it, i) => {
+    const hot = state.hot === it.c.id;
+    svg += `<g class="camp ${it.s.watch ? 'watch' : ''} ${hot ? 'hot' : ''}" data-mapcamp="${it.c.id}" tabindex="0" role="button" aria-label="${esc(it.c.name)}, ${it.d.toFixed(0)} km">
+      <circle cx="${px(it.p.lng)}" cy="${py(it.p.lat)}" r="${hot ? 13 : 10}"/>
+      <text x="${px(it.p.lng)}" y="${py(it.p.lat)}">${i + 1}</text></g>`;
+  });
+  svg += `<g class="scale"><line x1="16" y1="${MAP.h - 14}" x2="${16 + 5 * kmPx}" y2="${MAP.h - 14}"/><text x="16" y="${MAP.h - 20}">5 km</text></g>`;
+  $('map').innerHTML = svg;
+}
+
+/* ---------- plans + friends ---------- */
+function planSummary(p) {
+  const rows = [];
+  Object.entries(p || {}).forEach(([cid, wks]) => {
+    const c = CAMPS.find((x) => x.id === cid);
+    if (!c) return;
+    Object.entries(wks).forEach(([wk, days]) => {
+      const w = weekOf(wk);
+      if (w && days.length) rows.push(`${c.name} — ${w.label} (${days.length === w.days.length ? 'all week' : days.map((d) => w.days[d].split(' ')[0]).join(', ')})`);
+    });
+  });
+  return rows;
+}
+
+function renderPlan() {
+  const rows = planSummary(state.plans);
+  $('myPlan').innerHTML = rows.length ? `<strong>${rows.length} ${rows.length === 1 ? 'week' : 'weeks'} picked</strong><br>${rows.map(esc).join('<br>')}` : 'No days picked yet.';
+  $('friends').innerHTML = state.friends.length
+    ? state.friends.map((f, i) => `<div class="friend"><span><strong>${esc(f.n || 'Friend')}</strong> <span class="faint">${esc(f.c || '')}</span><br><span class="small muted">${planSummary(f.p).length} weeks picked</span></span><button type="button" class="btn ghost small" data-remove-friend="${i}">Remove</button></div>`).join('')
+    : '<p class="small muted">No friends added yet. When someone sends you their link, paste it here — or just open it.</p>';
+  renderWhoWhen();
+}
+
+function renderWhoWhen() {
+  const h = holiday();
+  const kids = [{ n: state.child || 'You', p: state.plans, me: true }, ...state.friends];
+  const weeks = h.weeks.filter((w) => kids.some((k) => Object.values(k.p || {}).some((wks) => (wks[w.key] || []).length)));
+  if (!weeks.length) { $('whoWhen').innerHTML = `<p class="small muted">Nothing picked for ${esc(h.long)} yet.</p>`; return; }
+  $('whoWhen').innerHTML = weeks.map((w) => {
+    const cell = (kid, di) => Object.entries(kid.p || {}).filter(([, wks]) => (wks[w.key] || []).includes(di)).map(([cid]) => cid);
+    const head = `<tr><th></th>${w.days.map((d) => `<th>${esc(d)}</th>`).join('')}</tr>`;
+    const body = kids.map((k) => `<tr><th class="kid">${esc(k.n || 'Friend')}</th>${w.days.map((_, di) => {
+      const mine = cell(k, di);
+      if (!mine.length) return '<td></td>';
+      const together = mine.some((cid) => kids.some((o) => o !== k && cell(o, di).includes(cid)));
+      const names = mine.map((cid) => (CAMPS.find((c) => c.id === cid) || {}).name || cid);
+      return `<td class="${together ? 'together' : 'go'}">${names.map(esc).join('<br>')}${together ? '<br>Together!' : ''}</td>`;
+    }).join('')}</tr>`).join('');
+    return `<p class="label" style="margin:10px 0 4px">${esc(w.label)}</p><div class="grid-wrap"><table class="who-when">${head}${body}</table></div>`;
+  }).join('');
+}
+
+// Compact share format: { v:2, n, c, p: { campId: { weekKey: bitmask } } }
+function encodePlan() {
+  const p = {};
+  Object.entries(state.plans).forEach(([cid, wks]) => Object.entries(wks).forEach(([wk, days]) => {
+    if (days.length) (p[cid] ||= {})[wk] = days.reduce((m, d) => m | (1 << d), 0);
+  }));
+  const json = JSON.stringify({ v: 2, n: state.child, c: state.circle, p });
+  return btoa(unescape(encodeURIComponent(json))).replace(/\+/g, '-').replace(/\//g, '_').replace(/=+$/, '');
+}
+function decodePlan(s) {
+  const b = s.replace(/-/g, '+').replace(/_/g, '/');
+  const obj = JSON.parse(decodeURIComponent(escape(atob(b + '==='.slice((b.length + 3) % 4)))));
+  if (obj.v !== 2) throw new Error('old');
+  const p = {};
+  Object.entries(obj.p || {}).forEach(([cid, wks]) => {
+    if (!CAMPS.some((c) => c.id === cid)) return;
+    Object.entries(wks).forEach(([wk, mask]) => {
+      const w = weekOf(wk);
+      if (!w) return;
+      (p[cid] ||= {})[wk] = w.days.map((_, i) => i).filter((i) => mask & (1 << i));
+    });
+  });
+  return { n: String(obj.n || '').slice(0, 40), c: String(obj.c || '').slice(0, 60), p };
+}
+function importFrom(text) {
+  const m = String(text).match(/plan=([A-Za-z0-9_-]+)/);
+  if (!m) { toast('That doesn’t look like a plan link'); return false; }
+  try {
+    const f = decodePlan(m[1]);
+    state.friends = state.friends.filter((x) => !(x.n === f.n && x.c === f.c));
+    state.friends.push(f);
+    save(LS.friends, state.friends);
+    renderPlan();
+    toast(`Added ${f.n || 'a friend'}’s plan`);
+    return true;
+  } catch (e) {
+    toast('That link is from the old summer 2026 guide, or it’s incomplete');
+    return false;
+  }
+}
+
+function renderAll() {
+  renderControls(); renderTally(); renderOverlap(); renderList(); renderMap(); renderSideNote(); renderPlan();
+}
+
+/* ============================================================
+   EVENTS
+   ============================================================ */
+document.addEventListener('click', (e) => {
+  const t = e.target.closest('button, [data-mapcamp]');
+  if (!t) return;
+  if (t.dataset.holiday) { state.holiday = t.dataset.holiday; state.week = 'all'; save(LS.holiday, state.holiday); renderAll(); }
+  else if (t.dataset.base) { state.base = t.dataset.base; save(LS.base, state.base); renderAll(); }
+  else if (t.dataset.week) { state.week = t.dataset.week; state.savedOnly = false; renderControls(); renderList(); renderMap(); renderSideNote(); }
+  else if ('saved' in t.dataset) { state.savedOnly = !state.savedOnly; renderControls(); renderList(); renderMap(); }
+  else if (t.dataset.save) {
+    const id = t.dataset.save;
+    state.saved = state.saved.includes(id) ? state.saved.filter((x) => x !== id) : [...state.saved, id];
+    save(LS.saved, state.saved);
+    toast(state.saved.includes(id) ? 'Saved' : 'Removed from saved');
+    renderControls(); renderList(); renderMap();
+  }
+  else if (t.dataset.camp && t.dataset.wk) {
+    const { camp, wk } = t.dataset;
+    const w = weekOf(wk);
+    const plan = (state.plans[camp] ||= {});
+    let days = plan[wk] || [];
+    if ('all' in t.dataset) days = days.length === w.days.length ? [] : w.days.map((_, i) => i);
+    else { const d = Number(t.dataset.day); days = days.includes(d) ? days.filter((x) => x !== d) : [...days, d].sort(); }
+    plan[wk] = days;
+    save(LS.plans, state.plans);
+    renderList(); renderPlan();
+  }
+  else if (t.dataset.mapcamp) {
+    state.hot = t.dataset.mapcamp;
+    renderList(); renderMap();
+    document.getElementById(`camp-${state.hot}`)?.scrollIntoView({ behavior: 'smooth', block: 'center' });
+  }
+  else if (t.dataset.removeFriend != null) {
+    state.friends.splice(Number(t.dataset.removeFriend), 1);
+    save(LS.friends, state.friends);
+    renderPlan();
+  }
+});
+
+// Hovering a card lights up its pin, and the other way round.
+let hoverTimer = 0;
+function setHot(id) {
+  if (state.hot === id) return;
+  clearTimeout(hoverTimer);
+  hoverTimer = setTimeout(() => {
+    state.hot = id;
+    document.querySelectorAll('.card').forEach((el) => el.classList.toggle('hot', el.dataset.card === id));
+    document.querySelectorAll('[data-mapcamp]').forEach((el) => {
+      const on = el.dataset.mapcamp === id;
+      el.classList.toggle('hot', on);
+      el.querySelector('circle').setAttribute('r', on ? 13 : 10);
+    });
+  }, 40);
+}
+$('list').addEventListener('pointerover', (e) => { const c = e.target.closest('[data-card]'); if (c) setHot(c.dataset.card); });
+$('map').addEventListener('pointerover', (e) => { const c = e.target.closest('[data-mapcamp]'); if (c) setHot(c.dataset.mapcamp); });
+$('map').addEventListener('keydown', (e) => { if (e.key === 'Enter') e.target.closest('[data-mapcamp]')?.dispatchEvent(new MouseEvent('click', { bubbles: true })); });
+
+$('childName').value = state.child;
+$('circleName').value = state.circle;
+$('childName').addEventListener('input', (e) => { state.child = e.target.value.trim(); save(LS.child, state.child); renderWhoWhen(); });
+$('circleName').addEventListener('input', (e) => { state.circle = e.target.value.trim(); save(LS.circle, state.circle); });
+$('makeLink').addEventListener('click', async () => {
+  if (!planSummary(state.plans).length) { toast('Pick some days on a camp first'); return; }
+  const link = `${location.origin}${location.pathname}#plan=${encodePlan()}`;
+  $('shareLink').value = link;
+  $('shareRow').hidden = false;
+  if (navigator.share) { navigator.share({ title: 'Our camp days', url: link }).catch(() => {}); }
+  else copy(link);
+});
+$('copyLink').addEventListener('click', () => copy($('shareLink').value));
+$('importBtn').addEventListener('click', () => { if (importFrom($('importBox').value)) $('importBox').value = ''; });
+function copy(text) {
+  if (navigator.clipboard && window.isSecureContext) navigator.clipboard.writeText(text).then(() => toast('Link copied'), () => toast('Select the link and copy it'));
+  else { $('shareLink').select(); toast('Select the link and copy it'); }
+}
+
+$('alsoList').innerHTML = ALSO_CHECKED.map((x) => `<li>${esc(x)}</li>`).join('');
+
+if (/plan=/.test(location.hash)) {
+  importFrom(location.hash);
+  history.replaceState(null, '', location.pathname);
+}
+renderAll();
 </script>
 </body>
 </html>
