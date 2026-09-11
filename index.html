@@ -1,11 +1,11 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="de">
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
 <meta name="robots" content="noindex, nofollow" />
-<title>Berlin Holiday Camps</title>
-<meta name="description" content="Berlin holiday camps for a 5-year-old, sorted by distance from Steglitz or Spandau, for October 2026, Easter 2027 and summer 2027." />
+<title>Berliner Ferien-Camps</title>
+<meta name="description" content="Ferien-Camps in Berlin ab 5 Jahren – Herbstferien 2026, Ostern und Sommer 2027, sortiert nach Autofahrt von Steglitz oder Spandau." />
 <meta name="theme-color" content="#FAF6EF" media="(prefers-color-scheme: light)" />
 <meta name="theme-color" content="#1D1916" media="(prefers-color-scheme: dark)" />
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='28' fill='%23FAF6EF'/%3E%3Cpath d='M22 74 50 26 78 74z' fill='%23C4664A'/%3E%3Cpath d='M50 74 50 50' stroke='%23FAF6EF' stroke-width='7' stroke-linecap='round'/%3E%3C/svg%3E" />
@@ -91,9 +91,6 @@
   .chip:hover{transform:translateY(-2px) rotate(-1.5deg);border-color:var(--ink-3)}
   .chip[aria-pressed="true"]{background:var(--ink);border-color:var(--ink);color:var(--on-ink)}
   .chip .n{font-family:var(--mono);font-size:12px;opacity:.7}
-  .place-form{display:flex;flex-wrap:wrap;gap:8px;width:100%}
-  .place-form input{flex:1;min-width:220px;height:40px;padding:0 14px}
-  .place-tools{display:flex;flex-wrap:wrap;gap:8px;align-items:center;margin-top:10px}
 
   /* overlap timeline */
   .overlap{margin:26px 0 8px;padding:20px 22px;border-radius:24px;background:var(--surface);border:1.5px solid var(--line);display:grid;grid-template-columns:minmax(0,1fr);gap:12px}
@@ -119,8 +116,6 @@
   .map{border-radius:24px;background:var(--surface);border:1.5px solid var(--line);padding:14px 14px 10px}
   .map svg{display:block;width:100%;height:auto}
   .map .ref{font-family:var(--sans);font-size:10.5px;fill:var(--ink-3);letter-spacing:.02em}
-  .map .ring{fill:none;stroke:var(--line-2);stroke-width:1.5;stroke-dasharray:3 5}
-  .map .spoke{stroke:var(--terra);stroke-width:1.5;stroke-dasharray:2 4;opacity:.55}
   .map .base circle{stroke:var(--surface);stroke-width:3}
   .map .base text{font-size:12px;font-weight:700;fill:var(--ink)}
   .map .camp{cursor:pointer}
@@ -241,344 +236,329 @@
 <body>
 
 <header class="hero wrap">
-  <p class="eyebrow">Berlin holiday camps · age 5 (and 13) · checked 11 Sept 2026</p>
-  <h1 class="wordmark">Camp <em>weeks</em></h1>
-  <p class="lede">Day camps that take a 5-year-old in the weeks her London school holidays line up with Berlin’s — sorted by how far they are from where she’s staying, with the ones that take a 13-year-old too marked. Nothing is hidden by district.</p>
+  <p class="eyebrow">Ferien-Camps in Berlin · ab 5 (und 13) · geprüft am 11.09.2026</p>
+  <h1 class="wordmark">Ferien<em>camps</em></h1>
+  <p class="lede">Tagescamps, die schon 5-Jährige nehmen – in den Wochen, in denen die Londoner Schulferien mit den Berliner Ferien zusammenfallen. Sortiert nach der Autofahrt von Steglitz oder Spandau; Camps, die auch 13-Jährige nehmen, sind markiert. Nichts wird nach Bezirk ausgeblendet.</p>
   <ul class="tally" id="tally"></ul>
 </header>
 
 <div class="controls">
   <div class="wrap">
-    <div class="control"><span>Holiday</span><div class="seg" id="holidaySeg" role="group" aria-label="Holiday"></div></div>
-    <div class="control"><span>Distance from</span><div class="seg" id="baseSeg" role="group" aria-label="Measure distance from"></div>
-      <button type="button" class="chip" id="addPlace">+ A street</button>
-    </div>
-    <form class="place-form" id="placeForm" hidden>
-      <input id="placeInput" autocomplete="street-address" placeholder="A street in Berlin, e.g. Wandsbeker Weg" aria-label="Street in Berlin" />
-      <button class="btn small primary">Measure from here</button>
-      <button type="button" class="btn small ghost" id="placeCancel">Cancel</button>
-    </form>
-    <div class="chips" id="weekChips" role="group" aria-label="Week"></div>
+    <div class="control"><span>Ferien</span><div class="seg" id="holidaySeg" role="group" aria-label="Ferien"></div></div>
+    <div class="control"><span>Abfahrt</span><div class="seg" id="baseSeg" role="group" aria-label="Abfahrt mit dem Auto"></div></div>
+    <div class="chips" id="weekChips" role="group" aria-label="Woche"></div>
   </div>
 </div>
 
 <main class="wrap">
-  <section class="overlap" id="overlap" aria-label="How the holidays line up"></section>
+  <section class="overlap" id="overlap" aria-label="Wie die Ferien zusammenfallen"></section>
 
   <div class="layout">
     <div class="list" id="list"></div>
     <aside class="side">
       <div class="map">
-        <svg id="map" viewBox="0 0 400 292" role="img" aria-label="Map of camps and where she’s staying"></svg>
-        <p class="map-note">To scale. Distances are straight-line, not travel time.</p>
+        <svg id="map" viewBox="0 0 400 292" role="img" aria-label="Karte der Camps und Startpunkte"></svg>
+        <p class="map-note">Maßstabsgetreu. Die Startpunkte sind auf etwa einen Kilometer gerundet.</p>
       </div>
       <div id="sideNote"></div>
     </aside>
   </div>
 
-  <section style="margin-top:48px" class="stack" aria-labelledby="planTitle">
-    <h2 class="section-title" id="planTitle">Days &amp; friends</h2>
-    <p class="muted" style="margin:8px 0 16px;max-width:64ch">Tap days on any camp above to mark when she’s going. Share the plan with friends so you can see who’s at the same camp on the same day.</p>
+  <section style="margin-top:48px" aria-labelledby="planTitle">
+    <h2 class="section-title" id="planTitle">Tage &amp; Freunde</h2>
+    <p class="muted" style="margin:8px 0 16px;max-width:64ch">Oben bei einem Camp die Tage antippen, an denen das Kind hingeht. Den Plan mit Freunden teilen – dann sieht man, wer am selben Tag im selben Camp ist.</p>
     <div class="two">
       <div class="panel">
-        <h3>Your plan</h3>
-        <label>Child’s first name <span class="faint" style="font-weight:400">— only goes into a link you send</span><input id="childName" autocomplete="off" placeholder="First name" /></label>
-        <label>Circle name<input id="circleName" autocomplete="off" placeholder="e.g. Steglitz cousins" /></label>
+        <h3>Unser Plan</h3>
+        <label>Vorname des Kindes <span class="faint" style="font-weight:400">– steht nur in einem Link, den ihr selbst verschickt</span><input id="childName" autocomplete="off" placeholder="Vorname" /></label>
+        <label>Name der Runde<input id="circleName" autocomplete="off" placeholder="z. B. Cousins &amp; Cousinen" /></label>
         <div id="myPlan" class="small muted"></div>
-        <button class="btn primary" id="makeLink">Create a share link</button>
-        <div class="share-row" id="shareRow" hidden><input id="shareLink" readonly aria-label="Share link" /><button class="btn small" id="copyLink">Copy</button></div>
-        <p class="privacy">Everything stays on this device — no account, no server. Only a link you create carries the first name, circle name and the days picked. Send it privately.</p>
+        <button class="btn primary" id="makeLink">Link zum Teilen erstellen</button>
+        <div class="share-row" id="shareRow" hidden><input id="shareLink" readonly aria-label="Link zum Teilen" /><button class="btn small" id="copyLink">Kopieren</button></div>
+        <p class="privacy">Alles bleibt auf diesem Gerät – kein Konto, kein Server. Nur ein Link, den ihr erstellt, enthält Vorname, Name der Runde und die gewählten Tage. Bitte nur privat verschicken.</p>
       </div>
       <div class="panel">
-        <h3>Friends</h3>
-        <label>Paste a friend’s link<textarea id="importBox" rows="2" placeholder="https://…#plan=…"></textarea></label>
-        <button class="btn" id="importBtn">Add their plan</button>
+        <h3>Freunde</h3>
+        <label>Link von Freunden einfügen<textarea id="importBox" rows="2" placeholder="https://…#plan=…"></textarea></label>
+        <button class="btn" id="importBtn">Plan hinzufügen</button>
         <div id="friends"></div>
       </div>
     </div>
     <div class="panel" style="margin-top:16px">
-      <h3>Who’s going when</h3>
+      <h3>Wer ist wann wo?</h3>
       <div id="whoWhen"></div>
     </div>
   </section>
 
   <details class="also">
-    <summary>Also checked — not suitable for a 5-year-old this time</summary>
+    <summary>Ebenfalls geprüft – diesmal nicht passend für 5-Jährige</summary>
     <ul id="alsoList"></ul>
   </details>
 
   <footer>
-    <p>Holiday dates: Berlin Ferienordnung (Herbstferien 19–31 Oct 2026, Osterferien 22 Mar–2 Apr 2027, Sommerferien 1 Jul–14 Aug 2027) and the London school’s 2026–27 term dates.</p>
-    <p>Every camp was checked on the provider’s own page on 11 September 2026 unless marked otherwise. Anything not clearly stated says so — confirm prices, times and ages before paying.</p>
+    <p>Ferientermine: Berliner Ferienordnung (Herbstferien 19.–31.10.2026, Osterferien 22.03.–02.04.2027, Sommerferien 01.07.–14.08.2027) und die Termine der Londoner Schule für 2026/27.</p>
+    <p>Fahrzeiten: mit dem Auto, ohne Stau berechnet (OpenStreetMap-Routing) und auf 5 Minuten aufgerundet – im Berufsverkehr dauert es länger.</p>
+    <p>Alle Camps wurden am 11. September 2026 auf der Seite des Anbieters geprüft, sofern nicht anders vermerkt. Was dort nicht eindeutig steht, ist so gekennzeichnet – Preise, Zeiten und Alter vor dem Bezahlen bestätigen lassen.</p>
   </footer>
 </main>
 
 <script>
 /* ============================================================
-   DATA — checked 11 Sept 2026. Facts come from the provider's
-   own page unless `listing` says where they came from instead.
-   Never invented: unknowns are written as unknowns.
+   DATEN – geprüft am 11.09.2026. Angaben stammen von der Seite
+   des Anbieters, außer `listing` nennt eine andere Quelle.
+   Nichts erfunden: Unbekanntes steht als unbekannt da.
    ============================================================ */
-// Town halls as defaults. A street added on the page (or arriving in a link as
-// #from=lat,lng,label) is kept on that device only — never written into this file.
-const FIXED_BASES = {
-  steglitz: { label: 'Steglitz', lat: 52.4555, lng: 13.3225, colour: 'var(--terra)' },
-  spandau:  { label: 'Spandau',  lat: 52.5352, lng: 13.1998, colour: 'var(--berry)' },
-};
-let BASES = { ...FIXED_BASES };
 
-// Only the days both her London school and Berlin schools are off.
+// Zwei feste Startpunkte. Auf der Karte auf ~1 km gerundet; die Fahrzeiten
+// unten wurden vorab berechnet, damit keine Adresse in dieser Datei steht.
+const BASES = {
+  steglitz: { label: 'Steglitz', lat: 52.45, lng: 13.32, colour: 'var(--terra)' },
+  spandau:  { label: 'Spandau',  lat: 52.53, lng: 13.15, colour: 'var(--berry)' },
+};
+
+// Nur die Tage, an denen die Londoner Schule UND die Berliner Schulen frei haben.
 const HOLIDAYS = [
   {
-    key: 'oct26', label: 'October', long: 'October 2026', kind: 'open',
+    key: 'oct26', label: 'Herbst', long: 'Herbstferien 2026', kind: 'open',
     span: ['2026-10-17', '2026-11-01'],
-    london: ['2026-10-17', '2026-11-01', 'London half-term'],
+    london: ['2026-10-17', '2026-11-01', 'Londoner Ferien'],
     berlin: ['2026-10-19', '2026-11-01', 'Herbstferien'],
-    overlapText: 'Both weeks line up.',
-    note: 'Her half-term (19–30 Oct) sits entirely inside Berlin’s Herbstferien (19–31 Oct), so every October camp week works.',
+    overlapText: 'Beide Wochen passen.',
+    note: 'Die Londoner Herbstferien (19.–30. Oktober) liegen komplett in den Berliner Herbstferien (19.–31. Oktober) – jede Camp-Woche im Oktober passt.',
     weeks: [
-      { key: 'oct26-1', label: '19–23 Oct', days: ['Mon 19', 'Tue 20', 'Wed 21', 'Thu 22', 'Fri 23'] },
-      { key: 'oct26-2', label: '26–30 Oct', days: ['Mon 26', 'Tue 27', 'Wed 28', 'Thu 29', 'Fri 30'] },
+      { key: 'oct26-1', label: '19.–23. Okt.', days: ['Mo 19', 'Di 20', 'Mi 21', 'Do 22', 'Fr 23'] },
+      { key: 'oct26-2', label: '26.–30. Okt.', days: ['Mo 26', 'Di 27', 'Mi 28', 'Do 29', 'Fr 30'] },
     ],
   },
   {
-    key: 'easter27', label: 'Easter', long: 'Easter 2027', kind: 'watch',
+    key: 'easter27', label: 'Ostern', long: 'Osterferien 2027', kind: 'watch',
     span: ['2027-03-20', '2027-04-12'],
-    london: ['2027-03-26', '2027-04-12', 'London Easter holiday'],
+    london: ['2027-03-26', '2027-04-12', 'Londoner Ferien'],
     berlin: ['2027-03-22', '2027-04-03', 'Osterferien'],
-    overlapText: 'Four camp days: Tue 30 Mar – Fri 2 Apr.',
-    note: 'Berlin schools go back on 5 April; she’s off until 9 April. Good Friday (26 Mar) and Easter Monday (29 Mar) are public holidays in both countries, so camps that week run Tuesday to Friday at most. No provider has published Easter 2027 dates yet.',
+    overlapText: 'Vier Camp-Tage: Di 30. März – Fr 2. April.',
+    note: 'In Berlin beginnt die Schule wieder am 5. April, in London erst am 12. April. Karfreitag (26. März) und Ostermontag (29. März) sind in beiden Ländern Feiertage – Camps laufen in dieser Woche also höchstens Dienstag bis Freitag. Termine für Ostern 2027 hat noch kein Anbieter veröffentlicht.',
     weeks: [
-      { key: 'easter27-1', label: '30 Mar–2 Apr', days: ['Tue 30', 'Wed 31', 'Thu 1', 'Fri 2'] },
+      { key: 'easter27-1', label: '30. März–2. Apr.', days: ['Di 30', 'Mi 31', 'Do 1', 'Fr 2'] },
     ],
   },
   {
-    key: 'summer27', label: 'Summer', long: 'Summer 2027', kind: 'watch',
+    key: 'summer27', label: 'Sommer', long: 'Sommerferien 2027', kind: 'watch',
     span: ['2027-06-28', '2027-08-16'],
-    london: ['2027-07-23', '2027-08-16', 'London summer holiday'],
+    london: ['2027-07-23', '2027-08-16', 'Londoner Ferien'],
     berlin: ['2027-07-01', '2027-08-15', 'Sommerferien'],
-    overlapText: 'Three weeks: 26 Jul – 13 Aug.',
-    note: 'Berlin’s summer holiday starts on 1 July and ends on 14 August; she breaks up on 22 July. The last three Berlin weeks are the ones to aim for. Summer 2027 camp dates aren’t out yet — this is who ran camps in those weeks in 2026.',
+    overlapText: 'Drei Wochen: 26. Juli – 13. August.',
+    note: 'Die Berliner Sommerferien laufen vom 1. Juli bis 14. August; in London ist erst ab dem 23. Juli frei. Die letzten drei Berliner Wochen sind also die richtigen. Termine für Sommer 2027 gibt es noch nicht – hier steht, wer 2026 in diesen Wochen Camps angeboten hat.',
     weeks: [
-      { key: 'summer27-1', label: '26–30 Jul', days: ['Mon 26', 'Tue 27', 'Wed 28', 'Thu 29', 'Fri 30'] },
-      { key: 'summer27-2', label: '2–6 Aug', days: ['Mon 2', 'Tue 3', 'Wed 4', 'Thu 5', 'Fri 6'] },
-      { key: 'summer27-3', label: '9–13 Aug', days: ['Mon 9', 'Tue 10', 'Wed 11', 'Thu 12', 'Fri 13'] },
+      { key: 'summer27-1', label: '26.–30. Juli', days: ['Mo 26', 'Di 27', 'Mi 28', 'Do 29', 'Fr 30'] },
+      { key: 'summer27-2', label: '2.–6. Aug.', days: ['Mo 2', 'Di 3', 'Mi 4', 'Do 5', 'Fr 6'] },
+      { key: 'summer27-3', label: '9.–13. Aug.', days: ['Mo 9', 'Di 10', 'Mi 11', 'Do 12', 'Fr 13'] },
     ],
   },
 ];
 
+// drive: [km, Minuten] mit dem Auto – km gerundet, Minuten ohne Stau auf 5 aufgerundet.
 const CAMPS = [
   {
-    id: 'h03-knoepfe', type: 'Football', name: 'Knöpfe-Camp', provider: 'F.C. Hertha 03 Zehlendorf',
+    id: 'h03-knoepfe', type: 'Fußball', name: 'Knöpfe-Camp', provider: 'F.C. Hertha 03 Zehlendorf',
     venue: 'Ernst-Reuter-Sportfeld, Siebenendenweg, 14169 Berlin-Zehlendorf', lat: 52.4437, lng: 13.2539,
-    ages: '4–8', format: 'Full day', lang: 'German',
-    blurb: 'The club’s camp for its youngest footballers: breakfast together, two coached sessions and lunch in between.',
+    drive: { steglitz: [6, 15], spandau: [19, 30] },
+    ages: '4–8 Jahre', format: 'Ganztags', lang: 'Deutsch',
+    blurb: 'Das Camp für die jüngsten Fußballer des Vereins: gemeinsames Frühstück, zwei Trainingseinheiten und Mittagessen dazwischen.',
     booking: 'https://www.h03.de/feriencamps/knoepfe-camp-anmeldung/', source: 'https://www.h03.de/feriencamps/',
     sessions: {
       oct26: {
         weeks: ['oct26-1', 'oct26-2'],
-        hours: 'Arrive 8:30 on Monday, by 9:00 other days · training 10:00 and 13:30',
-        price: '€157 · club members €137',
-        included: 'Breakfast, lunch, drinks, snacks and a water bottle · early care from 7:45 (add it when booking)',
-        check: 'The finishing time isn’t stated — ask when you book.',
+        hours: 'Ankunft montags 8:30, sonst bis 9:00 · Training um 10:00 und 13:30',
+        price: '157 € · Vereinsmitglieder 137 €',
+        included: 'Frühstück, Mittagessen, Getränke, Snacks und eine Trinkflasche · Frühbetreuung ab 7:45 (bei der Anmeldung dazubuchen)',
+        check: 'Wann der Tag endet, steht nicht auf der Seite – bei der Anmeldung nachfragen.',
       },
-      easter27: { watch: 'Ran at Easter 2026 (€145, members €125) — and that week sold out, so book as soon as dates appear.' },
-      summer27: { watch: 'Ran every week of summer 2026 (€159, members €139).' },
+      easter27: { watch: 'Lief Ostern 2026 (145 €, Mitglieder 125 €) – und war ausgebucht. Also sofort buchen, wenn Termine erscheinen.' },
+      summer27: { watch: 'Lief in allen Wochen der Sommerferien 2026 (159 €, Mitglieder 139 €).' },
     },
   },
   {
-    id: 'galli-mitte', type: 'Theatre', name: 'Holiday theatre course', provider: 'Galli Theater Berlin',
+    id: 'galli-mitte', type: 'Theater', name: 'Ferien-Theaterkurs', provider: 'Galli Theater Berlin',
     venue: 'Galli Theater, Oranienburger Straße 32, 10117 Berlin-Mitte', lat: 52.5252, lng: 13.3939,
-    ages: '5–9', format: 'Half day', lang: 'German',
-    blurb: 'A week of acting, dance and song that ends with the children performing their own short play for family on Friday.',
+    drive: { steglitz: [14, 25], spandau: [19, 35] },
+    ages: '5–9 Jahre', format: 'Halbtags', lang: 'Deutsch',
+    blurb: 'Eine Woche Schauspiel, Tanz und Gesang – am Freitag führen die Kinder ihr eigenes kleines Stück für die Familie auf.',
     booking: 'https://galli-berlin.de/info-anmeldung-2/', source: 'https://galli-berlin.de/theater-aktuell-3/kinder-ferien-theaterkurse/',
     sessions: {
       oct26: {
         weeks: ['oct26-1', 'oct26-2'],
         hours: '10:00–14:00',
-        price: '€200 a week (second child €160 in 2025)',
-        included: 'Led by Tommy Matuszewski (19–23 Oct) and Sina Haarmann (26–30 Oct), each with an assistant',
-        check: 'The 2026 page doesn’t repeat the age range; 5–9 comes from Galli’s 2025 listing on berlin.de. Confirm when booking.',
+        price: '200 € pro Woche (2. Kind 2025: 160 €)',
+        included: 'Kursleitung: Tommy Matuszewski (19.–23.10.) und Sina Haarmann (26.–30.10.), jeweils mit Assistenz',
+        check: 'Die Seite für 2026 nennt kein Alter; „5–9 Jahre“ stammt aus Gallis Eintrag von 2025 auf berlin.de. Bei der Anmeldung bestätigen lassen.',
       },
       summer27: {
-        watch: 'In summer 2026 the courses ran at Domäne Dahlem (€200 a week, 10:00–14:00), including one week in English.',
-        venue: 'Domäne Dahlem, Königin-Luise-Straße 49, 14195 Berlin-Dahlem (2026 venue)', lat: 52.4594, lng: 13.2890,
+        watch: 'Im Sommer 2026 liefen die Kurse auf der Domäne Dahlem (200 € pro Woche, 10:00–14:00), inklusive einer englischsprachigen Woche.',
+        venue: 'Domäne Dahlem, Königin-Luise-Straße 49, 14195 Berlin-Dahlem (Ort 2026)', lat: 52.4594, lng: 13.2890,
+        drive: { steglitz: [4, 10], spandau: [16, 30] },
       },
     },
   },
   {
-    id: 'kca-kreuzberg', type: 'English-language camp', name: 'English Kids Camp', provider: 'Kids Camp America (KCA)',
+    id: 'kca-kreuzberg', type: 'Englischsprachiges Camp', name: 'English Kids Camp', provider: 'Kids Camp America (KCA)',
     venue: 'Alte Feuerwache, Axel-Springer-Straße 40–41, 10969 Berlin-Kreuzberg', lat: 52.5077, lng: 13.3990,
-    ages: '5–12', format: 'Full day', lang: 'English',
-    blurb: 'A full day in English with native-speaking counsellors — sports and team games, baseball and archery, crafts, music and walks around the neighbourhood.',
+    drive: { steglitz: [12, 20], spandau: [19, 35] },
+    ages: '5–12 Jahre', format: 'Ganztags', lang: 'Englisch',
+    blurb: 'Ein ganzer Tag auf Englisch mit muttersprachlichen Betreuern – Sport und Teamspiele, Baseball und Bogenschießen, Basteln, Musik und Ausflüge in die Nachbarschaft.',
     booking: 'https://kidscampamerica.com/de/kca_camps/berlin-kreuzberg-englisch-kids-camp-herbstferien/', source: 'https://kidscampamerica.com/de/kca_camps/berlin-kreuzberg-englisch-kids-camp-herbstferien/',
     sessions: {
       oct26: {
         weeks: ['oct26-1', 'oct26-2'],
-        hours: '9:00–17:00, Monday to Friday',
-        price: '€395 a week',
-        included: 'Warm lunch every day',
+        hours: '9:00–17:00, Montag bis Freitag',
+        price: '395 € pro Woche',
+        included: 'Täglich warmes Mittagessen',
       },
       summer27: {
-        watch: 'The only Berlin summer 2027 camp KCA lists so far is in Tiergarten on 5–16 July — before she breaks up. They ran a Kreuzberg summer camp in 2026, so check back for later weeks.',
+        watch: 'Das einzige Berliner Sommercamp 2027, das KCA bisher anbietet, ist in Tiergarten vom 5.–16. Juli – bevor die Londoner Ferien beginnen. 2026 gab es auch ein Sommercamp in Kreuzberg, also später noch einmal schauen.',
       },
     },
   },
   {
-    id: 'young-engineers', type: 'Lego, robotics & coding', name: 'Lego mechanics, Minecraft & robotics camp', provider: 'Young Engineers Berlin',
+    id: 'young-engineers', type: 'Lego, Robotik & Programmieren', name: 'Lego-Mechanik, Minecraft & Robotik', provider: 'Young Engineers Berlin',
     venue: 'Grimmstraße 10, 10967 Berlin-Kreuzberg', lat: 52.4932, lng: 13.4130,
-    ages: '5–14', format: 'Half or full day', lang: 'German & English',
-    teen: { ok: true, text: 'Yes — ages 5–14, grouped by age' },
-    blurb: 'Building moving models with Lego-compatible bricks, then simple block coding in Minecraft and robotics — grouped by age.',
+    drive: { steglitz: [12, 20], spandau: [20, 35] },
+    ages: '5–14 Jahre', format: 'Halb- oder ganztags', lang: 'Deutsch & Englisch',
+    teen: { ok: true, text: 'Ja – 5 bis 14 Jahre, nach Alter gruppiert' },
+    blurb: 'Bewegliche Modelle aus Lego-kompatiblen Steinen bauen, dann einfaches Programmieren in Minecraft und Robotik.',
     booking: 'https://www.kindaling.de/programmiercamps/lego-mechanic-minecraft-programmierung-robotik-de-en/berlin-kreuzberg',
     source: 'https://www.kindaling.de/programmiercamps/lego-mechanic-minecraft-programmierung-robotik-de-en/berlin-kreuzberg',
-    listing: 'Kindaling booking page',
+    listing: 'Laut Buchungsseite Kindaling',
     sessions: {
       oct26: {
         weeks: ['oct26-1', 'oct26-2'],
-        hours: '10:00–13:00 or 13:00–16:00 · full day 10:00–16:00',
-        price: '€280 a week half day · €440 full day (€420 if booked by 30 Sept) · €15 off each sibling',
-        check: 'Details are from the Kindaling booking page, not Young Engineers’ own site — confirm the youngest group runs in your week.',
+        hours: '10:00–13:00 oder 13:00–16:00 · ganztags 10:00–16:00',
+        price: '280 € pro Woche halbtags · 440 € ganztags (420 € bei Buchung bis 30.09.) · 15 € Rabatt pro Geschwisterkind',
+        check: 'Die Angaben stammen von der Buchungsseite Kindaling, nicht von Young Engineers selbst – bestätigen lassen, dass die jüngste Gruppe in eurer Woche läuft.',
       },
-      easter27: { watch: 'Ran an Easter camp in 2026 for ages 5–14.' },
-      summer27: { watch: 'Ran all six weeks of summer 2026 (€280 half day, €440 full day).' },
+      easter27: { watch: 'Gab Ostern 2026 ein Camp für 5- bis 14-Jährige.' },
+      summer27: { watch: 'Lief in allen sechs Wochen der Sommerferien 2026 (280 € halbtags, 440 € ganztags).' },
     },
   },
   {
-    id: 'swimkids-moabit', type: 'Swimming', name: 'Holiday intensive swimming course', provider: 'Swimkids Berlin',
-    venue: 'Swimkids’ Moabit pool — exact address given when booking', lat: 52.5301, lng: 13.3425, approx: true,
-    ages: '3½–10 for Seepferdchen · 5–12 for Bronze and Silver', format: 'Short daily lessons', lang: 'German',
-    blurb: 'A lesson every day for a week to work towards the Seepferdchen badge — or Bronze and Silver for confident swimmers.',
+    id: 'swimkids-moabit', type: 'Schwimmen', name: 'Ferien-Intensivschwimmkurs', provider: 'Swimkids Berlin',
+    venue: 'Schwimmhalle von Swimkids in Moabit – genaue Adresse erst bei der Buchung', lat: 52.5301, lng: 13.3425, approx: true,
+    drive: { steglitz: [12, 20], spandau: [15, 25] },
+    ages: '3½–10 (Seepferdchen) · 5–12 (Bronze/Silber)', format: 'Kurze tägliche Kurse', lang: 'Deutsch',
+    blurb: 'Eine Woche lang jeden Tag Schwimmunterricht – Richtung Seepferdchen, oder Bronze und Silber für sichere Schwimmer.',
     booking: 'https://www.schwimmschule-swimkids.de/intensivkurse/show/12648/', source: 'https://www.schwimmschule-swimkids.de/intensivkurse/show/21744/',
     sessions: {
       oct26: {
         weeks: ['oct26-1', 'oct26-2'],
-        hours: 'Lesson times are chosen when booking',
-        price: 'Course fee shown when booking · badge exam €20 (Seepferdchen) or €25 · pool entry included',
-        included: 'Full refund if you cancel 5 or more days before the start',
-        check: 'The pool address, lesson length and course fee only appear during online booking. The map pin is the middle of Moabit.',
+        hours: 'Kurszeiten werden bei der Buchung gewählt',
+        price: 'Kursgebühr erst bei der Buchung sichtbar · Abzeichen-Prüfung 20 € (Seepferdchen) oder 25 € · Eintritt inklusive',
+        included: 'Geld zurück bei Absage bis 5 Tage vor Kursbeginn',
+        check: 'Adresse der Halle, Kurslänge und Preis erscheinen erst in der Online-Buchung. Die Kartennadel steht in der Mitte von Moabit – die Fahrzeit ist daher nur ungefähr.',
       },
-      easter27: { watch: 'Swimkids run intensive courses in the Berlin school holidays — Easter 2027 dates aren’t listed yet.' },
-      summer27: { watch: 'Ran courses in all six weeks of summer 2026 in Moabit.' },
+      easter27: { watch: 'Swimkids bieten in den Berliner Schulferien Intensivkurse an – Ostern 2027 ist noch nicht eingetragen.' },
+      summer27: { watch: 'Kurse in allen sechs Wochen der Sommerferien 2026 in Moabit.' },
     },
   },
   {
-    id: 'fussballschule-mitte', type: 'Football', name: 'Football holiday camp', provider: 'Fußballschule Berlin-Brandenburg, with SV Blau Weiß Berolina Mitte',
-    venue: 'Sportplatz Auguststraße, Kleine Hamburger Straße 16, 10117 Berlin-Mitte (Hemingway school sports hall, Gartenstraße 10–17, in bad weather)', lat: 52.5273, lng: 13.3966,
-    ages: '5–14', format: 'Full day', lang: 'German',
-    teen: { ok: true, text: 'Yes — the same camp takes 5 to 14, in small groups of 12–14 children' },
-    blurb: 'Coached football for beginners through to confident players — tricks, shooting and coordination, then games and a tournament in the afternoon. About enjoying the game, not performance.',
+    id: 'fussballschule-mitte', type: 'Fußball', name: 'Fußball-Feriencamp', provider: 'Fußballschule Berlin-Brandenburg, mit SV Blau Weiß Berolina Mitte',
+    venue: 'Sportplatz Auguststraße, Kleine Hamburger Straße 16, 10117 Berlin-Mitte (bei schlechtem Wetter Halle der Hemingway-Oberschule, Gartenstraße 10–17)', lat: 52.5273, lng: 13.3966,
+    drive: { steglitz: [14, 25], spandau: [18, 35] },
+    ages: '5–14 Jahre', format: 'Ganztags', lang: 'Deutsch',
+    teen: { ok: true, text: 'Ja – dasselbe Camp nimmt 5- bis 14-Jährige, in kleinen Gruppen mit 12–14 Kindern' },
+    blurb: 'Fußballtraining für Anfänger bis Fortgeschrittene – Tricks, Torschuss und Koordination, nachmittags Spiele und ein Abschlussturnier. Es geht um Spaß am Spiel, nicht um Leistung.',
     booking: 'https://fussballschule-bb.de/fussball-feriencamp/fussball-feriencamp-berlin/fussball-feriencamp-berlin-herbstferien-2026/',
     source: 'https://fussballschule-bb.de/fussball-feriencamp/fussball-feriencamp-berlin/fussball-feriencamp-berlin-herbstferien-2026/',
     sessions: {
       oct26: {
         weeks: ['oct26-1', 'oct26-2'],
-        hours: '9:00–15:30 · early care from 8:30, late care until 16:00',
-        price: '€235 for 5 days · €215 for 4 · €175 for 3',
-        included: 'Breakfast, lunch, an afternoon snack and drinks · more than 10 places left in each week on 11 Sept',
+        hours: '9:00–15:30 · Frühbetreuung ab 8:30, Spätbetreuung bis 16:00',
+        price: '235 € für 5 Tage · 215 € für 4 · 175 € für 3',
+        included: 'Frühstück, Mittagessen, Vesper und Getränke · am 11.09. in beiden Wochen noch mehr als 10 Plätze frei',
       },
-      easter27: { watch: 'They run camps in the Easter, summer and October holidays — 2027 dates aren’t listed yet.' },
-      summer27: { watch: 'They run camps in the Easter, summer and October holidays — 2027 dates aren’t listed yet.' },
+      easter27: { watch: 'Die Fußballschule bietet Camps in den Oster-, Sommer- und Herbstferien an – Termine für 2027 stehen noch nicht online.' },
+      summer27: { watch: 'Die Fußballschule bietet Camps in den Oster-, Sommer- und Herbstferien an – Termine für 2027 stehen noch nicht online.' },
     },
   },
   {
-    id: 'kidz-in-motion', type: 'Multi-sport', name: 'Multisport camp', provider: 'kidz-in-motion',
+    id: 'kidz-in-motion', type: 'Multisport', name: 'Multisport-Camp', provider: 'kidz-in-motion',
     venue: 'Ernst-Reuter-Sportanlage (Berliner Hockey-Club), Wilskistraße 70, 14163 Berlin-Zehlendorf', lat: 52.4464, lng: 13.2480,
-    ages: '5–13 (must be 5 on the first day)', format: 'Full day', lang: 'German (English flyer)',
-    teen: { ok: 'maybe', text: 'Only if they don’t turn 14 during 2027 — the oldest campers must be, or turn, 13 that year' },
-    blurb: 'Ten-plus sports rotated through the week — hockey, lacrosse, tennis, tag rugby, football and more.',
+    drive: { steglitz: [7, 15], spandau: [18, 30] },
+    ages: '5–13 Jahre (am ersten Tag mindestens 5)', format: 'Ganztags', lang: 'Deutsch (Flyer auf Englisch)',
+    teen: { ok: 'maybe', text: 'Nur wenn das Kind 2027 nicht 14 wird – die Ältesten müssen im Campjahr 13 sein oder werden' },
+    blurb: 'Mehr als zehn Sportarten im Wechsel – Hockey, Lacrosse, Tennis, Tag-Rugby, Fußball und mehr.',
     booking: 'https://www.kidz-in-motion.de/anmeldung/', source: 'https://www.kidz-in-motion.de/standorte/berlin-zehlendorf/',
     sessions: {
       summer27: {
-        watch: 'In 2026 it ran 27 Jul–7 Aug, 8:00–17:00, €260 a week with a hot vegetarian lunch and early care from 7:40 (€20 per family). No October camp at this site.',
+        watch: 'Lief 2026 vom 27.07. bis 07.08., 8:00–17:00, 260 € pro Woche mit warmem vegetarischem Mittagessen, Frühbetreuung ab 7:40 (20 € pro Familie). An diesem Standort gibt es kein Herbstcamp.',
       },
     },
   },
   {
-    id: 'spandau04-camp', type: 'Swimming & play camp', name: 'Summer holiday camp', provider: 'Wasserfreunde Spandau 04',
+    id: 'spandau04-camp', type: 'Schwimm- & Spielcamp', name: 'Sommerferiencamp', provider: 'Wasserfreunde Spandau 04',
     venue: 'Clubhaus Alfreds, Olympiapark Berlin, Prinz-Friedrich-Karl-Weg, 14053 Berlin-Westend', lat: 52.5209, lng: 13.2405, approx: true,
-    ages: '4–9', format: 'Full day', lang: 'German',
-    blurb: 'Learning to swim and getting more confident in the water, plus games, sport around the Olympiapark and trips out in Berlin.',
+    drive: { steglitz: [15, 25], spandau: [8, 15] },
+    ages: '4–9 Jahre', format: 'Ganztags', lang: 'Deutsch',
+    blurb: 'Schwimmen lernen und sicherer werden, dazu Spiele, Sport im Olympiapark und Ausflüge in Berlin.',
     booking: 'https://spandau04.de/schwimmen/schwimmkurse/feriencamp/', source: 'https://spandau04.de/allgemein/sommerferiencamp-2026-in-berlin-schwimmen-im-olympiapark/',
     sessions: {
       summer27: {
-        watch: 'In summer 2026 it ran through the Berlin summer holidays, booked by the week: 9:00–16:00 (arrive from 8:45), €350 a week or €50 off two weeks, with lunch, snacks and drinks. Only summer camps have ever been advertised, and the booking list was empty on 11 Sept.',
+        watch: 'Lief im Sommer 2026 während der Berliner Sommerferien, wochenweise buchbar: 9:00–16:00 (Ankunft ab 8:45), 350 € pro Woche oder 50 € Rabatt bei zwei Wochen, mit Mittagessen, Snacks und Getränken. Bisher wurden nur Sommercamps angeboten; die Buchungsliste war am 11.09. leer.',
       },
     },
   },
   {
-    id: 'spandau04-intensive', type: 'Swimming', name: 'Holiday intensive swimming courses', provider: 'Wasserfreunde Spandau 04',
+    id: 'spandau04-intensive', type: 'Schwimmen', name: 'Ferienintensivkurse', provider: 'Wasserfreunde Spandau 04',
     venue: 'Forumbad, Olympiapark Berlin, Hanns-Braun-Straße, 14053 Berlin-Westend', lat: 52.5190, lng: 13.2463, approx: true,
-    ages: '4–16', format: 'Short daily lessons', lang: 'German',
-    teen: { ok: true, text: 'Yes — courses take ages 4 to 16, from beginners up to the Gold badge' },
-    blurb: 'A lesson every weekday for a week, from getting used to the water up to Seepferdchen, Bronze, Silver and Gold, in a 26°C pool.',
+    drive: { steglitz: [15, 20], spandau: [8, 15] },
+    ages: '4–16 Jahre', format: 'Kurze tägliche Kurse', lang: 'Deutsch',
+    teen: { ok: true, text: 'Ja – die Kurse nehmen 4- bis 16-Jährige, von Anfängern bis zum Goldabzeichen' },
+    blurb: 'Eine Woche lang jeden Werktag Unterricht, von der Wassergewöhnung bis Seepferdchen, Bronze, Silber und Gold – bei 26 °C Wassertemperatur.',
     booking: 'https://spandau04.de/schwimmen/schwimmkurse/ferienintensivkurse/', source: 'https://spandau04.de/schwimmen/ferienintensivkurse-2026-in-berlin-schwimmen-lernen-in-den-sommerferien/',
     sessions: {
       summer27: {
-        watch: 'Ran Monday to Friday in all six weeks of summer 2026, with several time slots each week. The price isn’t on their page, and nothing is listed for October or 2027 yet.',
+        watch: 'Lief Montag bis Freitag in allen sechs Wochen der Sommerferien 2026, mit mehreren Uhrzeiten pro Woche. Kein Preis auf der Seite; für Oktober und 2027 ist noch nichts eingetragen.',
       },
     },
   },
 ];
 
 const ALSO_CHECKED = [
-  'Wasserfreunde Spandau 04, Olympiapark — no October camp or courses; both booking lists empty on 11 Sept',
-  '“Kinder in Licht, Luft und Sonne”, Aalemannufer (Spandau youth service) — October week for ages 7–11',
-  'Sportkinder Berlin, Spandau — October programmes start at age 8 (and were sold out)',
-  'Waldschule Spandau forest week — ages 8–12',
-  'Fußballschule Berlin-Brandenburg, Britz — same camp as Mitte (5–14), but in Neukölln and first week only',
-  '“Herbstferien ohne Kofferpacken”, Charlottenburg — ages 6–14',
-  'Zehlendorf 88 hockey camp — children born 2014–2018',
-  'Jugend im Museum holiday courses — youngest age 6',
-  'Sports Island Berlin October camps — age 8 and up',
-  'TuS Lichterfelde camps — no October dates or age groups published',
-  'Kindersprachclub, Wilmersdorf — takes age 5, but these are 2-hour language classes rather than camps',
-  'Summer 2026 favourites Art Space, Circus Schatzinsel, Liga der Roboter and Forscherferien — all 6+',
+  'Wasserfreunde Spandau 04, Olympiapark – kein Herbstcamp und keine Herbstkurse; beide Buchungslisten am 11.09. leer',
+  '„Kinder in Licht, Luft und Sonne“, Aalemannufer (Jugendamt Spandau) – Herbstferienwoche für 7- bis 11-Jährige',
+  'Sportkinder Berlin, Spandau – Herbstangebote ab 8 Jahren (und ausgebucht)',
+  'Waldschule Spandau, Herbstferienwoche – 8 bis 12 Jahre',
+  'Fußballschule Berlin-Brandenburg, Britz – wie in Mitte (5–14 Jahre), aber in Neukölln und nur in der ersten Woche',
+  '„Herbstferien ohne Kofferpacken“, Charlottenburg – 6 bis 14 Jahre',
+  'Zehlendorf 88, Hockeycamp – Jahrgänge 2014–2018',
+  'Jugend im Museum, Ferienkurse – ab 6 Jahren',
+  'Sports Island Berlin, Herbstcamps – ab 8 Jahren',
+  'TuS Lichterfelde – keine Herbsttermine oder Altersgruppen veröffentlicht',
+  'Kindersprachclub, Wilmersdorf – nimmt 5-Jährige, aber 2-stündige Sprachkurse statt Camp',
+  'Sommercamps 2026 von Art Space, Circus Schatzinsel, Liga der Roboter und Forscherferien – alle ab 6 Jahren',
 ];
 
 /* ============================================================
-   STATE (this device only)
+   ZUSTAND (nur auf diesem Gerät)
    ============================================================ */
-const LS = { places: 'bhc_places', base: 'bhc_base', holiday: 'bhc_holiday', saved: 'bhc_saved', plans: 'bhc_plans', child: 'bhc_child', circle: 'bhc_circle', friends: 'bhc_friends' };
+const LS = { base: 'bhc_base', holiday: 'bhc_holiday', saved: 'bhc_saved', plans: 'bhc_plans', child: 'bhc_child', circle: 'bhc_circle', friends: 'bhc_friends' };
 function load(k, d) { try { const v = localStorage.getItem(k); return v ? JSON.parse(v) : d; } catch (e) { return d; } }
 function save(k, v) { try { localStorage.setItem(k, JSON.stringify(v)); } catch (e) {} }
+// Frühere Version konnte eigene Straßen speichern – die werden hier gelöscht.
+try { localStorage.removeItem('bhc_places'); } catch (e) {}
+if (/from=/.test(location.hash)) history.replaceState(null, '', location.pathname);
 
 const state = {
   base: load(LS.base, 'steglitz'),
   holiday: load(LS.holiday, 'oct26'),
   week: 'all',
   savedOnly: false,
+  teenOnly: false,
   saved: load(LS.saved, []),
-  plans: load(LS.plans, {}),      // { campId: { weekKey: [dayIndex] } }
+  plans: load(LS.plans, {}),      // { campId: { weekKey: [Tagindex] } }
   child: load(LS.child, ''),
   circle: load(LS.circle, ''),
   friends: load(LS.friends, []),  // [{ n, c, p }]
   hot: null,
-  teenOnly: false,
-  places: load(LS.places, {}),    // { key: { label, lat, lng } } — this device only
 };
-function rebuildBases() {
-  BASES = { ...FIXED_BASES };
-  Object.entries(state.places).forEach(([k, p]) => { BASES[k] = { ...p, colour: 'var(--ok)', custom: true }; });
-}
-function addPlace(label, lat, lng) {
-  const key = 'p-' + label.toLowerCase().replace(/[^a-z0-9äöüß]+/g, '-').replace(/^-|-$/g, '').slice(0, 30);
-  state.places[key] = { label: label.slice(0, 40), lat: Math.round(lat * 1000) / 1000, lng: Math.round(lng * 1000) / 1000 };
-  save(LS.places, state.places);
-  rebuildBases();
-  state.base = key;
-  save(LS.base, key);
-  return key;
-}
-// A link can carry its own starting point: #from=52.535,13.155,Wandsbeker%20Weg
-(function placeFromLink() {
-  const m = location.hash.match(/from=(-?[\d.]+),(-?[\d.]+),([^&]+)/);
-  if (!m) return;
-  const lat = Number(m[1]), lng = Number(m[2]), label = decodeURIComponent(m[3]).trim();
-  if (lat > 52.3 && lat < 52.7 && lng > 13.0 && lng < 13.8 && label) addPlace(label, lat, lng);
-  history.replaceState(null, '', location.pathname + location.hash.replace(/[#&]?from=[^&]+/, '').replace(/^#?$/, ''));
-})();
-rebuildBases();
 if (!BASES[state.base]) state.base = 'steglitz';
 if (!HOLIDAYS.some((h) => h.key === state.holiday)) state.holiday = 'oct26';
 
@@ -586,15 +566,8 @@ const $ = (id) => document.getElementById(id);
 const esc = (s) => String(s).replace(/[&<>"']/g, (m) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[m]));
 const holiday = () => HOLIDAYS.find((h) => h.key === state.holiday);
 const weekOf = (key) => HOLIDAYS.flatMap((h) => h.weeks).find((w) => w.key === key);
-
-function km(a, b) {
-  const R = 6371, rad = Math.PI / 180;
-  const dLat = (b.lat - a.lat) * rad, dLng = (b.lng - a.lng) * rad;
-  const x = Math.sin(dLat / 2) ** 2 + Math.cos(a.lat * rad) * Math.cos(b.lat * rad) * Math.sin(dLng / 2) ** 2;
-  return 2 * R * Math.asin(Math.sqrt(x));
-}
-const place = (c, s) => (s && s.lat ? { lat: s.lat, lng: s.lng, venue: s.venue } : { lat: c.lat, lng: c.lng, venue: c.venue });
-function band(d) { return d <= 5 ? 'close by' : d <= 10 ? 'a short trip' : d <= 15 ? 'across town' : 'a trek'; }
+const place = (c, s) => (s && s.lat ? { lat: s.lat, lng: s.lng, venue: s.venue, drive: s.drive || c.drive } : { lat: c.lat, lng: c.lng, venue: c.venue, drive: c.drive });
+function band(min) { return min <= 15 ? 'ganz nah' : min <= 25 ? 'gut erreichbar' : min <= 35 ? 'etwas weiter' : 'weit'; }
 
 function toast(msg) {
   const t = document.createElement('div');
@@ -604,7 +577,7 @@ function toast(msg) {
 }
 
 /* ============================================================
-   RENDER
+   ANZEIGE
    ============================================================ */
 function visibleCamps() {
   const h = holiday();
@@ -616,10 +589,10 @@ function visibleCamps() {
     .map((c) => {
       const s = c.sessions[h.key];
       const p = place(c, s);
-      const dAll = Object.fromEntries(Object.entries(BASES).map(([k, b]) => [k, km(b, p)]));
-      return { c, s, p, d: dAll[state.base], dAll };
+      const [km, min] = p.drive[state.base];
+      return { c, s, p, km, min };
     })
-    .sort((a, b) => (a.s.watch ? 1 : 0) - (b.s.watch ? 1 : 0) || a.d - b.d);
+    .sort((a, b) => (a.s.watch ? 1 : 0) - (b.s.watch ? 1 : 0) || a.min - b.min || a.km - b.km);
 }
 
 function renderControls() {
@@ -630,22 +603,22 @@ function renderControls() {
   const h = holiday();
   const count = (wk) => CAMPS.filter((c) => c.sessions[h.key] && (wk === 'all' || c.sessions[h.key].watch || (c.sessions[h.key].weeks || []).includes(wk))).length;
   $('weekChips').innerHTML =
-    `<button type="button" class="chip" data-week="all" aria-pressed="${state.week === 'all'}">Every week <span class="n">${count('all')}</span></button>` +
+    `<button type="button" class="chip" data-week="all" aria-pressed="${state.week === 'all'}">Alle Wochen <span class="n">${count('all')}</span></button>` +
     h.weeks.map((w) => `<button type="button" class="chip" data-week="${w.key}" aria-pressed="${state.week === w.key}">${esc(w.label)} <span class="n">${count(w.key)}</span></button>`).join('') +
-    `<button type="button" class="chip" data-teen aria-pressed="${state.teenOnly}">Takes a 13-year-old too <span class="n">${CAMPS.filter((c) => c.sessions[h.key] && c.teen).length}</span></button>` +
-    `<button type="button" class="chip" data-saved aria-pressed="${state.savedOnly}">Saved <span class="n">${state.saved.filter((id) => CAMPS.some((c) => c.id === id && c.sessions[h.key])).length}</span></button>`;
+    `<button type="button" class="chip" data-teen aria-pressed="${state.teenOnly}">Nimmt auch 13-Jährige <span class="n">${CAMPS.filter((c) => c.sessions[h.key] && c.teen).length}</span></button>` +
+    `<button type="button" class="chip" data-saved aria-pressed="${state.savedOnly}">Gemerkt <span class="n">${state.saved.filter((id) => CAMPS.some((c) => c.id === id && c.sessions[h.key])).length}</span></button>`;
 }
 
 function renderTally() {
-  const open = CAMPS.filter((c) => c.sessions.oct26).length;
-  const near = CAMPS.filter((c) => c.sessions.oct26 && km(BASES[state.base], place(c, c.sessions.oct26)) <= 10).length;
+  const open = CAMPS.filter((c) => c.sessions.oct26);
+  const near = open.filter((c) => place(c, c.sessions.oct26).drive[state.base][1] <= 20).length;
+  const both = open.filter((c) => c.teen).length;
   const watch = CAMPS.filter((c) => c.sessions.easter27 || c.sessions.summer27).length;
-  const both = CAMPS.filter((c) => c.sessions.oct26 && c.teen).length;
   $('tally').innerHTML =
-    `<li><b>${open}</b> bookable in October</li>` +
-    `<li><b>${near}</b> within 10 km of ${esc(BASES[state.base].label)}</li>` +
-    `<li><b>${both}</b> in October that take 5 and 13</li>` +
-    `<li><b>${watch}</b> to watch for 2027</li>`;
+    `<li><b>${open.length}</b> im Oktober buchbar</li>` +
+    `<li><b>${near}</b> höchstens 20 Min. mit dem Auto von ${esc(BASES[state.base].label)}</li>` +
+    `<li><b>${both}</b> im Oktober für 5 und 13</li>` +
+    `<li><b>${watch}</b> für 2027 im Blick</li>`;
 }
 
 function renderOverlap() {
@@ -656,26 +629,26 @@ function renderOverlap() {
   const oStart = h.london[0] > h.berlin[0] ? h.london[0] : h.berlin[0];
   const oEnd = h.london[1] < h.berlin[1] ? h.london[1] : h.berlin[1];
   const ticks = [];
-  const fmt = (t) => new Date(t).toLocaleDateString('en-GB', { day: 'numeric', month: 'short', timeZone: 'UTC' });
+  const fmt = (t) => new Date(t).toLocaleDateString('de-DE', { day: 'numeric', month: 'short', timeZone: 'UTC' });
   for (let t = t0; t <= t1; t += 7 * 86400000) ticks.push(`<span style="left:${((t - t0) / (t1 - t0)) * 100}%">${fmt(t)}</span>`);
   $('overlap').innerHTML = `
     <div class="overlap-head"><h2>${esc(h.long)}</h2><span class="pill ${h.kind === 'open' ? 'ok' : 'warn'}"><i></i>${esc(h.overlapText)}</span></div>
     <div class="tl" aria-hidden="true">
       <span class="tl-name">London</span><div class="tl-track">${bar('london', h.london[0], h.london[1], h.london[2])}</div>
       <span class="tl-name">Berlin</span><div class="tl-track">${bar('berlin', h.berlin[0], h.berlin[1], h.berlin[2])}</div>
-      <span class="tl-name">Camp weeks</span><div class="tl-track">${bar('both', oStart, oEnd, 'Both off')}</div>
+      <span class="tl-name">Camp-Wochen</span><div class="tl-track">${bar('both', oStart, oEnd, 'Beide frei')}</div>
       <div class="tl-axis">${ticks.join('')}</div>
     </div>
     <p class="note">${esc(h.note)}</p>`;
 }
 
-function distRows(item) {
-  const max = 22;
+function driveRows(p) {
+  const max = 40;
   return `<div class="dist">` + Object.keys(BASES).map((k) => {
-    const d = item.dAll[k], on = k === state.base;
-    return `<span class="who ${on ? 'on' : ''}">From ${esc(BASES[k].label)}</span>
-      <span class="bar ${on ? 'on' : ''}"><i style="width:${Math.min(100, (d / max) * 100)}%"></i></span>
-      <span class="km">${d.toFixed(d < 10 ? 1 : 0)} km</span>`;
+    const [km, min] = p.drive[k], on = k === state.base;
+    return `<span class="who ${on ? 'on' : ''}">Von ${esc(BASES[k].label)}</span>
+      <span class="bar ${on ? 'on' : ''}"><i style="width:${Math.min(100, (min / max) * 100)}%"></i></span>
+      <span class="km">${km} km · ${min} Min.</span>`;
   }).join('') + `</div>`;
 }
 
@@ -685,16 +658,14 @@ function dayPicker(c, s) {
     const w = weekOf(wk), picked = plan[wk] || [];
     return `<div class="week"><span class="week-name">${esc(w.label)}</span>` +
       w.days.map((d, i) => `<button type="button" class="day" data-camp="${c.id}" data-wk="${wk}" data-day="${i}" aria-pressed="${picked.includes(i)}">${esc(d.split(' ')[0])}</button>`).join('') +
-      `<button type="button" class="week-all" data-camp="${c.id}" data-wk="${wk}" data-all>${picked.length === w.days.length ? 'Clear' : 'All week'}</button></div>`;
+      `<button type="button" class="week-all" data-camp="${c.id}" data-wk="${wk}" data-all>${picked.length === w.days.length ? 'Leeren' : 'Ganze Woche'}</button></div>`;
   }).join('') + `</div>`;
 }
 
 function renderList() {
-  const h = holiday();
   const items = visibleCamps();
-  state.order = items.map((x) => x.c.id);
   if (!items.length) {
-    $('list').innerHTML = `<div class="empty">${state.savedOnly ? 'Nothing saved for this holiday yet — tap the heart on a camp to keep it here.' : 'No camps for that week yet.'}</div>`;
+    $('list').innerHTML = `<div class="empty">${state.savedOnly ? 'Für diese Ferien ist noch nichts gemerkt – bei einem Camp auf das Herz tippen.' : 'Für diese Auswahl gibt es noch keine Camps.'}</div>`;
     return;
   }
   $('list').innerHTML = items.map((item, i) => {
@@ -706,39 +677,39 @@ function renderList() {
       <div class="card-top">
         <span class="num">${i + 1}</span>
         <span class="label">${esc(c.type)}</span>
-        <span style="margin-left:auto" class="pill ${isWatch ? 'warn' : 'ok'}"><i></i>${isWatch ? '2027 dates not out yet' : 'Bookable now'}</span>
+        <span style="margin-left:auto" class="pill ${isWatch ? 'warn' : 'ok'}"><i></i>${isWatch ? 'Termine 2027 noch offen' : 'Jetzt buchbar'}</span>
       </div>
       <div>
         <h3>${esc(c.name)}</h3>
-        <p class="provider">${esc(c.provider)} · ${esc(band(item.d))} from ${esc(BASES[state.base].label)}</p>
+        <p class="provider">${esc(c.provider)} · ca. ${item.min} Min. mit dem Auto von ${esc(BASES[state.base].label)} (${esc(band(item.min))})</p>
       </div>
       <div class="pills">
-        <span class="pill ok"><i></i>Ages ${esc(c.ages)}</span>
+        <span class="pill ok"><i></i>${esc(c.ages)}</span>
         <span class="pill">${esc(c.format)}</span>
-        <span class="pill ${/English/.test(c.lang) ? 'berry' : ''}">${esc(c.lang)}</span>
-        ${c.teen ? `<span class="pill ${c.teen.ok === true ? 'berry' : 'warn'}"><i></i>${c.teen.ok === true ? 'Takes 13 too' : 'Maybe 13'}</span>` : ''}
+        <span class="pill ${/Englisch/.test(c.lang) ? 'berry' : ''}">${esc(c.lang)}</span>
+        ${c.teen ? `<span class="pill ${c.teen.ok === true ? 'berry' : 'warn'}"><i></i>${c.teen.ok === true ? 'Auch 13-Jährige' : '13-Jährige vielleicht'}</span>` : ''}
       </div>
       <p class="blurb">${esc(c.blurb)}</p>
-      ${distRows(item)}
+      ${driveRows(p)}
       <dl class="facts">
-        <dt>Where</dt><dd>${esc(p.venue)}${c.approx && !s.lat ? ' <span class="faint">(map pin approximate)</span>' : ''}</dd>
-        ${c.teen ? `<dt>13-year-old</dt><dd>${esc(c.teen.text)}</dd>` : ''}
-        ${isWatch ? `<dt>Last time</dt><dd>${esc(s.watch)}</dd>` : `
-        <dt>Weeks</dt><dd>${esc(weeksText)}</dd>
-        <dt>Hours</dt><dd>${esc(s.hours)}</dd>
-        <dt>Price</dt><dd>${esc(s.price)}</dd>
-        ${s.included ? `<dt>Also</dt><dd>${esc(s.included)}</dd>` : ''}`}
+        <dt>Wo</dt><dd>${esc(p.venue)}${c.approx && !s.lat ? ' <span class="faint">(Kartennadel ungefähr)</span>' : ''}</dd>
+        ${c.teen ? `<dt>13-Jährige</dt><dd>${esc(c.teen.text)}</dd>` : ''}
+        ${isWatch ? `<dt>Zuletzt</dt><dd>${esc(s.watch)}</dd>` : `
+        <dt>Wochen</dt><dd>${esc(weeksText)}</dd>
+        <dt>Zeiten</dt><dd>${esc(s.hours)}</dd>
+        <dt>Preis</dt><dd>${esc(s.price)}</dd>
+        ${s.included ? `<dt>Außerdem</dt><dd>${esc(s.included)}</dd>` : ''}`}
       </dl>
-      ${s.check ? `<p class="check"><b>Check before paying:</b> ${esc(s.check)}</p>` : ''}
+      ${s.check ? `<p class="check"><b>Vor dem Bezahlen prüfen:</b> ${esc(s.check)}</p>` : ''}
       ${!isWatch && (s.weeks || []).length ? dayPicker(c, s) : ''}
       <div class="actions">
-        ${isWatch ? `<a class="btn" href="${esc(c.source)}" target="_blank" rel="noopener">See their page ↗</a>`
-                  : `<a class="btn primary" href="${esc(c.booking)}" target="_blank" rel="noopener">Book ↗</a>`}
-        <a class="btn" href="https://www.google.com/maps/dir/?api=1&origin=${BASES[state.base].lat},${BASES[state.base].lng}&destination=${p.lat},${p.lng}&travelmode=transit" target="_blank" rel="noopener" title="Public transport route from ${esc(BASES[state.base].label)}">Route ↗</a>
-        <button type="button" class="btn heart" data-save="${c.id}" aria-pressed="${saved}" aria-label="${saved ? 'Remove from saved' : 'Save'}" title="${saved ? 'Saved' : 'Save'}">
+        ${isWatch ? `<a class="btn" href="${esc(c.source)}" target="_blank" rel="noopener">Zur Seite ↗</a>`
+                  : `<a class="btn primary" href="${esc(c.booking)}" target="_blank" rel="noopener">Buchen ↗</a>`}
+        <a class="btn" href="https://www.google.com/maps/dir/?api=1&amp;destination=${p.lat},${p.lng}&amp;travelmode=driving" target="_blank" rel="noopener" title="Autoroute in Google Maps (vom aktuellen Standort)">Route ↗</a>
+        <button type="button" class="btn heart" data-save="${c.id}" aria-pressed="${saved}" aria-label="${saved ? 'Nicht mehr merken' : 'Merken'}" title="${saved ? 'Gemerkt' : 'Merken'}">
           <svg viewBox="0 0 20 20" aria-hidden="true"><path d="M10 17s-6.5-4.1-6.5-8.7A3.7 3.7 0 0 1 10 6a3.7 3.7 0 0 1 6.5 2.3C16.5 12.9 10 17 10 17z"/></svg>
         </button>
-        <span class="src">${c.listing ? `From the ${esc(c.listing)}` : `<a href="${esc(c.source)}" target="_blank" rel="noopener">Provider’s page</a>`}</span>
+        <span class="src">${c.listing ? esc(c.listing) : `<a href="${esc(c.source)}" target="_blank" rel="noopener">Seite des Anbieters</a>`}</span>
       </div>
     </article>`;
   }).join('');
@@ -746,22 +717,16 @@ function renderList() {
 
 function renderSideNote() {
   const h = holiday();
-  const b = BASES[state.base];
-  // Nearest of all bookable camps this holiday, whatever filters are on.
-  const items = CAMPS.filter((c) => c.sessions[h.key] && !c.sessions[h.key].watch)
-    .map((c) => ({ c, d: km(b, place(c, c.sessions[h.key])) }))
-    .sort((x, y) => x.d - y.d);
-  let html = '';
-  if (h.key === 'oct26' && items.length && items[0].d > 8) {
-    const nearest = items[0];
-    html += `<p class="callout"><b>From ${esc(b.label)} this October</b>, the nearest camp that takes a 5-year-old is ${esc(nearest.c.provider.split(',')[0])}’s ${esc(nearest.c.name)}, ${nearest.d.toFixed(0)} km away in a straight line.${b.lng < 13.26 ? ' Spandau’s own October programmes are for older children — Aalemannufer’s week is for 7–11s and Sportkinder Berlin’s start at 8 — and Wasserfreunde Spandau 04 have nothing listed for October.' : ''}</p>`;
-  }
-  if (b.custom) {
-    html += `<div class="place-tools"><button type="button" class="btn small" id="copyPlaceLink">Copy a link that opens from ${esc(b.label)}</button><button type="button" class="btn small ghost" data-removeplace="${state.base}">Remove this street</button></div>`;
-  }
-  if (html) { $('sideNote').innerHTML = html; }
-  else if (h.kind === 'watch') {
-    $('sideNote').innerHTML = `<p class="callout"><b>Nothing to book yet.</b> Save the ones you like — they’ll be here to check again once ${esc(h.long)} dates are published.</p>`;
+  if (h.key === 'oct26' && state.base === 'spandau') {
+    const open = CAMPS.filter((c) => c.sessions.oct26)
+      .map((c) => ({ c, min: place(c, c.sessions.oct26).drive.spandau[1] }))
+      .sort((a, b) => a.min - b.min);
+    const first = open[0], full = open.find((x) => x.c.format === 'Ganztags');
+    const firstText = `${first.c.provider.split(',')[0]} (${first.c.name}, ca. ${first.min} Min.)`;
+    const fullText = full && full !== first ? `; das nächste Ganztagscamp ist ${full.c.provider.split(',')[0]} (${full.c.name}, ca. ${full.min} Min.)` : '';
+    $('sideNote').innerHTML = `<p class="callout"><b>Von Spandau aus</b> nimmt im Oktober kein Camp in der Nähe schon 5-Jährige. Am schnellsten erreichbar ist ${esc(firstText)}${esc(fullText)}. Spandaus eigene Herbstferien-Angebote sind für Ältere – die Woche am Aalemannufer für 7- bis 11-Jährige, Sportkinder Berlin ab 8 – und die Wasserfreunde Spandau 04 haben für Oktober nichts ausgeschrieben.</p>`;
+  } else if (h.kind === 'watch') {
+    $('sideNote').innerHTML = `<p class="callout"><b>Noch nichts buchbar.</b> Favoriten mit dem Herz merken – sie bleiben hier, bis Termine für ${esc(h.long)} erscheinen.</p>`;
   } else {
     $('sideNote').innerHTML = '';
   }
@@ -773,27 +738,14 @@ const py = (lat) => ((MAP.lat1 - lat) / (MAP.lat1 - MAP.lat0)) * MAP.h;
 const REFS = [
   ['Mitte', 52.522, 13.4136], ['Charlottenburg', 52.5157, 13.3097], ['Schöneberg', 52.4822, 13.3552],
   ['Kreuzberg', 52.4976, 13.4119], ['Zehlendorf', 52.4343, 13.2589], ['Westend', 52.5133, 13.2557],
-  ['Dahlem', 52.4574, 13.2811], ['Tiergarten', 52.5098, 13.3573], ['Grunewald', 52.4873, 13.2638], ['Tempelhof', 52.4649, 13.3959], ['Staaken', 52.5361, 13.1557],
+  ['Dahlem', 52.4574, 13.2811], ['Tiergarten', 52.5098, 13.3573], ['Grunewald', 52.4873, 13.2638], ['Tempelhof', 52.4649, 13.3959],
 ];
 
 function renderMap() {
   const items = visibleCamps();
-  const base = BASES[state.base];
   const kmPx = MAP.w / (((MAP.lng1 - MAP.lng0) * 111.32) * Math.cos(52.485 * Math.PI / 180));
   let svg = '';
-  // rings every 5 km around where she's staying
-  [5, 10, 15].forEach((r) => {
-    svg += `<circle class="ring" cx="${px(base.lng)}" cy="${py(base.lat)}" r="${r * kmPx}"/>`;
-    // label each ring where it stays inside the frame: above if there's room, otherwise below
-    const lx = Math.min(MAP.w - 24, Math.max(24, px(base.lng)));
-    const above = py(base.lat) - r * kmPx - 4, below = py(base.lat) + r * kmPx + 12;
-    const ly = above > 12 ? above : below < MAP.h - 4 ? below : null;
-    if (ly != null) svg += `<text class="ref" x="${lx}" y="${ly}" text-anchor="middle">${r} km</text>`;
-  });
   REFS.forEach(([n, lat, lng]) => { svg += `<text class="ref" x="${px(lng)}" y="${py(lat)}" text-anchor="middle">${n}</text>`; });
-  items.forEach((it) => {
-    svg += `<line class="spoke" x1="${px(base.lng)}" y1="${py(base.lat)}" x2="${px(it.p.lng)}" y2="${py(it.p.lat)}"/>`;
-  });
   Object.entries(BASES).forEach(([k, b]) => {
     const on = k === state.base;
     svg += `<g class="base"><circle cx="${px(b.lng)}" cy="${py(b.lat)}" r="${on ? 9 : 7}" fill="${b.colour}" opacity="${on ? 1 : .55}"/>
@@ -801,7 +753,7 @@ function renderMap() {
   });
   items.forEach((it, i) => {
     const hot = state.hot === it.c.id;
-    svg += `<g class="camp ${it.s.watch ? 'watch' : ''} ${hot ? 'hot' : ''}" data-mapcamp="${it.c.id}" tabindex="0" role="button" aria-label="${esc(it.c.name)}, ${it.d.toFixed(0)} km">
+    svg += `<g class="camp ${it.s.watch ? 'watch' : ''} ${hot ? 'hot' : ''}" data-mapcamp="${it.c.id}" tabindex="0" role="button" aria-label="${esc(it.c.name)}, ca. ${it.min} Minuten">
       <circle cx="${px(it.p.lng)}" cy="${py(it.p.lat)}" r="${hot ? 13 : 10}"/>
       <text x="${px(it.p.lng)}" y="${py(it.p.lat)}">${i + 1}</text></g>`;
   });
@@ -809,7 +761,7 @@ function renderMap() {
   $('map').innerHTML = svg;
 }
 
-/* ---------- plans + friends ---------- */
+/* ---------- Plan & Freunde ---------- */
 function planSummary(p) {
   const rows = [];
   Object.entries(p || {}).forEach(([cid, wks]) => {
@@ -817,7 +769,7 @@ function planSummary(p) {
     if (!c) return;
     Object.entries(wks).forEach(([wk, days]) => {
       const w = weekOf(wk);
-      if (w && days.length) rows.push(`${c.name} — ${w.label} (${days.length === w.days.length ? 'all week' : days.map((d) => w.days[d].split(' ')[0]).join(', ')})`);
+      if (w && days.length) rows.push(`${c.name} – ${w.label} (${days.length === w.days.length ? 'ganze Woche' : days.map((d) => w.days[d].split(' ')[0]).join(', ')})`);
     });
   });
   return rows;
@@ -825,33 +777,33 @@ function planSummary(p) {
 
 function renderPlan() {
   const rows = planSummary(state.plans);
-  $('myPlan').innerHTML = rows.length ? `<strong>${rows.length} ${rows.length === 1 ? 'week' : 'weeks'} picked</strong><br>${rows.map(esc).join('<br>')}` : 'No days picked yet.';
+  $('myPlan').innerHTML = rows.length ? `<strong>${rows.length} ${rows.length === 1 ? 'Woche' : 'Wochen'} ausgewählt</strong><br>${rows.map(esc).join('<br>')}` : 'Noch keine Tage ausgewählt.';
   $('friends').innerHTML = state.friends.length
-    ? state.friends.map((f, i) => `<div class="friend"><span><strong>${esc(f.n || 'Friend')}</strong> <span class="faint">${esc(f.c || '')}</span><br><span class="small muted">${planSummary(f.p).length} weeks picked</span></span><button type="button" class="btn ghost small" data-remove-friend="${i}">Remove</button></div>`).join('')
-    : '<p class="small muted">No friends added yet. When someone sends you their link, paste it here — or just open it.</p>';
+    ? state.friends.map((f, i) => `<div class="friend"><span><strong>${esc(f.n || 'Freund:in')}</strong> <span class="faint">${esc(f.c || '')}</span><br><span class="small muted">${planSummary(f.p).length} Wochen ausgewählt</span></span><button type="button" class="btn ghost small" data-remove-friend="${i}">Entfernen</button></div>`).join('')
+    : '<p class="small muted">Noch keine Freunde hinzugefügt. Wenn jemand euch einen Link schickt, hier einfügen – oder den Link einfach öffnen.</p>';
   renderWhoWhen();
 }
 
 function renderWhoWhen() {
   const h = holiday();
-  const kids = [{ n: state.child || 'You', p: state.plans, me: true }, ...state.friends];
+  const kids = [{ n: state.child || 'Wir', p: state.plans }, ...state.friends];
   const weeks = h.weeks.filter((w) => kids.some((k) => Object.values(k.p || {}).some((wks) => (wks[w.key] || []).length)));
-  if (!weeks.length) { $('whoWhen').innerHTML = `<p class="small muted">Nothing picked for ${esc(h.long)} yet.</p>`; return; }
+  if (!weeks.length) { $('whoWhen').innerHTML = `<p class="small muted">Für ${esc(h.long)} ist noch nichts ausgewählt.</p>`; return; }
   $('whoWhen').innerHTML = weeks.map((w) => {
     const cell = (kid, di) => Object.entries(kid.p || {}).filter(([, wks]) => (wks[w.key] || []).includes(di)).map(([cid]) => cid);
     const head = `<tr><th></th>${w.days.map((d) => `<th>${esc(d)}</th>`).join('')}</tr>`;
-    const body = kids.map((k) => `<tr><th class="kid">${esc(k.n || 'Friend')}</th>${w.days.map((_, di) => {
+    const body = kids.map((k) => `<tr><th class="kid">${esc(k.n || 'Freund:in')}</th>${w.days.map((_, di) => {
       const mine = cell(k, di);
       if (!mine.length) return '<td></td>';
       const together = mine.some((cid) => kids.some((o) => o !== k && cell(o, di).includes(cid)));
       const names = mine.map((cid) => (CAMPS.find((c) => c.id === cid) || {}).name || cid);
-      return `<td class="${together ? 'together' : 'go'}">${names.map(esc).join('<br>')}${together ? '<br>Together!' : ''}</td>`;
+      return `<td class="${together ? 'together' : 'go'}">${names.map(esc).join('<br>')}${together ? '<br>Zusammen!' : ''}</td>`;
     }).join('')}</tr>`).join('');
     return `<p class="label" style="margin:10px 0 4px">${esc(w.label)}</p><div class="grid-wrap"><table class="who-when">${head}${body}</table></div>`;
   }).join('');
 }
 
-// Compact share format: { v:2, n, c, p: { campId: { weekKey: bitmask } } }
+// Kompaktes Teilen-Format: { v:2, n, c, p: { campId: { weekKey: Bitmaske } } }
 function encodePlan() {
   const p = {};
   Object.entries(state.plans).forEach(([cid, wks]) => Object.entries(wks).forEach(([wk, days]) => {
@@ -863,7 +815,7 @@ function encodePlan() {
 function decodePlan(s) {
   const b = s.replace(/-/g, '+').replace(/_/g, '/');
   const obj = JSON.parse(decodeURIComponent(escape(atob(b + '==='.slice((b.length + 3) % 4)))));
-  if (obj.v !== 2) throw new Error('old');
+  if (obj.v !== 2) throw new Error('alt');
   const p = {};
   Object.entries(obj.p || {}).forEach(([cid, wks]) => {
     if (!CAMPS.some((c) => c.id === cid)) return;
@@ -877,17 +829,17 @@ function decodePlan(s) {
 }
 function importFrom(text) {
   const m = String(text).match(/plan=([A-Za-z0-9_-]+)/);
-  if (!m) { toast('That doesn’t look like a plan link'); return false; }
+  if (!m) { toast('Das sieht nicht nach einem Plan-Link aus'); return false; }
   try {
     const f = decodePlan(m[1]);
     state.friends = state.friends.filter((x) => !(x.n === f.n && x.c === f.c));
     state.friends.push(f);
     save(LS.friends, state.friends);
     renderPlan();
-    toast(`Added ${f.n || 'a friend'}’s plan`);
+    toast(`Plan von ${f.n || 'Freunden'} hinzugefügt`);
     return true;
   } catch (e) {
-    toast('That link is from the old summer 2026 guide, or it’s incomplete');
+    toast('Der Link stammt aus der alten Sommer-2026-Seite oder ist unvollständig');
     return false;
   }
 }
@@ -897,32 +849,21 @@ function renderAll() {
 }
 
 /* ============================================================
-   EVENTS
+   EREIGNISSE
    ============================================================ */
 document.addEventListener('click', (e) => {
   const t = e.target.closest('button, [data-mapcamp]');
   if (!t) return;
   if (t.dataset.holiday) { state.holiday = t.dataset.holiday; state.week = 'all'; save(LS.holiday, state.holiday); renderAll(); }
   else if (t.dataset.base) { state.base = t.dataset.base; save(LS.base, state.base); renderAll(); }
-  else if (t.dataset.week) { state.week = t.dataset.week; state.savedOnly = false; renderControls(); renderList(); renderMap(); renderSideNote(); }
-  else if ('teen' in t.dataset) { state.teenOnly = !state.teenOnly; renderControls(); renderList(); renderMap(); renderSideNote(); }
-  else if (t.dataset.removeplace) {
-    delete state.places[t.dataset.removeplace];
-    save(LS.places, state.places);
-    rebuildBases();
-    state.base = 'spandau'; save(LS.base, state.base);
-    renderAll();
-  }
-  else if (t.id === 'copyPlaceLink') {
-    const b = BASES[state.base];
-    copy(`${location.origin}${location.pathname}#from=${b.lat},${b.lng},${encodeURIComponent(b.label)}`);
-  }
+  else if (t.dataset.week) { state.week = t.dataset.week; state.savedOnly = false; renderControls(); renderList(); renderMap(); }
+  else if ('teen' in t.dataset) { state.teenOnly = !state.teenOnly; renderControls(); renderList(); renderMap(); }
   else if ('saved' in t.dataset) { state.savedOnly = !state.savedOnly; renderControls(); renderList(); renderMap(); }
   else if (t.dataset.save) {
     const id = t.dataset.save;
     state.saved = state.saved.includes(id) ? state.saved.filter((x) => x !== id) : [...state.saved, id];
     save(LS.saved, state.saved);
-    toast(state.saved.includes(id) ? 'Saved' : 'Removed from saved');
+    toast(state.saved.includes(id) ? 'Gemerkt' : 'Nicht mehr gemerkt');
     renderControls(); renderList(); renderMap();
   }
   else if (t.dataset.camp && t.dataset.wk) {
@@ -948,7 +889,7 @@ document.addEventListener('click', (e) => {
   }
 });
 
-// Hovering a card lights up its pin, and the other way round.
+// Karte und Liste leuchten gemeinsam auf.
 let hoverTimer = 0;
 function setHot(id) {
   if (state.hot === id) return;
@@ -971,40 +912,20 @@ $('childName').value = state.child;
 $('circleName').value = state.circle;
 $('childName').addEventListener('input', (e) => { state.child = e.target.value.trim(); save(LS.child, state.child); renderWhoWhen(); });
 $('circleName').addEventListener('input', (e) => { state.circle = e.target.value.trim(); save(LS.circle, state.circle); });
-$('makeLink').addEventListener('click', async () => {
-  if (!planSummary(state.plans).length) { toast('Pick some days on a camp first'); return; }
+$('makeLink').addEventListener('click', () => {
+  if (!planSummary(state.plans).length) { toast('Erst bei einem Camp Tage auswählen'); return; }
   const link = `${location.origin}${location.pathname}#plan=${encodePlan()}`;
   $('shareLink').value = link;
   $('shareRow').hidden = false;
-  if (navigator.share) { navigator.share({ title: 'Our camp days', url: link }).catch(() => {}); }
+  if (navigator.share) { navigator.share({ title: 'Unsere Camp-Tage', url: link }).catch(() => {}); }
   else copy(link);
 });
 $('copyLink').addEventListener('click', () => copy($('shareLink').value));
 $('importBtn').addEventListener('click', () => { if (importFrom($('importBox').value)) $('importBox').value = ''; });
 function copy(text) {
-  if (navigator.clipboard && window.isSecureContext) navigator.clipboard.writeText(text).then(() => toast('Link copied'), () => toast('Select the link and copy it'));
-  else { $('shareLink').select(); toast('Select the link and copy it'); }
+  if (navigator.clipboard && window.isSecureContext) navigator.clipboard.writeText(text).then(() => toast('Link kopiert'), () => toast('Link markieren und kopieren'));
+  else { $('shareLink').select(); toast('Link markieren und kopieren'); }
 }
-
-$('addPlace').addEventListener('click', () => { $('placeForm').hidden = false; $('placeInput').focus(); });
-$('placeCancel').addEventListener('click', () => { $('placeForm').hidden = true; });
-$('placeForm').addEventListener('submit', async (e) => {
-  e.preventDefault();
-  const q = $('placeInput').value.trim();
-  if (!q) return;
-  const url = 'https://nominatim.openstreetmap.org/search?format=json&limit=1&countrycodes=de&bounded=1&viewbox=13.08,52.68,13.77,52.33&q=' + encodeURIComponent(q + ', Berlin');
-  try {
-    const res = await fetch(url, { headers: { Accept: 'application/json' } });
-    const hit = (await res.json())[0];
-    if (!hit) { toast('Couldn’t find that street in Berlin — try adding the district'); return; }
-    addPlace(q.replace(/,?\s*berlin$/i, ''), Number(hit.lat), Number(hit.lon));
-    $('placeForm').hidden = true; $('placeInput').value = '';
-    toast(`Distances now from ${BASES[state.base].label}`);
-    renderAll();
-  } catch (err) {
-    toast('Street search isn’t reachable right now — try again in a moment');
-  }
-});
 
 $('alsoList').innerHTML = ALSO_CHECKED.map((x) => `<li>${esc(x)}</li>`).join('');
 
